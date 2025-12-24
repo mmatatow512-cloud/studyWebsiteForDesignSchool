@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI导师API测试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .input-area {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .response-area {
+            border: 1px solid #ccc;
+            padding: 10px;
+            min-height: 200px;
+            overflow-y: auto;
+            background-color: #f5f5f5;
+        }
+        .event-line {
+            margin: 5px 0;
+            padding: 5px;
+            border-bottom: 1px solid #eee;
+        }
+        .data-line {
+            background-color: #e8f5e8;
+            padding: 5px;
+            margin: 5px 0;
+            border-radius: 3px;
+        }
+        .json-line {
+            background-color: #e3f2fd;
+            padding: 5px;
+            margin: 5px 0 5px 20px;
+            border-radius: 3px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI导师API测试</h1>
+        <div class="input-area">
+            <input type="text" id="question-input" value="什么是blender" placeholder="请输入问题">
+            <button id="send-btn">发送</button>
+            <button id="clear-btn">清空</button>
+        </div>
+        <div class="response-area" id="response-area">
+            <div class="event-line">点击"发送"按钮开始测试API...</div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('send-btn').addEventListener('click', sendQuestion);
+        document.getElementById('clear-btn').addEventListener('click', clearResponse);
+
+        function sendQuestion() {
+            const question = document.getElementById('question-input').value;
+            if (!question) {
+                addResponseLine('请输入问题', 'error');
+                return;
+            }
+
+            addResponseLine(`发送问题: ${question}`, 'info');
+            addResponseLine('正在建立SSE连接...', 'info');
+
+            try {
+                // 构建URL，使用URLSearchParams来正确编码参数
+                const url = `/api/ai-tutor/chat?${new URLSearchParams({question: question})}`;
+                addResponseLine(`请求URL: ${url}`, 'info');
+
+                const eventSource = new EventSource(url);
+
+                eventSource.onopen = function() {
+                    addResponseLine('SSE连接已建立', 'success');
+                };
+
+                eventSource.onmessage = function(event) {
+                    addResponseLine(`收到消息: ${event.data}`, 'message');
+                    
+                    if (event.data === '[DONE]') {
+                        addResponseLine('收到结束标记，关闭连接', 'info');
+                        eventSource.close();
+                        return;
+                    }
+
+                    try {
+                        const data = JSON.parse(event.data);
+                        addResponseLine(`解析JSON: ${JSON.stringify(data, null, 2)}`, 'json');
+                    } catch (error) {
+                        addResponseLine(`JSON解析错误: ${error.message}`, 'error');
+                    }
+                };
+
+                eventSource.onerror = function(error) {
+                    addResponseLine(`SSE连接错误: ${error.type}`, 'error');
+                    addResponseLine(`readyState: ${eventSource.readyState}`, 'error');
+                    eventSource.close();
+                };
+
+            } catch (error) {
+                addResponseLine(`发送请求时发生错误: ${error.message}`, 'error');
+                console.error('Error:', error);
+            }
+        }
+
+        function addResponseLine(message, type = 'default') {
+            const responseArea = document.getElementById('response-area');
+            const line = document.createElement('div');
+            
+            if (type === 'json') {
+                line.className = 'json-line';
+            } else if (type === 'data') {
+                line.className = 'data-line';
+            } else if (type === 'error') {
+                line.className = 'event-line';
+                line.style.color = 'red';
+            } else if (type === 'success') {
+                line.className = 'event-line';
+                line.style.color = 'green';
+            } else {
+                line.className = 'event-line';
+            }
+            
+            line.textContent = message;
+            responseArea.appendChild(line);
+            responseArea.scrollTop = responseArea.scrollHeight;
+        }
+
+        function clearResponse() {
+            document.getElementById('response-area').innerHTML = '';
+        }
+    </script>
+</body>
+</html>

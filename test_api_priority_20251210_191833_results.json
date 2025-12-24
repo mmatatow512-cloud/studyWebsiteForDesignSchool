@@ -1,0 +1,39 @@
+{
+  "total_score": 68.75,
+  "dimension_scores": [
+    {
+      "name": "主题相关性",
+      "score": 90,
+      "weight": 1
+    },
+    {
+      "name": "逻辑结构完整性",
+      "score": 60,
+      "weight": 1
+    },
+    {
+      "name": "知识点覆盖率",
+      "score": 55,
+      "weight": 1
+    },
+    {
+      "name": "语言规范性",
+      "score": 70,
+      "weight": 1
+    }
+  ],
+  "suggestions": [
+    "【综合建议】创",
+    "【综合建议】新",
+    "【综合建议】性",
+    "【综合建议】改",
+    "【综合建议】进"
+  ],
+  "level": {
+    "level": "below_average",
+    "description": "及格"
+  },
+  "api_status": "success",
+  "api_error": null,
+  "suggestions_source": "enhanced_api"
+}

@@ -1,0 +1,3164 @@
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-17 14:29:39.763641
+图片数量: 3
+音频数量: 3
+输出路径: C:\Users\23576\AppData\Local\Temp\ppt2video_test_is9xikl7\output_test.mp4
+当前工作目录: C:\Users\23576\Desktop\demo\project
+Python版本: 3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\23576\AppData\Local\Temp\ppt2video_test_is9xikl7\output_test.mp4
+  开始编码时间: 2025-12-17 14:29:40.343731
+
+--- 测试简单视频编码 ---
+测试视频编码失败: cannot access local variable 'ColorClip' where it is not associated with a value
+
+--- 编码主视频 ---
+  视频时长: 21.96
+  视频是否有音频: True
+  输出路径: C:\Users\23576\AppData\Local\Temp\ppt2video_test_is9xikl7\output_test.mp4
+  输出路径可写性测试通过
+  视频文件写入完成 (直接日志)
+  完成时间: 2025-12-17 14:30:03.700369
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-17 16:40:19.902293
+图片数量: 3
+音频数量: 3
+输出路径: test_output.mp4
+当前工作目录: C:\Users\23576\Desktop\demo\project
+Python版本: 3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\23576\Desktop\demo\project\test_output.mp4
+  开始编码时间: 2025-12-17 16:40:20.627411
+
+--- 编码主视频 ---
+  视频时长: 24.27
+  视频是否有音频: True
+  输出路径: C:\Users\23576\Desktop\demo\project\test_output.mp4
+  输出路径可写性测试通过
+  视频文件写入完成 (直接日志)
+  完成时间: 2025-12-17 16:40:46.958634
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-17 16:43:10.408826
+图片数量: 3
+音频数量: 3
+输出路径: test_output.mp4
+当前工作目录: C:\Users\23576\Desktop\demo\project
+Python版本: 3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\23576\Desktop\demo\project\test_output.mp4
+  开始编码时间: 2025-12-17 16:43:11.115883
+
+--- 编码主视频 ---
+  视频时长: 24.27
+  视频是否有音频: True
+  输出路径: C:\Users\23576\Desktop\demo\project\test_output.mp4
+  输出路径可写性测试通过
+  视频文件写入完成 (直接日志)
+  完成时间: 2025-12-17 16:43:36.062389
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-17 16:56:52.233498
+图片数量: 3
+音频数量: 3
+输出路径: test_output.mp4
+当前工作目录: C:\Users\23576\Desktop\demo\project
+Python版本: 3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\23576\Desktop\demo\project\test_output.mp4
+  开始编码时间: 2025-12-17 16:56:52.936231
+
+--- 编码主视频 ---
+  视频时长: 24.27
+  视频是否有音频: True
+  输出路径: C:\Users\23576\Desktop\demo\project\test_output.mp4
+  输出路径可写性测试通过
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-17 17:41:18.160651
+图片数量: 3
+音频数量: 3
+输出路径: final_test.mp4
+当前工作目录: C:\Users\23576\Desktop\demo\project
+Python版本: 3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]
+  总共有 3 个有效片段
+  合并视频片段...
+  合并完成，开始编码视频...
+  合并后的视频时长: 24.27
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\23576\Desktop\demo\project\final_test.mp4
+  开始编码时间: 2025-12-17 17:41:18.844963
+
+--- 编码主视频 ---
+  视频时长: 24.27
+  视频是否有音频: True
+  输出路径: C:\Users\23576\Desktop\demo\project\final_test.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 242.7秒
+  启动编码线程...
+  编码线程异常: got an unexpected keyword argument 'progress_bar'
+[错误] 使用FFmpeg编码失败: got an unexpected keyword argument 'progress_bar'
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-17 17:41:42.105790
+图片数量: 3
+音频数量: 3
+输出路径: final_test.mp4
+当前工作目录: C:\Users\23576\Desktop\demo\project
+Python版本: 3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]
+  总共有 3 个有效片段
+  合并视频片段...
+  合并完成，开始编码视频...
+  合并后的视频时长: 24.27
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\23576\Desktop\demo\project\final_test.mp4
+  开始编码时间: 2025-12-17 17:41:42.771054
+
+--- 编码主视频 ---
+  视频时长: 24.27
+  视频是否有音频: True
+  输出路径: C:\Users\23576\Desktop\demo\project\final_test.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 242.7秒
+  启动编码线程...
+  编码线程异常: got an unexpected keyword argument 'progress_callback'
+[错误] 使用FFmpeg编码失败: got an unexpected keyword argument 'progress_callback'
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-17 17:42:09.831635
+图片数量: 3
+音频数量: 3
+输出路径: final_test.mp4
+当前工作目录: C:\Users\23576\Desktop\demo\project
+Python版本: 3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]
+  总共有 3 个有效片段
+  合并视频片段...
+  合并完成，开始编码视频...
+  合并后的视频时长: 24.27
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\23576\Desktop\demo\project\final_test.mp4
+  开始编码时间: 2025-12-17 17:42:10.483470
+
+--- 编码主视频 ---
+  视频时长: 24.27
+  视频是否有音频: True
+  输出路径: C:\Users\23576\Desktop\demo\project\final_test.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 242.7秒
+  启动编码线程...
+  编码线程完成
+  编码完成，未超时
+  视频文件写入完成 (直接日志)
+  完成时间: 2025-12-17 17:42:30.907230
+  文件已强制写入磁盘
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-17 18:47:21.486609
+图片数量: 3
+音频数量: 3
+输出路径: test_output\test_1765968359.mp4
+当前工作目录: C:\Users\23576\Desktop\demo\project
+Python版本: 3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]
+  总共有 3 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 5.54
+  片段2是否有音频: True
+    片段音频时长: 5.94
+  片段3是否有音频: True
+    片段音频时长: 10.23
+  合并完成，开始编码视频...
+  合并后的视频时长: 23.21
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\23576\Desktop\demo\project\test_output\test_1765968359.mp4
+  开始编码时间: 2025-12-17 18:47:22.151226
+
+--- 编码主视频 ---
+  视频时长: 23.21
+  视频是否有音频: True
+  输出路径: C:\Users\23576\Desktop\demo\project\test_output\test_1765968359.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 232.10000000000002秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 23.21
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 23.21
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程完成
+  使用ffprobe检查视频音频流...
+  ffprobe检查失败: [WinError 2] 系统找不到指定的文件。
+  编码完成，未超时
+  视频文件写入完成 (直接日志)
+  完成时间: 2025-12-17 18:47:46.086200
+  文件已强制写入磁盘
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-17 18:48:19.529824
+图片数量: 3
+音频数量: 3
+输出路径: test_output\test_1765968437.mp4
+当前工作目录: C:\Users\23576\Desktop\demo\project
+Python版本: 3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]
+  总共有 3 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 5.54
+  片段2是否有音频: True
+    片段音频时长: 5.94
+  片段3是否有音频: True
+    片段音频时长: 10.23
+  合并完成，开始编码视频...
+  合并后的视频时长: 23.21
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\23576\Desktop\demo\project\test_output\test_1765968437.mp4
+  开始编码时间: 2025-12-17 18:48:20.152310
+
+--- 编码主视频 ---
+  视频时长: 23.21
+  视频是否有音频: True
+  输出路径: C:\Users\23576\Desktop\demo\project\test_output\test_1765968437.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 232.10000000000002秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 23.21
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 23.21
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程完成
+  使用ffprobe检查视频音频流...
+  ffprobe检查失败: [WinError 2] 系统找不到指定的文件。
+  编码完成，未超时
+  视频文件写入完成 (直接日志)
+  完成时间: 2025-12-17 18:48:40.966292
+  文件已强制写入磁盘
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-17 22:11:12.349782
+图片数量: 3
+音频数量: 3
+输出路径: C:\Users\23576\Desktop\demo\project\test_output_video.mp4
+当前工作目录: C:\Users\23576\Desktop\demo\project
+Python版本: 3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]
+  总共有 3 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 6.6
+  片段2是否有音频: True
+    片段音频时长: 5.94
+  片段3是否有音频: True
+    片段音频时长: 10.23
+  合并完成，开始编码视频...
+  合并后的视频时长: 24.27
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\23576\Desktop\demo\project\test_output_video.mp4
+  开始编码时间: 2025-12-17 22:11:13.169576
+
+--- 编码主视频 ---
+  视频时长: 24.27
+  视频是否有音频: True
+  输出路径: C:\Users\23576\Desktop\demo\project\test_output_video.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 242.7秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 24.27
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 24.27
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程完成
+  使用ffprobe检查视频音频流...
+  ffprobe检查失败: [WinError 2] 系统找不到指定的文件。
+  编码线程执行成功
+视频生成完成，输出路径: C:\Users\23576\Desktop\demo\project\test_output_video.mp4
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-17 22:19:18.168973
+图片数量: 3
+音频数量: 3
+输出路径: C:\Users\23576\AppData\Local\Temp\tmpfejvf05x.mp4
+当前工作目录: C:\Users\23576\Desktop\demo\project
+Python版本: 3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]
+  总共有 3 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 6.6
+  片段2是否有音频: True
+    片段音频时长: 5.94
+  片段3是否有音频: True
+    片段音频时长: 10.23
+  合并完成，开始编码视频...
+  合并后的视频时长: 24.27
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\23576\AppData\Local\Temp\tmpfejvf05x.mp4
+  开始编码时间: 2025-12-17 22:19:18.861102
+
+--- 编码主视频 ---
+  视频时长: 24.27
+  视频是否有音频: True
+  输出路径: C:\Users\23576\AppData\Local\Temp\tmpfejvf05x.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 242.7秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 24.27
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 24.27
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程完成
+  使用ffprobe检查视频音频流...
+  ffprobe检查失败: [WinError 2] 系统找不到指定的文件。
+  编码线程执行成功
+视频生成完成，输出路径: C:\Users\23576\AppData\Local\Temp\tmpfejvf05x.mp4
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-18 21:12:27.060448
+图片数量: 3
+音频数量: 3
+输出路径: C:\Users\23576\AppData\Local\Temp\tmpseiz936l\test_sync_video.mp4
+当前工作目录: C:\Users\23576\Desktop\demo\project
+Python版本: 3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]
+  总共有 3 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 5.54
+  片段2是否有音频: True
+    片段音频时长: 4.99
+  片段3是否有音频: True
+    片段音频时长: 8.27
+  合并完成，开始编码视频...
+  合并后的视频时长: 18.8
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\23576\AppData\Local\Temp\tmpseiz936l\test_sync_video.mp4
+  开始编码时间: 2025-12-18 21:12:27.629543
+
+--- 编码主视频 ---
+  视频时长: 18.8
+  视频是否有音频: True
+  输出路径: C:\Users\23576\AppData\Local\Temp\tmpseiz936l\test_sync_video.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 188.0秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 18.8
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 18.8
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程完成
+  使用ffprobe检查视频音频流...
+  ffprobe检查失败: [WinError 2] 系统找不到指定的文件。
+  编码线程执行成功
+视频生成完成，输出路径: C:\Users\23576\AppData\Local\Temp\tmpseiz936l\test_sync_video.mp4
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-18 21:14:24.564046
+图片数量: 7
+音频数量: 7
+输出路径: C:\Users\23576\AppData\Local\Temp\tmpr34obe0d\video_1766063650.mp4
+当前工作目录: C:\Users\23576\Desktop\demo\project
+Python版本: 3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]
+  总共有 7 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 6.99
+  片段2是否有音频: True
+    片段音频时长: 21.81
+  片段3是否有音频: True
+    片段音频时长: 22.73
+  片段4是否有音频: True
+    片段音频时长: 21.6
+  片段5是否有音频: True
+    片段音频时长: 22.99
+  片段6是否有音频: True
+    片段音频时长: 21.75
+  片段7是否有音频: True
+    片段音频时长: 2.59
+  合并完成，开始编码视频...
+  合并后的视频时长: 120.46
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\23576\AppData\Local\Temp\tmpr34obe0d\video_1766063650.mp4
+  开始编码时间: 2025-12-18 21:14:25.857543
+
+--- 编码主视频 ---
+  视频时长: 120.46
+  视频是否有音频: True
+  输出路径: C:\Users\23576\AppData\Local\Temp\tmpr34obe0d\video_1766063650.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 1204.6秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 120.46
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 120.46
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程完成
+  使用ffprobe检查视频音频流...
+  ffprobe检查失败: [WinError 2] 系统找不到指定的文件。
+  编码线程执行成功
+视频生成完成，输出路径: C:\Users\23576\AppData\Local\Temp\tmpr34obe0d\video_1766063650.mp4
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 04:52:16.589938
+图片数量: 2
+音频数量: 2
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmps4xu2df0\video_1766523121.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 2 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 9.5
+  片段2是否有音频: True
+    片段音频时长: 2.87
+  合并完成，开始编码视频...
+  合并后的视频时长: 12.370000000000001
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmps4xu2df0\video_1766523121.mp4
+  开始编码时间: 2025-12-24 04:52:16.957451
+
+--- 编码主视频 ---
+  视频时长: 12.370000000000001
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmps4xu2df0\video_1766523121.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 123.70000000000002秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 12.370000000000001
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 12.370000000000001
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程完成
+  使用ffprobe检查视频音频流...
+  ffprobe检查失败: [WinError 2] 系统找不到指定的文件。
+  编码线程执行成功
+视频生成完成，输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmps4xu2df0\video_1766523121.mp4
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 13:07:26.164399
+图片数量: 7
+音频数量: 7
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp2s5nibpg\video_1766552841.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 7 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 6.99
+  片段2是否有音频: True
+    片段音频时长: 21.81
+  片段3是否有音频: True
+    片段音频时长: 22.73
+  片段4是否有音频: True
+    片段音频时长: 21.6
+  片段5是否有音频: True
+    片段音频时长: 22.99
+  片段6是否有音频: True
+    片段音频时长: 21.75
+  片段7是否有音频: True
+    片段音频时长: 2.59
+  合并完成，开始编码视频...
+  合并后的视频时长: 120.46
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp2s5nibpg\video_1766552841.mp4
+  开始编码时间: 2025-12-24 13:07:26.960434
+
+--- 编码主视频 ---
+  视频时长: 120.46
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp2s5nibpg\video_1766552841.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 1204.6秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 120.46
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 120.46
+  音频采样率: 44100
+  音频通道数: 2
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 13:07:50.694066
+图片数量: 7
+音频数量: 7
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmphqzcmvwf\video_1766552867.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 7 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 6.99
+  片段2是否有音频: True
+    片段音频时长: 21.81
+  片段3是否有音频: True
+    片段音频时长: 22.73
+  片段4是否有音频: True
+    片段音频时长: 21.6
+  片段5是否有音频: True
+    片段音频时长: 22.99
+  片段6是否有音频: True
+    片段音频时长: 21.75
+  片段7是否有音频: True
+    片段音频时长: 2.59
+  合并完成，开始编码视频...
+  合并后的视频时长: 120.46
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmphqzcmvwf\video_1766552867.mp4
+  开始编码时间: 2025-12-24 13:07:51.391896
+
+--- 编码主视频 ---
+  视频时长: 120.46
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmphqzcmvwf\video_1766552867.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 1204.6秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 120.46
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 120.46
+  音频采样率: 44100
+  音频通道数: 2
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 13:09:31.175485
+图片数量: 2
+音频数量: 2
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp8_hjd0ou\video_1766552970.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 2 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 8.54
+  片段2是否有音频: True
+    片段音频时长: 2.59
+  合并完成，开始编码视频...
+  合并后的视频时长: 11.129999999999999
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp8_hjd0ou\video_1766552970.mp4
+  开始编码时间: 2025-12-24 13:09:31.402039
+
+--- 编码主视频 ---
+  视频时长: 11.129999999999999
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp8_hjd0ou\video_1766552970.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 111.29999999999998秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 11.129999999999999
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 11.129999999999999
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程完成
+  使用ffprobe检查视频音频流...
+  ffprobe检查失败: [WinError 2] 系统找不到指定的文件。
+  编码线程执行成功
+视频生成完成，输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp8_hjd0ou\video_1766552970.mp4
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 13:09:57.482838
+图片数量: 7
+音频数量: 7
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpgcbppa0f\video_1766552988.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 7 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 6.99
+  片段2是否有音频: True
+    片段音频时长: 21.81
+  片段3是否有音频: True
+    片段音频时长: 22.73
+  片段4是否有音频: True
+    片段音频时长: 21.6
+  片段5是否有音频: True
+    片段音频时长: 22.99
+  片段6是否有音频: True
+    片段音频时长: 21.75
+  片段7是否有音频: True
+    片段音频时长: 2.59
+  合并完成，开始编码视频...
+  合并后的视频时长: 120.46
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpgcbppa0f\video_1766552988.mp4
+  开始编码时间: 2025-12-24 13:09:58.220303
+
+--- 编码主视频 ---
+  视频时长: 120.46
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpgcbppa0f\video_1766552988.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 1204.6秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 120.46
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 120.46
+  音频采样率: 44100
+  音频通道数: 2
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 13:30:41.070070
+图片数量: 7
+音频数量: 7
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp562m_xv3\video_1766554237.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 7 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 7.78
+  片段2是否有音频: True
+    片段音频时长: 24.27
+  片段3是否有音频: True
+    片段音频时长: 25.29
+  片段4是否有音频: True
+    片段音频时长: 24.04
+  片段5是否有音频: True
+    片段音频时长: 25.58
+  片段6是否有音频: True
+    片段音频时长: 24.2
+  片段7是否有音频: True
+    片段音频时长: 2.87
+  合并完成，开始编码视频...
+  合并后的视频时长: 134.03
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp562m_xv3\video_1766554237.mp4
+  开始编码时间: 2025-12-24 13:30:41.846718
+
+--- 编码主视频 ---
+  视频时长: 134.03
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp562m_xv3\video_1766554237.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 1340.3秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 134.03
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 134.03
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程异常: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmp562m_xv3\video_1766554237.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 530565 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 530565 kb/s, 8 tbr, 8 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766554237TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:02:14.03, start: 0.000000, bitrate: 112 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 111 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 000001cd12d0d900] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 000001cd12d0d680] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 000001cd12d0e780] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 000001cd12d0e780] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 000001cd12d0e780] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 000001cd12d0d680] Could not open encoder before EOF
+[vost#0:0/libx264 @ 000001cd12d0d680] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 000001cd12d0d680] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 000001cd12d17280] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+  编码线程执行失败: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmp562m_xv3\video_1766554237.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 530565 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 530565 kb/s, 8 tbr, 8 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766554237TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:02:14.03, start: 0.000000, bitrate: 112 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 111 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 000001cd12d0d900] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 000001cd12d0d680] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 000001cd12d0e780] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 000001cd12d0e780] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 000001cd12d0e780] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 000001cd12d0d680] Could not open encoder before EOF
+[vost#0:0/libx264 @ 000001cd12d0d680] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 000001cd12d0d680] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 000001cd12d17280] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+  [错误] 视频编码失败: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmp562m_xv3\video_1766554237.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 530565 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 530565 kb/s, 8 tbr, 8 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766554237TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:02:14.03, start: 0.000000, bitrate: 112 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 111 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 000001cd12d0d900] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 000001cd12d0d680] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 000001cd12d0e780] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 000001cd12d0e780] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 000001cd12d0e780] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 000001cd12d0d680] Could not open encoder before EOF
+[vost#0:0/libx264 @ 000001cd12d0d680] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 000001cd12d0d680] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 000001cd12d17280] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+  [错误] 视频编码过程中的异常: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmp562m_xv3\video_1766554237.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 530565 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 530565 kb/s, 8 tbr, 8 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766554237TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:02:14.03, start: 0.000000, bitrate: 112 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 111 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 000001cd12d0d900] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 000001cd12d0d680] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 000001cd12d0e780] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 000001cd12d0e780] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 000001cd12d0e780] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 000001cd12d0d680] Could not open encoder before EOF
+[vost#0:0/libx264 @ 000001cd12d0d680] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 000001cd12d0d680] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 000001cd12d17280] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+  [错误] 视频生成失败: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmp562m_xv3\video_1766554237.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 530565 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 530565 kb/s, 8 tbr, 8 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766554237TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:02:14.03, start: 0.000000, bitrate: 112 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 111 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 000001cd12d0d900] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 000001cd12d0d680] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 000001cd12d0e780] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 000001cd12d0e780] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 000001cd12d0e780] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 000001cd12d0d680] Could not open encoder before EOF
+[vost#0:0/libx264 @ 000001cd12d0d680] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 000001cd12d0d680] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 000001cd12d17280] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 13:32:17.700621
+图片数量: 7
+音频数量: 7
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpdc_1abyf\video_1766554334.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 7 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 7.78
+  片段2是否有音频: True
+    片段音频时长: 24.27
+  片段3是否有音频: True
+    片段音频时长: 25.29
+  片段4是否有音频: True
+    片段音频时长: 24.04
+  片段5是否有音频: True
+    片段音频时长: 25.58
+  片段6是否有音频: True
+    片段音频时长: 24.2
+  片段7是否有音频: True
+    片段音频时长: 2.87
+  合并完成，开始编码视频...
+  合并后的视频时长: 134.03
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpdc_1abyf\video_1766554334.mp4
+  开始编码时间: 2025-12-24 13:32:18.464683
+
+--- 编码主视频 ---
+  视频时长: 134.03
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpdc_1abyf\video_1766554334.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 1340.3秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 134.03
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 134.03
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程异常: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmpdc_1abyf\video_1766554334.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 530565 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 530565 kb/s, 8 tbr, 8 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766554334TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:02:14.03, start: 0.000000, bitrate: 112 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 111 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 0000025b0494d900] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 0000025b0494d680] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 0000025b0494e780] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 0000025b0494e780] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 0000025b0494e780] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 0000025b0494d680] Could not open encoder before EOF
+[vost#0:0/libx264 @ 0000025b0494d680] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 0000025b0494d680] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 0000025b04957280] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+  编码线程执行失败: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmpdc_1abyf\video_1766554334.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 530565 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 530565 kb/s, 8 tbr, 8 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766554334TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:02:14.03, start: 0.000000, bitrate: 112 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 111 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 0000025b0494d900] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 0000025b0494d680] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 0000025b0494e780] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 0000025b0494e780] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 0000025b0494e780] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 0000025b0494d680] Could not open encoder before EOF
+[vost#0:0/libx264 @ 0000025b0494d680] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 0000025b0494d680] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 0000025b04957280] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+  [错误] 视频编码失败: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmpdc_1abyf\video_1766554334.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 530565 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 530565 kb/s, 8 tbr, 8 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766554334TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:02:14.03, start: 0.000000, bitrate: 112 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 111 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 0000025b0494d900] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 0000025b0494d680] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 0000025b0494e780] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 0000025b0494e780] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 0000025b0494e780] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 0000025b0494d680] Could not open encoder before EOF
+[vost#0:0/libx264 @ 0000025b0494d680] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 0000025b0494d680] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 0000025b04957280] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+  [错误] 视频编码过程中的异常: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmpdc_1abyf\video_1766554334.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 530565 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 530565 kb/s, 8 tbr, 8 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766554334TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:02:14.03, start: 0.000000, bitrate: 112 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 111 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 0000025b0494d900] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 0000025b0494d680] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 0000025b0494e780] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 0000025b0494e780] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 0000025b0494e780] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 0000025b0494d680] Could not open encoder before EOF
+[vost#0:0/libx264 @ 0000025b0494d680] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 0000025b0494d680] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 0000025b04957280] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+  [错误] 视频生成失败: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmpdc_1abyf\video_1766554334.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 530565 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 530565 kb/s, 8 tbr, 8 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766554334TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:02:14.03, start: 0.000000, bitrate: 112 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 111 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 0000025b0494d900] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 0000025b0494d680] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 0000025b0494e780] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 0000025b0494e780] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 0000025b0494e780] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 0000025b0494d680] Could not open encoder before EOF
+[vost#0:0/libx264 @ 0000025b0494d680] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 0000025b0494d680] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 0000025b04957280] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 13:46:18.855903
+图片数量: 7
+音频数量: 7
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp0m_pt9is\video_1766555175.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 7 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 7.78
+  片段2是否有音频: True
+    片段音频时长: 24.27
+  片段3是否有音频: True
+    片段音频时长: 25.29
+  片段4是否有音频: True
+    片段音频时长: 24.04
+  片段5是否有音频: True
+    片段音频时长: 25.58
+  片段6是否有音频: True
+    片段音频时长: 24.2
+  片段7是否有音频: True
+    片段音频时长: 2.87
+  合并完成，开始编码视频...
+  合并后的视频时长: 134.03
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp0m_pt9is\video_1766555175.mp4
+  开始编码时间: 2025-12-24 13:46:20.186575
+
+--- 编码主视频 ---
+  视频时长: 134.03
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp0m_pt9is\video_1766555175.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 1340.3秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 134.03
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 134.03
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程异常: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmp0m_pt9is\video_1766555175.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 530565 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 530565 kb/s, 8 tbr, 8 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766555175TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:02:14.03, start: 0.000000, bitrate: 112 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 111 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 000002a1e4fd8580] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 000002a1e4fd8140] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 000002a1e42edec0] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 000002a1e42edec0] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 000002a1e42edec0] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 000002a1e4fd8140] Could not open encoder before EOF
+[vost#0:0/libx264 @ 000002a1e4fd8140] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 000002a1e4fd8140] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 000002a1e42ec240] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+  编码线程执行失败: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmp0m_pt9is\video_1766555175.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 530565 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 530565 kb/s, 8 tbr, 8 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766555175TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:02:14.03, start: 0.000000, bitrate: 112 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 111 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 000002a1e4fd8580] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 000002a1e4fd8140] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 000002a1e42edec0] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 000002a1e42edec0] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 000002a1e42edec0] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 000002a1e4fd8140] Could not open encoder before EOF
+[vost#0:0/libx264 @ 000002a1e4fd8140] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 000002a1e4fd8140] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 000002a1e42ec240] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+  [错误] 视频编码失败: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmp0m_pt9is\video_1766555175.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 530565 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 530565 kb/s, 8 tbr, 8 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766555175TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:02:14.03, start: 0.000000, bitrate: 112 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 111 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 000002a1e4fd8580] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 000002a1e4fd8140] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 000002a1e42edec0] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 000002a1e42edec0] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 000002a1e42edec0] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 000002a1e4fd8140] Could not open encoder before EOF
+[vost#0:0/libx264 @ 000002a1e4fd8140] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 000002a1e4fd8140] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 000002a1e42ec240] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+  [错误] 视频编码过程中的异常: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmp0m_pt9is\video_1766555175.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 530565 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 530565 kb/s, 8 tbr, 8 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766555175TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:02:14.03, start: 0.000000, bitrate: 112 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 111 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 000002a1e4fd8580] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 000002a1e4fd8140] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 000002a1e42edec0] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 000002a1e42edec0] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 000002a1e42edec0] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 000002a1e4fd8140] Could not open encoder before EOF
+[vost#0:0/libx264 @ 000002a1e4fd8140] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 000002a1e4fd8140] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 000002a1e42ec240] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+  [错误] 视频生成失败: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmp0m_pt9is\video_1766555175.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 530565 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 530565 kb/s, 8 tbr, 8 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766555175TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:02:14.03, start: 0.000000, bitrate: 112 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 111 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 000002a1e4fd8580] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 000002a1e4fd8140] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 000002a1e42edec0] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 000002a1e42edec0] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 000002a1e42edec0] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 000002a1e4fd8140] Could not open encoder before EOF
+[vost#0:0/libx264 @ 000002a1e4fd8140] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 000002a1e4fd8140] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 000002a1e42ec240] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 13:53:41.659807
+图片数量: 7
+音频数量: 7
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp8ly6egjy\video_1766555618.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 7 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 7.78
+  片段2是否有音频: True
+    片段音频时长: 24.27
+  片段3是否有音频: True
+    片段音频时长: 25.29
+  片段4是否有音频: True
+    片段音频时长: 24.04
+  片段5是否有音频: True
+    片段音频时长: 25.58
+  片段6是否有音频: True
+    片段音频时长: 24.2
+  片段7是否有音频: True
+    片段音频时长: 2.87
+  合并完成，开始编码视频...
+  合并后的视频时长: 134.03
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp8ly6egjy\video_1766555618.mp4
+  开始编码时间: 2025-12-24 13:53:42.417680
+
+--- 编码主视频 ---
+  视频时长: 134.03
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp8ly6egjy\video_1766555618.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 1340.3秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 134.03
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 134.03
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程异常: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmp8ly6egjy\video_1766555618.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 663206 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 663206 kb/s, 10 tbr, 10 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766555618TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:02:14.03, start: 0.000000, bitrate: 112 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 111 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 0000021259198940] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 0000021259198500] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 000002125885e4c0] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 000002125885e4c0] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 000002125885e4c0] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 0000021259198500] Could not open encoder before EOF
+[vost#0:0/libx264 @ 0000021259198500] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 0000021259198500] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 00000212588679c0] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+  编码线程执行失败: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmp8ly6egjy\video_1766555618.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 663206 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 663206 kb/s, 10 tbr, 10 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766555618TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:02:14.03, start: 0.000000, bitrate: 112 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 111 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 0000021259198940] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 0000021259198500] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 000002125885e4c0] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 000002125885e4c0] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 000002125885e4c0] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 0000021259198500] Could not open encoder before EOF
+[vost#0:0/libx264 @ 0000021259198500] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 0000021259198500] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 00000212588679c0] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+  [错误] 视频编码失败: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmp8ly6egjy\video_1766555618.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 663206 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 663206 kb/s, 10 tbr, 10 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766555618TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:02:14.03, start: 0.000000, bitrate: 112 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 111 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 0000021259198940] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 0000021259198500] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 000002125885e4c0] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 000002125885e4c0] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 000002125885e4c0] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 0000021259198500] Could not open encoder before EOF
+[vost#0:0/libx264 @ 0000021259198500] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 0000021259198500] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 00000212588679c0] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+  [错误] 视频编码过程中的异常: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmp8ly6egjy\video_1766555618.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 663206 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 663206 kb/s, 10 tbr, 10 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766555618TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:02:14.03, start: 0.000000, bitrate: 112 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 111 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 0000021259198940] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 0000021259198500] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 000002125885e4c0] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 000002125885e4c0] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 000002125885e4c0] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 0000021259198500] Could not open encoder before EOF
+[vost#0:0/libx264 @ 0000021259198500] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 0000021259198500] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 00000212588679c0] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+  [错误] 视频生成失败: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmp8ly6egjy\video_1766555618.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 663206 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 663206 kb/s, 10 tbr, 10 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766555618TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:02:14.03, start: 0.000000, bitrate: 112 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 111 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 0000021259198940] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 0000021259198500] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 000002125885e4c0] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 000002125885e4c0] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 000002125885e4c0] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 0000021259198500] Could not open encoder before EOF
+[vost#0:0/libx264 @ 0000021259198500] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 0000021259198500] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 00000212588679c0] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 13:55:08.247442
+图片数量: 7
+音频数量: 7
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp64qpn2l9\video_1766555704.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 7 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 7.78
+  片段2是否有音频: True
+    片段音频时长: 24.27
+  片段3是否有音频: True
+    片段音频时长: 25.29
+  片段4是否有音频: True
+    片段音频时长: 24.04
+  片段5是否有音频: True
+    片段音频时长: 25.58
+  片段6是否有音频: True
+    片段音频时长: 24.2
+  片段7是否有音频: True
+    片段音频时长: 2.87
+  合并完成，开始编码视频...
+  合并后的视频时长: 134.03
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp64qpn2l9\video_1766555704.mp4
+  开始编码时间: 2025-12-24 13:55:09.229823
+
+--- 编码主视频 ---
+  视频时长: 134.03
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp64qpn2l9\video_1766555704.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 1340.3秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 134.03
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 134.03
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程异常: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmp64qpn2l9\video_1766555704.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 663206 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 663206 kb/s, 10 tbr, 10 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766555704TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:02:14.03, start: 0.000000, bitrate: 112 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 111 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 000001778ec68940] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 000001778ec68500] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 000001778e32e4c0] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 000001778e32e4c0] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 000001778e32e4c0] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 000001778ec68500] Could not open encoder before EOF
+[vost#0:0/libx264 @ 000001778ec68500] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 000001778ec68500] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 000001778e3379c0] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+  编码线程执行失败: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmp64qpn2l9\video_1766555704.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 663206 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 663206 kb/s, 10 tbr, 10 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766555704TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:02:14.03, start: 0.000000, bitrate: 112 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 111 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 000001778ec68940] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 000001778ec68500] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 000001778e32e4c0] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 000001778e32e4c0] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 000001778e32e4c0] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 000001778ec68500] Could not open encoder before EOF
+[vost#0:0/libx264 @ 000001778ec68500] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 000001778ec68500] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 000001778e3379c0] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+  [错误] 视频编码失败: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmp64qpn2l9\video_1766555704.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 663206 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 663206 kb/s, 10 tbr, 10 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766555704TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:02:14.03, start: 0.000000, bitrate: 112 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 111 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 000001778ec68940] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 000001778ec68500] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 000001778e32e4c0] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 000001778e32e4c0] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 000001778e32e4c0] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 000001778ec68500] Could not open encoder before EOF
+[vost#0:0/libx264 @ 000001778ec68500] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 000001778ec68500] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 000001778e3379c0] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+  [错误] 视频编码过程中的异常: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmp64qpn2l9\video_1766555704.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 663206 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 663206 kb/s, 10 tbr, 10 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766555704TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:02:14.03, start: 0.000000, bitrate: 112 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 111 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 000001778ec68940] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 000001778ec68500] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 000001778e32e4c0] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 000001778e32e4c0] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 000001778e32e4c0] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 000001778ec68500] Could not open encoder before EOF
+[vost#0:0/libx264 @ 000001778ec68500] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 000001778ec68500] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 000001778e3379c0] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+  [错误] 视频生成失败: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmp64qpn2l9\video_1766555704.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 663206 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 663206 kb/s, 10 tbr, 10 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766555704TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:02:14.03, start: 0.000000, bitrate: 112 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 111 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 000001778ec68940] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 000001778ec68500] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 000001778e32e4c0] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 000001778e32e4c0] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 000001778e32e4c0] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 000001778ec68500] Could not open encoder before EOF
+[vost#0:0/libx264 @ 000001778ec68500] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 000001778ec68500] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 000001778e3379c0] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 13:55:54.536303
+图片数量: 2
+音频数量: 2
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpcd5ou18c\video_1766555753.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 2 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 9.5
+  片段2是否有音频: True
+    片段音频时长: 2.87
+  合并完成，开始编码视频...
+  合并后的视频时长: 12.370000000000001
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpcd5ou18c\video_1766555753.mp4
+  开始编码时间: 2025-12-24 13:55:54.801669
+
+--- 编码主视频 ---
+  视频时长: 12.370000000000001
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpcd5ou18c\video_1766555753.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 123.70000000000002秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 12.370000000000001
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 12.370000000000001
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程异常: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmpcd5ou18c\video_1766555753.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 663206 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 663206 kb/s, 10 tbr, 10 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766555753TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:00:12.37, start: 0.000000, bitrate: 108 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 106 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 0000023b710f8700] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 0000023b711aea00] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 0000023b710f8b80] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 0000023b710f8b80] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 0000023b710f8b80] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 0000023b711aea00] Could not open encoder before EOF
+[vost#0:0/libx264 @ 0000023b711aea00] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 0000023b711aea00] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 0000023b71107b80] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+  编码线程执行失败: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmpcd5ou18c\video_1766555753.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 663206 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 663206 kb/s, 10 tbr, 10 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766555753TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:00:12.37, start: 0.000000, bitrate: 108 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 106 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 0000023b710f8700] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 0000023b711aea00] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 0000023b710f8b80] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 0000023b710f8b80] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 0000023b710f8b80] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 0000023b711aea00] Could not open encoder before EOF
+[vost#0:0/libx264 @ 0000023b711aea00] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 0000023b711aea00] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 0000023b71107b80] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+  [错误] 视频编码失败: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmpcd5ou18c\video_1766555753.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 663206 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 663206 kb/s, 10 tbr, 10 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766555753TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:00:12.37, start: 0.000000, bitrate: 108 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 106 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 0000023b710f8700] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 0000023b711aea00] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 0000023b710f8b80] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 0000023b710f8b80] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 0000023b710f8b80] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 0000023b711aea00] Could not open encoder before EOF
+[vost#0:0/libx264 @ 0000023b711aea00] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 0000023b711aea00] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 0000023b71107b80] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+  [错误] 视频编码过程中的异常: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmpcd5ou18c\video_1766555753.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 663206 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 663206 kb/s, 10 tbr, 10 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766555753TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:00:12.37, start: 0.000000, bitrate: 108 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 106 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 0000023b710f8700] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 0000023b711aea00] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 0000023b710f8b80] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 0000023b710f8b80] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 0000023b710f8b80] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 0000023b711aea00] Could not open encoder before EOF
+[vost#0:0/libx264 @ 0000023b711aea00] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 0000023b711aea00] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 0000023b71107b80] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+  [错误] 视频生成失败: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmpcd5ou18c\video_1766555753.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 663206 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 663206 kb/s, 10 tbr, 10 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766555753TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:00:12.37, start: 0.000000, bitrate: 108 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 106 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 0000023b710f8700] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 0000023b711aea00] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 0000023b710f8b80] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 0000023b710f8b80] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 0000023b710f8b80] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 0000023b711aea00] Could not open encoder before EOF
+[vost#0:0/libx264 @ 0000023b711aea00] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 0000023b711aea00] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 0000023b71107b80] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 13:59:15.743442
+图片数量: 7
+音频数量: 7
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmptgo4sbxw\video_1766555947.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 7 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 7.78
+  片段2是否有音频: True
+    片段音频时长: 24.27
+  片段3是否有音频: True
+    片段音频时长: 25.29
+  片段4是否有音频: True
+    片段音频时长: 24.04
+  片段5是否有音频: True
+    片段音频时长: 25.58
+  片段6是否有音频: True
+    片段音频时长: 24.2
+  片段7是否有音频: True
+    片段音频时长: 2.87
+  合并完成，开始编码视频...
+  合并后的视频时长: 134.03
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmptgo4sbxw\video_1766555947.mp4
+  开始编码时间: 2025-12-24 13:59:16.500497
+
+--- 编码主视频 ---
+  视频时长: 134.03
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmptgo4sbxw\video_1766555947.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 1340.3秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 134.03
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 134.03
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程异常: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmptgo4sbxw\video_1766555947.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 663206 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 663206 kb/s, 10 tbr, 10 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766555947TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:02:14.03, start: 0.000000, bitrate: 112 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 111 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 000001e0aa5a7d80] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 000001e0aa5a7a00] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 000001e0aa5a8a40] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 000001e0aa5a8a40] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 000001e0aa5a8a40] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 000001e0aa5a7a00] Could not open encoder before EOF
+[vost#0:0/libx264 @ 000001e0aa5a7a00] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 000001e0aa5a7a00] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 000001e0aa5a8cc0] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+  编码线程执行失败: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmptgo4sbxw\video_1766555947.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 663206 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 663206 kb/s, 10 tbr, 10 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766555947TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:02:14.03, start: 0.000000, bitrate: 112 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 111 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 000001e0aa5a7d80] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 000001e0aa5a7a00] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 000001e0aa5a8a40] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 000001e0aa5a8a40] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 000001e0aa5a8a40] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 000001e0aa5a7a00] Could not open encoder before EOF
+[vost#0:0/libx264 @ 000001e0aa5a7a00] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 000001e0aa5a7a00] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 000001e0aa5a8cc0] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+  [错误] 视频编码失败: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmptgo4sbxw\video_1766555947.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 663206 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 663206 kb/s, 10 tbr, 10 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766555947TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:02:14.03, start: 0.000000, bitrate: 112 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 111 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 000001e0aa5a7d80] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 000001e0aa5a7a00] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 000001e0aa5a8a40] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 000001e0aa5a8a40] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 000001e0aa5a8a40] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 000001e0aa5a7a00] Could not open encoder before EOF
+[vost#0:0/libx264 @ 000001e0aa5a7a00] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 000001e0aa5a7a00] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 000001e0aa5a8cc0] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+  [错误] 视频编码过程中的异常: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmptgo4sbxw\video_1766555947.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 663206 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 663206 kb/s, 10 tbr, 10 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766555947TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:02:14.03, start: 0.000000, bitrate: 112 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 111 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 000001e0aa5a7d80] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 000001e0aa5a7a00] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 000001e0aa5a8a40] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 000001e0aa5a8a40] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 000001e0aa5a8a40] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 000001e0aa5a7a00] Could not open encoder before EOF
+[vost#0:0/libx264 @ 000001e0aa5a7a00] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 000001e0aa5a7a00] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 000001e0aa5a8cc0] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+  [错误] 视频生成失败: [Errno 32] Broken pipe
+
+MoviePy error: FFMPEG encountered the following error while writing file C:\Users\hnzkh\AppData\Local\Temp\tmptgo4sbxw\video_1766555947.mp4:
+
+ Input #0, rawvideo, from 'fd:':
+  Duration: N/A, start: 0.000000, bitrate: 663206 kb/s
+  Stream #0:0: Video: rawvideo (RGBA / 0x41424752), rgba, 1919x1080, 663206 kb/s, 10 tbr, 10 tbn
+Input #1, mov,mp4,m4a,3gp,3g2,mj2, from 'video_1766555947TEMP_MPY_wvf_snd.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf61.7.100
+  Duration: 00:02:14.03, start: 0.000000, bitrate: 112 kb/s
+  Stream #1:0[0x1](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 111 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (rawvideo (native) -> h264 (libx264))
+  Stream #1:0 -> #0:1 (copy)
+[libx264 @ 000001e0aa5a7d80] width not divisible by 2 (1919x1080)
+[vost#0:0/libx264 @ 000001e0aa5a7a00] Error while opening encoder - maybe incorrect parameters such as bit_rate, rate, width or height.
+[vf#0:0 @ 000001e0aa5a8a40] Error sending frames to consumers: Generic error in an external library
+[vf#0:0 @ 000001e0aa5a8a40] Task finished with error code: -542398533 (Generic error in an external library)
+[vf#0:0 @ 000001e0aa5a8a40] Terminating thread with return code -542398533 (Generic error in an external library)
+[vost#0:0/libx264 @ 000001e0aa5a7a00] Could not open encoder before EOF
+[vost#0:0/libx264 @ 000001e0aa5a7a00] Task finished with error code: -22 (Invalid argument)
+[vost#0:0/libx264 @ 000001e0aa5a7a00] Terminating thread with return code -22 (Invalid argument)
+[out#0/mp4 @ 000001e0aa5a8cc0] Nothing was written into output file, because at least one of its streams received no packets.
+frame=    0 fps=0.0 q=0.0 Lsize=       0KiB time=N/A bitrate=N/A speed=N/A    
+Conversion failed!
+
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 14:04:57.258665
+图片数量: 7
+音频数量: 7
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp97sza5st\video_1766556281.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 7 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 7.78
+  片段2是否有音频: True
+    片段音频时长: 24.27
+  片段3是否有音频: True
+    片段音频时长: 25.29
+  片段4是否有音频: True
+    片段音频时长: 24.04
+  片段5是否有音频: True
+    片段音频时长: 25.58
+  片段6是否有音频: True
+    片段音频时长: 24.2
+  片段7是否有音频: True
+    片段音频时长: 2.87
+  合并完成，开始编码视频...
+  合并后的视频时长: 134.03
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp97sza5st\video_1766556281.mp4
+  开始编码时间: 2025-12-24 14:04:58.132119
+
+--- 编码主视频 ---
+  视频时长: 134.03
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp97sza5st\video_1766556281.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 1340.3秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 134.03
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 134.03
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程完成
+  使用ffprobe检查视频音频流...
+  ffprobe检查失败: [WinError 2] 系统找不到指定的文件。
+  编码线程执行成功
+视频生成完成，输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp97sza5st\video_1766556281.mp4
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 14:14:15.517421
+图片数量: 7
+音频数量: 7
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpu7dl0ooi\video_1766556840.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 7 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 7.78
+  片段2是否有音频: True
+    片段音频时长: 24.27
+  片段3是否有音频: True
+    片段音频时长: 25.29
+  片段4是否有音频: True
+    片段音频时长: 24.04
+  片段5是否有音频: True
+    片段音频时长: 25.58
+  片段6是否有音频: True
+    片段音频时长: 24.2
+  片段7是否有音频: True
+    片段音频时长: 2.87
+  合并完成，开始编码视频...
+  合并后的视频时长: 134.03
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpu7dl0ooi\video_1766556840.mp4
+  开始编码时间: 2025-12-24 14:14:16.333541
+
+--- 编码主视频 ---
+  视频时长: 134.03
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpu7dl0ooi\video_1766556840.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 1340.3秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 134.03
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 134.03
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程完成
+  使用ffprobe检查视频音频流...
+  ffprobe检查失败: [WinError 2] 系统找不到指定的文件。
+  编码线程执行成功
+视频生成完成，输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpu7dl0ooi\video_1766556840.mp4
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 14:38:55.911456
+图片数量: 7
+音频数量: 7
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpz1ct8ufv\video_1766558332.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 7 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 7.78
+  片段2是否有音频: True
+    片段音频时长: 24.27
+  片段3是否有音频: True
+    片段音频时长: 25.29
+  片段4是否有音频: True
+    片段音频时长: 24.04
+  片段5是否有音频: True
+    片段音频时长: 25.58
+  片段6是否有音频: True
+    片段音频时长: 24.2
+  片段7是否有音频: True
+    片段音频时长: 2.87
+  合并完成，开始编码视频...
+  合并后的视频时长: 134.03
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpz1ct8ufv\video_1766558332.mp4
+  开始编码时间: 2025-12-24 14:38:56.799784
+
+--- 编码主视频 ---
+  视频时长: 134.03
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpz1ct8ufv\video_1766558332.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 1340.3秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 134.03
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 134.03
+  音频采样率: 44100
+  音频通道数: 2
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 14:51:41.856559
+图片数量: 2
+音频数量: 2
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp63cddqfd\video_1766559094.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 2 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 5.0
+  片段2是否有音频: True
+    片段音频时长: 6.86
+  合并完成，开始编码视频...
+  合并后的视频时长: 11.86
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp63cddqfd\video_1766559094.mp4
+  开始编码时间: 2025-12-24 14:51:43.155757
+
+--- 编码主视频 ---
+  视频时长: 11.86
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp63cddqfd\video_1766559094.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 118.6秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 11.86
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 11.86
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程完成
+  使用ffprobe检查视频音频流...
+  ffprobe检查失败: [WinError 2] 系统找不到指定的文件。
+  编码线程执行成功
+视频生成完成，输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp63cddqfd\video_1766559094.mp4
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 14:52:19.899879
+图片数量: 2
+音频数量: 2
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmphe0quavt\video_1766559138.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 2 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 5.0
+  片段2是否有音频: True
+    片段音频时长: 6.86
+  合并完成，开始编码视频...
+  合并后的视频时长: 11.86
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmphe0quavt\video_1766559138.mp4
+  开始编码时间: 2025-12-24 14:52:20.126171
+
+--- 编码主视频 ---
+  视频时长: 11.86
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmphe0quavt\video_1766559138.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 118.6秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 11.86
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 11.86
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程完成
+  使用ffprobe检查视频音频流...
+  ffprobe检查失败: [WinError 2] 系统找不到指定的文件。
+  编码线程执行成功
+视频生成完成，输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmphe0quavt\video_1766559138.mp4
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 14:52:56.631345
+图片数量: 2
+音频数量: 2
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmph6_gdlyg\video_1766559170.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 2 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 5.0
+  片段2是否有音频: True
+    片段音频时长: 6.86
+  合并完成，开始编码视频...
+  合并后的视频时长: 11.86
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmph6_gdlyg\video_1766559170.mp4
+  开始编码时间: 2025-12-24 14:52:56.883263
+
+--- 编码主视频 ---
+  视频时长: 11.86
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmph6_gdlyg\video_1766559170.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 118.6秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 11.86
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 11.86
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程完成
+  使用ffprobe检查视频音频流...
+  ffprobe检查失败: [WinError 2] 系统找不到指定的文件。
+  编码线程执行成功
+视频生成完成，输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmph6_gdlyg\video_1766559170.mp4
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 14:54:06.215760
+图片数量: 2
+音频数量: 2
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmps6pd6oyp\video_1766559240.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 2 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 5.0
+  片段2是否有音频: True
+    片段音频时长: 6.86
+  合并完成，开始编码视频...
+  合并后的视频时长: 11.86
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmps6pd6oyp\video_1766559240.mp4
+  开始编码时间: 2025-12-24 14:54:07.129591
+
+--- 编码主视频 ---
+  视频时长: 11.86
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmps6pd6oyp\video_1766559240.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 118.6秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 11.86
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 11.86
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程完成
+  使用ffprobe检查视频音频流...
+  ffprobe检查失败: [WinError 2] 系统找不到指定的文件。
+  编码线程执行成功
+视频生成完成，输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmps6pd6oyp\video_1766559240.mp4
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 14:54:57.322740
+图片数量: 2
+音频数量: 2
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp25javkjh\video_1766559296.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 2 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 5.0
+  片段2是否有音频: True
+    片段音频时长: 6.86
+  合并完成，开始编码视频...
+  合并后的视频时长: 11.86
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp25javkjh\video_1766559296.mp4
+  开始编码时间: 2025-12-24 14:54:57.513321
+
+--- 编码主视频 ---
+  视频时长: 11.86
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp25javkjh\video_1766559296.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 118.6秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 11.86
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 11.86
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程完成
+  使用ffprobe检查视频音频流...
+  ffprobe检查失败: [WinError 2] 系统找不到指定的文件。
+  编码线程执行成功
+视频生成完成，输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp25javkjh\video_1766559296.mp4
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 14:56:20.235388
+图片数量: 2
+音频数量: 2
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp4a4fpgxs\video_1766559379.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 2 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 5.0
+  片段2是否有音频: True
+    片段音频时长: 6.86
+  合并完成，开始编码视频...
+  合并后的视频时长: 11.86
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp4a4fpgxs\video_1766559379.mp4
+  开始编码时间: 2025-12-24 14:56:20.445779
+
+--- 编码主视频 ---
+  视频时长: 11.86
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp4a4fpgxs\video_1766559379.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 118.6秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 11.86
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 11.86
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程完成
+  使用ffprobe检查视频音频流...
+  ffprobe检查失败: [WinError 2] 系统找不到指定的文件。
+  编码线程执行成功
+视频生成完成，输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp4a4fpgxs\video_1766559379.mp4
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 14:57:00.250593
+图片数量: 2
+音频数量: 2
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpqz6ssk9k\video_1766559419.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 2 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 5.0
+  片段2是否有音频: True
+    片段音频时长: 6.86
+  合并完成，开始编码视频...
+  合并后的视频时长: 11.86
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpqz6ssk9k\video_1766559419.mp4
+  开始编码时间: 2025-12-24 14:57:00.645895
+
+--- 编码主视频 ---
+  视频时长: 11.86
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpqz6ssk9k\video_1766559419.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 118.6秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 11.86
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 11.86
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程完成
+  使用ffprobe检查视频音频流...
+  ffprobe检查失败: [WinError 2] 系统找不到指定的文件。
+  编码线程执行成功
+视频生成完成，输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpqz6ssk9k\video_1766559419.mp4
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 14:57:53.872014
+图片数量: 2
+音频数量: 2
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpfn0mo_ay\video_1766559472.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 2 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 5.0
+  片段2是否有音频: True
+    片段音频时长: 6.86
+  合并完成，开始编码视频...
+  合并后的视频时长: 11.86
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpfn0mo_ay\video_1766559472.mp4
+  开始编码时间: 2025-12-24 14:57:54.073181
+
+--- 编码主视频 ---
+  视频时长: 11.86
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpfn0mo_ay\video_1766559472.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 118.6秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 11.86
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 11.86
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程完成
+  使用ffprobe检查视频音频流...
+  ffprobe检查失败: [WinError 2] 系统找不到指定的文件。
+  编码线程执行成功
+视频生成完成，输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpfn0mo_ay\video_1766559472.mp4
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 14:59:37.350153
+图片数量: 2
+音频数量: 2
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpukpsryz7\test_video_1766559576.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 2 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 1.41
+  片段2是否有音频: True
+    片段音频时长: 1.45
+  合并完成，开始编码视频...
+  合并后的视频时长: 2.86
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpukpsryz7\test_video_1766559576.mp4
+  开始编码时间: 2025-12-24 14:59:37.563386
+
+--- 编码主视频 ---
+  视频时长: 2.86
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpukpsryz7\test_video_1766559576.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 30秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 2.86
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 2.86
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程完成
+  使用ffprobe检查视频音频流...
+  ffprobe检查失败: [WinError 2] 系统找不到指定的文件。
+  编码线程执行成功
+视频生成完成，输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpukpsryz7\test_video_1766559576.mp4
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 15:00:07.429521
+图片数量: 2
+音频数量: 2
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpf8xhkvz0\video_1766559606.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 2 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 1.41
+  片段2是否有音频: True
+    片段音频时长: 1.45
+  合并完成，开始编码视频...
+  合并后的视频时长: 2.86
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpf8xhkvz0\video_1766559606.mp4
+  开始编码时间: 2025-12-24 15:00:07.733413
+
+--- 编码主视频 ---
+  视频时长: 2.86
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpf8xhkvz0\video_1766559606.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 30秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 2.86
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 2.86
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程完成
+  使用ffprobe检查视频音频流...
+  ffprobe检查失败: [WinError 2] 系统找不到指定的文件。
+  编码线程执行成功
+视频生成完成，输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpf8xhkvz0\video_1766559606.mp4
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 15:00:10.175065
+图片数量: 2
+音频数量: 2
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp90tkdbek\video_1766559609.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 2 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 5.0
+  片段2是否有音频: True
+    片段音频时长: 6.86
+  合并完成，开始编码视频...
+  合并后的视频时长: 11.86
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp90tkdbek\video_1766559609.mp4
+  开始编码时间: 2025-12-24 15:00:10.374112
+
+--- 编码主视频 ---
+  视频时长: 11.86
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp90tkdbek\video_1766559609.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 118.6秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 11.86
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 11.86
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程完成
+  使用ffprobe检查视频音频流...
+  ffprobe检查失败: [WinError 2] 系统找不到指定的文件。
+  编码线程执行成功
+视频生成完成，输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp90tkdbek\video_1766559609.mp4
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 15:00:47.839184
+图片数量: 7
+音频数量: 7
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpehn1zwvb\video_1766559644.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 7 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 7.78
+  片段2是否有音频: True
+    片段音频时长: 24.27
+  片段3是否有音频: True
+    片段音频时长: 25.29
+  片段4是否有音频: True
+    片段音频时长: 24.04
+  片段5是否有音频: True
+    片段音频时长: 25.58
+  片段6是否有音频: True
+    片段音频时长: 24.2
+  片段7是否有音频: True
+    片段音频时长: 2.87
+  合并完成，开始编码视频...
+  合并后的视频时长: 134.03
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpehn1zwvb\video_1766559644.mp4
+  开始编码时间: 2025-12-24 15:00:48.583380
+
+--- 编码主视频 ---
+  视频时长: 134.03
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpehn1zwvb\video_1766559644.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 1340.3秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 134.03
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 134.03
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程完成
+  使用ffprobe检查视频音频流...
+  ffprobe检查失败: [WinError 2] 系统找不到指定的文件。
+  编码线程执行成功
+视频生成完成，输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpehn1zwvb\video_1766559644.mp4
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 15:02:17.629906
+图片数量: 7
+音频数量: 7
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp3ndw_5ad\video_1766559734.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 7 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 7.78
+  片段2是否有音频: True
+    片段音频时长: 24.27
+  片段3是否有音频: True
+    片段音频时长: 25.29
+  片段4是否有音频: True
+    片段音频时长: 24.04
+  片段5是否有音频: True
+    片段音频时长: 25.58
+  片段6是否有音频: True
+    片段音频时长: 24.2
+  片段7是否有音频: True
+    片段音频时长: 2.87
+  合并完成，开始编码视频...
+  合并后的视频时长: 134.03
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp3ndw_5ad\video_1766559734.mp4
+  开始编码时间: 2025-12-24 15:02:18.652554
+
+--- 编码主视频 ---
+  视频时长: 134.03
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp3ndw_5ad\video_1766559734.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 1340.3秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 134.03
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 134.03
+  音频采样率: 44100
+  音频通道数: 2
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 15:14:57.545292
+图片数量: 7
+音频数量: 7
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmprqyebemb\video_1766560477.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 7 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 7.78
+  片段2是否有音频: True
+    片段音频时长: 24.27
+  片段3是否有音频: True
+    片段音频时长: 25.29
+  片段4是否有音频: True
+    片段音频时长: 24.04
+  片段5是否有音频: True
+    片段音频时长: 25.58
+  片段6是否有音频: True
+    片段音频时长: 24.2
+  片段7是否有音频: True
+    片段音频时长: 2.87
+  合并完成，开始编码视频...
+  合并后的视频时长: 134.03
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmprqyebemb\video_1766560477.mp4
+  开始编码时间: 2025-12-24 15:14:58.490427
+
+--- 编码主视频 ---
+  视频时长: 134.03
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmprqyebemb\video_1766560477.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 1340.3秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 134.03
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 134.03
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程完成
+  使用ffprobe检查视频音频流...
+  ffprobe检查失败: [WinError 2] 系统找不到指定的文件。
+  编码线程执行成功
+视频生成完成，输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmprqyebemb\video_1766560477.mp4
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 15:24:39.037872
+图片数量: 2
+音频数量: 2
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp8qkm9i9k\video_1766561073.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 2 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 1.41
+  片段2是否有音频: True
+    片段音频时长: 1.45
+  合并完成，开始编码视频...
+  合并后的视频时长: 2.86
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp8qkm9i9k\video_1766561073.mp4
+  开始编码时间: 2025-12-24 15:24:40.012812
+
+--- 编码主视频 ---
+  视频时长: 2.86
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp8qkm9i9k\video_1766561073.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 600秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 2.86
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 2.86
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程完成
+  使用ffprobe检查视频音频流...
+  ffprobe检查失败: [WinError 2] 系统找不到指定的文件。
+  编码线程执行成功
+视频生成完成，输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp8qkm9i9k\video_1766561073.mp4
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 15:24:52.900708
+图片数量: 2
+音频数量: 2
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpzmi088jv\video_1766561087.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 2 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 5.0
+  片段2是否有音频: True
+    片段音频时长: 6.86
+  合并完成，开始编码视频...
+  合并后的视频时长: 11.86
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpzmi088jv\video_1766561087.mp4
+  开始编码时间: 2025-12-24 15:24:53.934865
+
+--- 编码主视频 ---
+  视频时长: 11.86
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpzmi088jv\video_1766561087.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 600秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 11.86
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 11.86
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程完成
+  使用ffprobe检查视频音频流...
+  ffprobe检查失败: [WinError 2] 系统找不到指定的文件。
+  编码线程执行成功
+视频生成完成，输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpzmi088jv\video_1766561087.mp4
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 15:28:02.159641
+图片数量: 2
+音频数量: 2
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp4_ko7wmf\video_1766561281.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 2 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 1.41
+  片段2是否有音频: True
+    片段音频时长: 1.45
+  合并完成，开始编码视频...
+  合并后的视频时长: 2.86
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp4_ko7wmf\video_1766561281.mp4
+  开始编码时间: 2025-12-24 15:28:02.382590
+
+--- 编码主视频 ---
+  视频时长: 2.86
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp4_ko7wmf\video_1766561281.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 600秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 2.86
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 2.86
+  音频采样率: 44100
+  音频通道数: 2
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 15:28:03.753601
+图片数量: 7
+音频数量: 7
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp_wizmeet\video_1766561275.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  编码线程完成
+  使用ffprobe检查视频音频流...
+  ffprobe检查失败: [WinError 2] 系统找不到指定的文件。
+  编码线程执行成功
+视频生成完成，输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp4_ko7wmf\video_1766561281.mp4
+  总共有 7 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 7.78
+  片段2是否有音频: True
+    片段音频时长: 24.27
+  片段3是否有音频: True
+    片段音频时长: 25.29
+  片段4是否有音频: True
+    片段音频时长: 24.04
+  片段5是否有音频: True
+    片段音频时长: 25.58
+  片段6是否有音频: True
+    片段音频时长: 24.2
+  片段7是否有音频: True
+    片段音频时长: 2.87
+  合并完成，开始编码视频...
+  合并后的视频时长: 134.03
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp_wizmeet\video_1766561275.mp4
+  开始编码时间: 2025-12-24 15:28:04.479897
+
+--- 编码主视频 ---
+  视频时长: 134.03
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp_wizmeet\video_1766561275.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 600秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 134.03
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 134.03
+  音频采样率: 44100
+  音频通道数: 2
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 15:28:04.996487
+图片数量: 2
+音频数量: 2
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpmi_gklp3\video_1766561284.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 2 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 5.0
+  片段2是否有音频: True
+    片段音频时长: 6.86
+  合并完成，开始编码视频...
+  合并后的视频时长: 11.86
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpmi_gklp3\video_1766561284.mp4
+  开始编码时间: 2025-12-24 15:28:05.202264
+
+--- 编码主视频 ---
+  视频时长: 11.86
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpmi_gklp3\video_1766561284.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 600秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 11.86
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 11.86
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程完成
+  使用ffprobe检查视频音频流...
+  ffprobe检查失败: [WinError 2] 系统找不到指定的文件。
+  编码线程执行成功
+视频生成完成，输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpmi_gklp3\video_1766561284.mp4
+  编码线程完成
+  使用ffprobe检查视频音频流...
+  ffprobe检查失败: [WinError 2] 系统找不到指定的文件。
+  编码线程执行成功
+视频生成完成，输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp_wizmeet\video_1766561275.mp4
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 15:49:26.769339
+图片数量: 7
+音频数量: 7
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp0cidd9on\video_1766562543.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 7 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 7.78
+  片段2是否有音频: True
+    片段音频时长: 24.27
+  片段3是否有音频: True
+    片段音频时长: 25.29
+  片段4是否有音频: True
+    片段音频时长: 24.04
+  片段5是否有音频: True
+    片段音频时长: 25.58
+  片段6是否有音频: True
+    片段音频时长: 24.2
+  片段7是否有音频: True
+    片段音频时长: 2.87
+  合并完成，开始编码视频...
+  合并后的视频时长: 134.03
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp0cidd9on\video_1766562543.mp4
+  开始编码时间: 2025-12-24 15:49:27.755708
+
+--- 编码主视频 ---
+  视频时长: 134.03
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp0cidd9on\video_1766562543.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 600秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 134.03
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 134.03
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程完成
+  使用ffprobe检查视频音频流...
+  ffprobe检查失败: [WinError 2] 系统找不到指定的文件。
+  编码线程执行成功
+视频生成完成，输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp0cidd9on\video_1766562543.mp4
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 16:24:17.788249
+图片数量: 3
+音频数量: 3
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp5dhxfsum\video_1766564635.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 3 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 5.54
+  片段2是否有音频: True
+    片段音频时长: 4.99
+  片段3是否有音频: True
+    片段音频时长: 8.27
+  合并完成，开始编码视频...
+  合并后的视频时长: 18.8
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp5dhxfsum\video_1766564635.mp4
+  开始编码时间: 2025-12-24 16:24:19.565172
+
+--- 编码主视频 ---
+  视频时长: 18.8
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp5dhxfsum\video_1766564635.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 600秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 18.8
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 18.8
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程完成
+  使用ffprobe检查视频音频流...
+  ffprobe检查失败: [WinError 2] 系统找不到指定的文件。
+  编码线程执行成功
+视频生成完成，输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmp5dhxfsum\video_1766564635.mp4
+=== 视频生成开始 (直接日志) ===
+当前时间: 2025-12-24 16:25:18.845336
+图片数量: 3
+音频数量: 3
+输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpmi_e551l\video_1766564711.mp4
+当前工作目录: D:\zkh\Desktop\demo 7.1\demo 1.6\project
+Python版本: 3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]
+  总共有 3 个有效片段
+  合并视频片段...
+  片段1是否有音频: True
+    片段音频时长: 5.54
+  片段2是否有音频: True
+    片段音频时长: 4.99
+  片段3是否有音频: True
+    片段音频时长: 8.27
+  合并完成，开始编码视频...
+  合并后的视频时长: 18.8
+  视频是否有音频: True
+=== 开始视频编码 (直接日志) ===
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpmi_e551l\video_1766564711.mp4
+  开始编码时间: 2025-12-24 16:25:20.200601
+
+--- 编码主视频 ---
+  视频时长: 18.8
+  视频是否有音频: True
+  输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpmi_e551l\video_1766564711.mp4
+  输出路径可写性测试通过
+  设置编码超时时间: 600秒
+  启动编码线程...
+  编码前视频是否有音频: True
+  音频时长: 18.8
+  音频采样率: 44100
+  音频通道数: 2
+  最终视频是否有音频: True
+  音频时长: 18.8
+  音频采样率: 44100
+  音频通道数: 2
+  编码线程完成
+  使用ffprobe检查视频音频流...
+  ffprobe检查失败: [WinError 2] 系统找不到指定的文件。
+  编码线程执行成功
+视频生成完成，输出路径: C:\Users\hnzkh\AppData\Local\Temp\tmpmi_e551l\video_1766564711.mp4
