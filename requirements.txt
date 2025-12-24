@@ -1,0 +1,16 @@
+Flask
+Flask-SQLAlchemy
+Werkzeug
+requests
+python-pptx
+python-docx
+PyPDF2
+openai
+FastAPI
+uvicorn
+pydantic
+moviepy
+pyttsx3
+pywin32
+numpy
+pillow

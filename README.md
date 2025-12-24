@@ -1,2 +1,55 @@
-# studyWebsiteForDesignSchool
-Final Group Work HITSZ_A study website for design school
+# PPT转视频工具使用说明
+
+## 问题描述
+用户反馈PPT转换生成的视频下载后无法打开，且文件大小仅为1KB。
+
+## 修复内容
+
+### 1. 视频合成失败处理（`ppt2video.py`）
+- 在`make_video`函数中，当`clips`列表为空时抛出异常，而不是仅仅记录日志
+- 确保视频合成失败时能够及时捕获错误，避免生成空文件
+
+### 2. 视频文件大小检查（`app.py`）
+- 在`convert_ppt_to_video`路由中添加视频文件大小检查
+- 如果生成的视频文件小于10KB，抛出异常并返回错误信息
+
+### 3. 增强错误日志记录（`ppt2video.py`）
+- 在`convert_presentation_to_video`函数中添加更多调试信息
+- 记录PPT文件路径、输出视频路径、语速设置等关键参数
+- 记录图片和音频的生成情况，便于定位问题
+
+## 使用方法
+
+### 1. 安装依赖
+```bash
+pip install python-pptx pyttsx3 moviepy pythoncom pywin32
+```
+
+### 2. 运行Flask应用
+```bash
+python app.py
+```
+
+### 3. 上传PPT文件
+- 访问Flask应用的网页界面
+- 登录系统（默认用户名：default_teacher，密码：123456）
+- 上传PPT文件并点击"开始转换"
+
+## 故障排除
+
+### 1. 视频文件仍然无法打开
+- 检查系统是否安装了ffmpeg
+- 确保ffmpeg在系统PATH中
+- 检查PPT文件是否包含有效的内容
+
+### 2. 视频文件大小仍然过小
+- 检查PPT文件是否包含有效的图片和文字内容
+- 检查系统语音引擎是否正常工作
+- 查看日志文件，定位具体错误信息
+
+## 注意事项
+
+1. 确保系统安装了PowerPoint，以便导出幻灯片图片
+2. 如果需要生成中文字幕，需要安装ImageMagick并配置路径
+3. 转换过程可能需要较长时间，取决于PPT的页数和内容复杂度
+4. 建议使用简单的PPT文件进行测试，确保功能正常后再转换复杂的PPT文件
