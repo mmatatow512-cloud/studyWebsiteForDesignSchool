@@ -1,0 +1,47 @@
+{
+  "course_id": "design_ps_001",
+  "course_name": "设计学科PS实战课程",
+  "nodes": [
+    {
+      "node_id": "design_ps_001-course-01",
+      "node_name": "设计学科PS实战课程",
+      "node_type": "course",
+      "course_id": "design_ps_001"
+    },
+    {
+      "node_id": "design_ps_001-unit-02",
+      "node_name": "PS基础操作",
+      "node_type": "unit",
+      "course_id": "design_ps_001"
+    },
+    {
+      "node_id": "design_ps_001-unit-03",
+      "node_name": "PS抠图技巧",
+      "node_type": "unit",
+      "course_id": "design_ps_001"
+    }
+  ],
+  "relations": [
+    {
+      "relation_id": "design_ps_001-contain-01",
+      "source_node_id": "design_ps_001-course-01",
+      "target_node_id": "design_ps_001-unit-02",
+      "relation_type": "contain",
+      "description": "设计学科PS实战课程包含PS基础操作单元"
+    },
+    {
+      "relation_id": "design_ps_001-contain-02",
+      "source_node_id": "design_ps_001-course-01",
+      "target_node_id": "design_ps_001-unit-03",
+      "relation_type": "contain",
+      "description": "设计学科PS实战课程包含PS抠图技巧单元"
+    },
+    {
+      "relation_id": "design_ps_001-progress-03",
+      "source_node_id": "design_ps_001-unit-02",
+      "target_node_id": "design_ps_001-unit-03",
+      "relation_type": "progress",
+      "description": "先学PS基础操作，再学PS抠图技巧"
+    }
+  ]
+}
