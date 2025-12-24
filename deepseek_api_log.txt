@@ -1,0 +1,110 @@
+当前DEEPSEEK_API_KEY: sk-c874a3e6f7dd49429a04e9db88b4de5d
+API密钥是否为占位符: False
+正在发送请求到DeepSeek API: URL=https://api.deepseek.com/v1/chat/completions
+请求头: {'Authorization': 'Bearer sk-c874a3e6f7dd49429a04e9db88b4de5d', 'Content-Type': 'application/json'}
+请求体: {"model": "deepseek-chat", "messages": [{"role": "system", "content": "你是一名专业的AI助教，帮助学生解答学习相关的问题。"}, {"role": "user", "content": "设计基础"}], "stream": true}
+DeepSeek API响应状态码: 401
+DeepSeek API响应头: {'Date': 'Sun, 21 Dec 2025 05:32:39 GMT', 'Content-Type': 'application/json', 'Content-Length': '153', 'Connection': 'keep-alive', 'Set-Cookie': 'HWWAFSESID=8b9e59aadbd4865f06; path=/, HWWAFSESTIME=1766295155845; path=/', 'vary': 'origin, access-control-request-method, access-control-request-headers', 'access-control-allow-credentials': 'true', 'x-ds-trace-id': '3b417b9d81af47ab0b19ce50bc9618ff', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload', 'X-Content-Type-Options': 'nosniff', 'Server': 'CW'}
+DeepSeek API请求错误: HTTPError: 401 Client Error: Unauthorized for url: https://api.deepseek.com/v1/chat/completions
+当前DEEPSEEK_API_KEY: sk-c874a3e6f7dd49429a04e9db88b4de5d
+API密钥是否为占位符: False
+当前DEEPSEEK_API_KEY: sk-c874a3e6f7dd49429a04e9db88b4de5d
+API密钥是否为占位符: False
+正在发送请求到DeepSeek API: URL=https://api.deepseek.com/v1/chat/completions
+请求头: {'Authorization': 'Bearer sk-c874a3e6f7dd49429a04e9db88b4de5d', 'Content-Type': 'application/json'}
+请求体: {"model": "deepseek-chat", "messages": [{"role": "system", "content": "你是一名专业的AI助教，帮助学生解答学习相关的问题。"}, {"role": "user", "content": "设计基础"}], "stream": true}
+DeepSeek API响应状态码: 401
+DeepSeek API响应头: {'Date': 'Sun, 21 Dec 2025 05:35:32 GMT', 'Content-Type': 'application/json', 'Content-Length': '153', 'Connection': 'keep-alive', 'Set-Cookie': 'HWWAFSESID=9e2a788cc291efa675; path=/, HWWAFSESTIME=1766295329339; path=/', 'vary': 'origin, access-control-request-method, access-control-request-headers', 'access-control-allow-credentials': 'true', 'x-ds-trace-id': 'ce7b5bc0aedd8d5fd60ea443b7cf993c', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload', 'X-Content-Type-Options': 'nosniff', 'Server': 'CW'}
+DeepSeek API请求错误: HTTPError: 401 Client Error: Unauthorized for url: https://api.deepseek.com/v1/chat/completions
+当前DEEPSEEK_API_KEY: sk-c874a3e6f7dd49429a04e9db88b4de5d
+API密钥是否为占位符: False
+正在发送请求到DeepSeek API: URL=https://api.deepseek.com/v1/chat/completions
+请求头: {'Authorization': 'Bearer sk-c874a3e6f7dd49429a04e9db88b4de5d', 'Content-Type': 'application/json'}
+请求体: {"model": "deepseek-chat", "messages": [{"role": "system", "content": "你是一名专业的AI助教，帮助学生解答学习相关的问题。"}, {"role": "user", "content": "设计基础"}], "stream": true}
+DeepSeek API响应状态码: 401
+DeepSeek API响应头: {'Date': 'Sun, 21 Dec 2025 05:39:48 GMT', 'Content-Type': 'application/json', 'Content-Length': '153', 'Connection': 'keep-alive', 'Set-Cookie': 'HWWAFSESID=9c94d73197a646b0ef; path=/, HWWAFSESTIME=1766295588267; path=/', 'vary': 'origin, access-control-request-method, access-control-request-headers', 'access-control-allow-credentials': 'true', 'x-ds-trace-id': '785a7fac0c09a295c832dc58793122d1', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload', 'X-Content-Type-Options': 'nosniff', 'Server': 'CW'}
+DeepSeek API请求错误: HTTPError: 401 Client Error: Unauthorized for url: https://api.deepseek.com/v1/chat/completions
+当前DEEPSEEK_API_KEY: sk-c874a3e6f7dd49429a04e9db88b4de5d
+API密钥是否为占位符: False
+正在发送请求到DeepSeek API: URL=https://api.deepseek.com/v1/chat/completions
+请求头: {'Authorization': 'Bearer sk-c874a3e6f7dd49429a04e9db88b4de5d', 'Content-Type': 'application/json'}
+请求体: {"model": "deepseek-chat", "messages": [{"role": "system", "content": "你是一名专业的AI助教，帮助学生解答学习相关的问题。"}, {"role": "user", "content": "设计基础"}], "stream": true}
+DeepSeek API响应状态码: 401
+DeepSeek API响应头: {'Date': 'Sun, 21 Dec 2025 05:40:47 GMT', 'Content-Type': 'application/json', 'Content-Length': '153', 'Connection': 'keep-alive', 'Set-Cookie': 'HWWAFSESID=ff66c914daa3575637; path=/, HWWAFSESTIME=1766295645079; path=/', 'vary': 'origin, access-control-request-method, access-control-request-headers', 'access-control-allow-credentials': 'true', 'x-ds-trace-id': 'db48559cc23aa05cbb57cfa911f95fda', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload', 'X-Content-Type-Options': 'nosniff', 'Server': 'CW'}
+DeepSeek API请求错误: HTTPError: 401 Client Error: Unauthorized for url: https://api.deepseek.com/v1/chat/completions
+当前DEEPSEEK_API_KEY: sk-c874a3e6f7dd49429a04e9db88b4de5d
+API密钥是否为占位符: False
+正在发送请求到DeepSeek API: URL=https://api.deepseek.com/v1/chat/completions
+请求头: {'Authorization': 'Bearer sk-c874a3e6f7dd49429a04e9db88b4de5d', 'Content-Type': 'application/json'}
+请求体: {"model": "deepseek-chat", "messages": [{"role": "system", "content": "你是一名专业的AI助教，帮助学生解答学习相关的问题。"}, {"role": "user", "content": "设计基础"}], "stream": true}
+DeepSeek API响应状态码: 401
+DeepSeek API响应头: {'Date': 'Sun, 21 Dec 2025 05:42:47 GMT', 'Content-Type': 'application/json', 'Content-Length': '153', 'Connection': 'keep-alive', 'Set-Cookie': 'HWWAFSESID=cf04b8e0e74e0abb05; path=/, HWWAFSESTIME=1766295765306; path=/', 'vary': 'origin, access-control-request-method, access-control-request-headers', 'access-control-allow-credentials': 'true', 'x-ds-trace-id': '3ce5ca15bae58fb9764737c46ff59ff1', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload', 'X-Content-Type-Options': 'nosniff', 'Server': 'CW'}
+DeepSeek API请求错误: HTTPError: 401 Client Error: Unauthorized for url: https://api.deepseek.com/v1/chat/completions
+当前DEEPSEEK_API_KEY: sk-c874a3e6f7dd49429a04e9db88b4de5d
+API密钥是否为占位符: False
+正在发送请求到DeepSeek API: URL=https://api.deepseek.com/v1/chat/completions
+请求头: {'Authorization': 'Bearer sk-c874a3e6f7dd49429a04e9db88b4de5d', 'Content-Type': 'application/json'}
+请求体: {"model": "deepseek-chat", "messages": [{"role": "system", "content": "你是一名专业的AI助教，帮助学生解答学习相关的问题。"}, {"role": "user", "content": "设计基础"}], "stream": true}
+DeepSeek API响应状态码: 401
+DeepSeek API响应头: {'Date': 'Sun, 21 Dec 2025 05:43:57 GMT', 'Content-Type': 'application/json', 'Content-Length': '153', 'Connection': 'keep-alive', 'Set-Cookie': 'HWWAFSESID=4b6a89aba5d2834672; path=/, HWWAFSESTIME=1766295834171; path=/', 'vary': 'origin, access-control-request-method, access-control-request-headers', 'access-control-allow-credentials': 'true', 'x-ds-trace-id': '932bf670129074a0f06f0f67b7ce637f', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload', 'X-Content-Type-Options': 'nosniff', 'Server': 'CW'}
+DeepSeek API请求错误: HTTPError: 401 Client Error: Unauthorized for url: https://api.deepseek.com/v1/chat/completions
+当前DEEPSEEK_API_KEY: sk-c874a3e6f7dd49429a04e9db88b4de5d
+API密钥是否为占位符: False
+正在发送请求到DeepSeek API: URL=https://api.deepseek.com/v1/chat/completions
+请求头: {'Authorization': 'Bearer sk-c874a3e6f7dd49429a04e9db88b4de5d', 'Content-Type': 'application/json'}
+请求体: {"model": "deepseek-chat", "messages": [{"role": "system", "content": "你是一名专业的AI助教，帮助学生解答学习相关的问题。"}, {"role": "user", "content": "设计基础"}], "stream": true}
+DeepSeek API响应状态码: 401
+DeepSeek API响应头: {'Date': 'Sun, 21 Dec 2025 05:44:31 GMT', 'Content-Type': 'application/json', 'Content-Length': '153', 'Connection': 'keep-alive', 'Set-Cookie': 'HWWAFSESID=07da0764a6fe30f027; path=/, HWWAFSESTIME=1766295871737; path=/', 'vary': 'origin, access-control-request-method, access-control-request-headers', 'access-control-allow-credentials': 'true', 'x-ds-trace-id': 'cb8d4f18a33666ffd09fd0d34b908d0d', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload', 'X-Content-Type-Options': 'nosniff', 'Server': 'CW'}
+DeepSeek API请求错误: HTTPError: 401 Client Error: Unauthorized for url: https://api.deepseek.com/v1/chat/completions
+当前DEEPSEEK_API_KEY: sk-c874a3e6f7dd49429a04e9db88b4de5d
+API密钥是否为占位符: False
+正在发送请求到DeepSeek API: URL=https://api.deepseek.com/v1/chat/completions
+请求头: {'Authorization': 'Bearer sk-c874a3e6f7dd49429a04e9db88b4de5d', 'Content-Type': 'application/json'}
+请求体: {"model": "deepseek-chat", "messages": [{"role": "system", "content": "你是一名专业的AI助教，帮助学生解答学习相关的问题。"}, {"role": "user", "content": "设计基础"}], "stream": true}
+DeepSeek API响应状态码: 401
+DeepSeek API响应头: {'Date': 'Sun, 21 Dec 2025 05:45:15 GMT', 'Content-Type': 'application/json', 'Content-Length': '153', 'Connection': 'keep-alive', 'Set-Cookie': 'HWWAFSESID=5655179a4081f53d90; path=/, HWWAFSESTIME=1766295914575; path=/', 'vary': 'origin, access-control-request-method, access-control-request-headers', 'access-control-allow-credentials': 'true', 'x-ds-trace-id': 'db33d9f2293d1ddd5493e3efd476b9ed', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload', 'X-Content-Type-Options': 'nosniff', 'Server': 'CW'}
+DeepSeek API请求错误: HTTPError: 401 Client Error: Unauthorized for url: https://api.deepseek.com/v1/chat/completions
+异常类型: HTTPError
+是否有response属性: True
+当前DEEPSEEK_API_KEY: sk-c874a3e6f7dd49429a04e9db88b4de5d
+API密钥是否为占位符: False
+正在发送请求到DeepSeek API: URL=https://api.deepseek.com/v1/chat/completions
+请求头: {'Authorization': 'Bearer sk-c874a3e6f7dd49429a04e9db88b4de5d', 'Content-Type': 'application/json'}
+请求体: {"model": "deepseek-chat", "messages": [{"role": "system", "content": "你是一名专业的AI助教，帮助学生解答学习相关的问题。"}, {"role": "user", "content": "设计基础"}], "stream": true}
+DeepSeek API响应状态码: 401
+DeepSeek API响应头: {'Date': 'Sun, 21 Dec 2025 05:45:38 GMT', 'Content-Type': 'application/json', 'Content-Length': '153', 'Connection': 'keep-alive', 'Set-Cookie': 'HWWAFSESID=d410da3dd241402565; path=/, HWWAFSESTIME=1766295935406; path=/', 'vary': 'origin, access-control-request-method, access-control-request-headers', 'access-control-allow-credentials': 'true', 'x-ds-trace-id': '3da736ba7b163023b7763b74e62d3be6', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload', 'X-Content-Type-Options': 'nosniff', 'Server': 'CW'}
+DeepSeek API请求错误: HTTPError: 401 Client Error: Unauthorized for url: https://api.deepseek.com/v1/chat/completions
+异常类型: HTTPError
+是否有response属性: True
+当前DEEPSEEK_API_KEY: sk-c874a3e6f7dd49429a04e9db88b4de5d
+API密钥是否为占位符: False
+正在发送请求到DeepSeek API: URL=https://api.deepseek.com/v1/chat/completions
+请求头: {'Authorization': 'Bearer sk-c874a3e6f7dd49429a04e9db88b4de5d', 'Content-Type': 'application/json'}
+请求体: {"model": "deepseek-chat", "messages": [{"role": "system", "content": "你是一名专业的AI助教，帮助学生解答学习相关的问题。"}, {"role": "user", "content": "设计基础"}], "stream": true}
+DeepSeek API响应状态码: 401
+DeepSeek API响应头: {'Date': 'Sun, 21 Dec 2025 05:49:36 GMT', 'Content-Type': 'application/json', 'Content-Length': '153', 'Connection': 'keep-alive', 'Set-Cookie': 'HWWAFSESID=f0d90a0db785d27e84; path=/, HWWAFSESTIME=1766296172835; path=/', 'vary': 'origin, access-control-request-method, access-control-request-headers', 'access-control-allow-credentials': 'true', 'x-ds-trace-id': '5396a284c612fb99f23cb75fe0a58642', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload', 'X-Content-Type-Options': 'nosniff', 'Server': 'CW'}
+DeepSeek API响应内容: {"error":{"message":"Authentication Fails, Your api key: ****de5d is invalid","type":"authentication_error","param":null,"code":"invalid_request_error"}}
+当前DEEPSEEK_API_KEY: sk-c874a3e6f7dd49429a04e9db88b4de5d
+API密钥是否为占位符: False
+正在发送请求到DeepSeek API: URL=https://api.deepseek.com/v1/chat/completions
+请求头: {'Authorization': 'Bearer sk-c874a3e6f7dd49429a04e9db88b4de5d', 'Content-Type': 'application/json'}
+请求体: {"model": "deepseek-chat", "messages": [{"role": "system", "content": "你是一名专业的AI助教，帮助学生解答学习相关的问题。"}, {"role": "user", "content": "造型时尚的标准"}], "stream": true}
+DeepSeek API响应状态码: 401
+DeepSeek API响应头: {'Date': 'Sun, 21 Dec 2025 05:50:27 GMT', 'Content-Type': 'application/json', 'Content-Length': '153', 'Connection': 'keep-alive', 'Set-Cookie': 'HWWAFSESID=0578c7f1fe938049df; path=/, HWWAFSESTIME=1766296225461; path=/', 'vary': 'origin, access-control-request-method, access-control-request-headers', 'access-control-allow-credentials': 'true', 'x-ds-trace-id': '59e052fbeec44e04967c61f74c8f78ab', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload', 'X-Content-Type-Options': 'nosniff', 'Server': 'CW'}
+DeepSeek API响应内容: {"error":{"message":"Authentication Fails, Your api key: ****de5d is invalid","type":"authentication_error","param":null,"code":"invalid_request_error"}}
+当前DEEPSEEK_API_KEY: sk-c874a3e6f7dd49429a04e9db88b4de5d
+API密钥是否为占位符: False
+正在发送请求到DeepSeek API: URL=https://api.deepseek.com/v1/chat/completions
+请求头: {'Authorization': 'Bearer sk-c874a3e6f7dd49429a04e9db88b4de5d', 'Content-Type': 'application/json'}
+请求体: {"model": "deepseek-chat", "messages": [{"role": "system", "content": "你是一名专业的AI助教，帮助学生解答学习相关的问题。"}, {"role": "user", "content": "造型时尚的标准"}], "stream": true}
+DeepSeek API响应状态码: 401
+DeepSeek API响应头: {'Date': 'Sun, 21 Dec 2025 05:51:55 GMT', 'Content-Type': 'application/json', 'Content-Length': '153', 'Connection': 'keep-alive', 'Set-Cookie': 'HWWAFSESID=a3301b893738d45c3d; path=/, HWWAFSESTIME=1766296310614; path=/', 'vary': 'origin, access-control-request-method, access-control-request-headers', 'access-control-allow-credentials': 'true', 'x-ds-trace-id': '0675d163b4efa3dd4aa12061d4c6e8cf', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload', 'X-Content-Type-Options': 'nosniff', 'Server': 'CW'}
+DeepSeek API响应内容: {"error":{"message":"Authentication Fails, Your api key: ****de5d is invalid","type":"authentication_error","param":null,"code":"invalid_request_error"}}
+当前DEEPSEEK_API_KEY: sk-361d41da6a3841348567026cc993e629
+API密钥是否为占位符: False
+正在发送请求到DeepSeek API: URL=https://api.deepseek.com/v1/chat/completions
+请求头: {'Authorization': 'Bearer sk-361d41da6a3841348567026cc993e629', 'Content-Type': 'application/json'}
+请求体: {"model": "deepseek-chat", "messages": [{"role": "system", "content": "你是一名专业的AI助教，帮助学生解答学习相关的问题。"}, {"role": "user", "content": "设计基础"}], "stream": true}
+DeepSeek API响应状态码: 401
+DeepSeek API响应头: {'Date': 'Sun, 21 Dec 2025 05:53:01 GMT', 'Content-Type': 'application/json', 'Content-Length': '153', 'Connection': 'keep-alive', 'Set-Cookie': 'HWWAFSESID=20b8ca619f8fd70255; path=/, HWWAFSESTIME=1766296376901; path=/', 'vary': 'origin, access-control-request-method, access-control-request-headers', 'access-control-allow-credentials': 'true', 'x-ds-trace-id': '3c701ce61cfa118fd1297b65ddc370e3', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload', 'X-Content-Type-Options': 'nosniff', 'Server': 'CW'}
+DeepSeek API响应内容: {"error":{"message":"Authentication Fails, Your api key: ****e629 is invalid","type":"authentication_error","param":null,"code":"invalid_request_error"}}

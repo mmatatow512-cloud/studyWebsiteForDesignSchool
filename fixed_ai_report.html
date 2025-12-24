@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI分析报告提交</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+        .file-input-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+        .file-input-wrapper input[type=file] {
+            font-size: 100px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .file-input-button {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-block;
+            color: #555;
+            transition: all 0.3s;
+        }
+        .file-input-button:hover {
+            background-color: #e8e8e8;
+        }
+        .file-name {
+            margin-left: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
+            min-height: 80px;
+            font-family: inherit;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4a6cf7;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: block;
+            margin: 30px auto 0;
+        }
+        button:hover {
+            background-color: #3a5be8;
+        }
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        .error-message {
+            background-color: #ffebee;
+            color: #c62828;
+            padding: 12px;
+            border-radius: 4px;
+            margin-top: 20px;
+            display: none;
+        }
+        .success-message {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            padding: 12px;
+            border-radius: 4px;
+            margin-top: 20px;
+            display: none;
+        }
+        .loading {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+        .spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(74, 108, 247, 0.3);
+            border-radius: 50%;
+            border-top-color: #4a6cf7;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .note {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI智能分析报告</h1>
+        
+        <div class="note">
+            <strong>提示：</strong>本表单已修复Content-Type问题，提交时会自动设置正确的请求头。
+        </div>
+        
+        <div class="form-group">
+            <label for="fileInput">请选择文件（支持Word/Excel等格式）</label>
+            <div class="file-input-wrapper">
+                <span class="file-input-button">浏览文件</span>
+                <input type="file" id="fileInput">
+            </div>
+            <span class="file-name" id="fileName">未选择文件</span>
+            <input type="hidden" id="hiddenFilePath">
+        </div>
+        
+        <div class="form-group">
+            <label for="reportDescription">报告描述（可选）</label>
+            <textarea id="reportDescription" placeholder="简述报告内容、重点或希望获得的分析角度..."></textarea>
+        </div>
+        
+        <button id="submitBtn" onclick="submitForm()">
+            <span id="buttonText">开始智能分析</span>
+        </button>
+        
+        <div class="loading" id="loadingIndicator">
+            <span class="spinner"></span>正在处理中，请稍候...
+        </div>
+        
+        <div class="error-message" id="errorMessage"></div>
+        <div class="success-message" id="successMessage"></div>
+    </div>
+    
+    <script>
+        // 文件选择处理
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                document.getElementById('fileName').textContent = file.name;
+                
+                // 在实际应用中，这里需要先上传文件到服务器
+                // 为了演示，我们使用一个模拟的文件路径
+                document.getElementById('hiddenFilePath').value = '/uploads/' + file.name;
+            }
+        });
+        
+        // 提交表单函数 - 正确设置Content-Type
+        function submitForm() {
+            const filePath = document.getElementById('hiddenFilePath').value;
+            const description = document.getElementById('reportDescription').value.trim();
+            
+            // 表单验证
+            if (!filePath) {
+                showError('请选择一个文件');
+                return;
+            }
+            
+            // 显示加载状态
+            showLoading(true);
+            hideError();
+            hideSuccess();
+            
+            // 构建请求数据
+            const requestData = {
+                file_path: filePath,
+                topic: description || '',
+                analysis_type: 'standard'
+            };
+            
+            // 使用fetch API发送请求 - 正确设置Content-Type为application/json
+            fetch('/api/evaluation/report', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',  // 关键点：设置Content-Type为application/json
+                },
+                body: JSON.stringify(requestData)  // 将数据转换为JSON字符串
+            })
+            .then(response => {
+                showLoading(false);
+                
+                if (!response.ok) {
+                    // 处理HTTP错误
+                    return response.json().then(errorData => {
+                        throw new Error(errorData.error || `请求失败: ${response.status}`);
+                    }).catch(() => {
+                        throw new Error(`请求失败: ${response.status}`);
+                    });
+                }
+                
+                return response.json();
+            })
+            .then(data => {
+                // 处理成功响应
+                showSuccess('分析完成！正在跳转到结果页面...');
+                
+                // 模拟跳转（实际应用中应根据API返回结果决定）
+                setTimeout(() => {
+                    window.location.href = '/ai_report?success=true';
+                }, 2000);
+            })
+            .catch(error => {
+                // 处理错误
+                showLoading(false);
+                showError(error.message || '发生未知错误，请稍后重试');
+            });
+        }
+        
+        // UI辅助函数
+        function showLoading(show) {
+            document.getElementById('loadingIndicator').style.display = show ? 'block' : 'none';
+            document.getElementById('submitBtn').disabled = show;
+            document.getElementById('buttonText').textContent = show ? '处理中...' : '开始智能分析';
+        }
+        
+        function showError(message) {
+            const errorElement = document.getElementById('errorMessage');
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+        }
+        
+        function hideError() {
+            document.getElementById('errorMessage').style.display = 'none';
+        }
+        
+        function showSuccess(message) {
+            const successElement = document.getElementById('successMessage');
+            successElement.textContent = message;
+            successElement.style.display = 'block';
+        }
+        
+        function hideSuccess() {
+            document.getElementById('successMessage').style.display = 'none';
+        }
+        
+        // 为了演示，设置一个模拟的文件路径
+        document.addEventListener('DOMContentLoaded', function() {
+            // 模拟一个已存在的文件路径
+            const mockFilePath = 'd:\\9\\demo\\project\\examples\\测试文档.docx';
+            document.getElementById('hiddenFilePath').value = mockFilePath;
+            document.getElementById('fileName').textContent = '测试文档.docx (模拟路径)';
+        });
+    </script>
+</body>
+</html>

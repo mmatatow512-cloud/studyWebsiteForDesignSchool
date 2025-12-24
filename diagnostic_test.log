@@ -1,0 +1,45 @@
+[2025-12-17 14:23:20] === 视频生成诊断测试开始 ===
+[2025-12-17 14:23:20] === 检查FFmpeg配置 ===
+[2025-12-17 14:23:20] MoviePy FFMPEG_BINARY: C:\Users\23576\AppData\Local\Programs\Python\Python314\Lib\site-packages\imageio_ffmpeg\binaries\ffmpeg-win-x86_64-v7.1.exe
+[2025-12-17 14:23:20] FFmpeg存在: True
+[2025-12-17 14:23:20] imageio_ffmpeg路径: C:\Users\23576\AppData\Local\Programs\Python\Python314\Lib\site-packages\imageio_ffmpeg\binaries\ffmpeg-win-x86_64-v7.1.exe
+[2025-12-17 14:23:20] imageio_ffmpeg存在: True
+[2025-12-17 14:23:20] FFmpeg版本信息:
+[2025-12-17 14:23:20]   ffmpeg version 7.1-essentials_build-www.gyan.dev Copyright (c) 2000-2024 the FFmpeg developers
+[2025-12-17 14:23:20]   built with gcc 14.2.0 (Rev1, Built by MSYS2 project)
+[2025-12-17 14:23:20]   configuration: --enable-gpl --enable-version3 --enable-static --disable-w32threads --disable-autodetect --enable-fontconfig --enable-iconv --enable-gnutls --enable-libxml2 --enable-gmp --enable-bzlib --enable-lzma --enable-zlib --enable-libsrt --enable-libssh --enable-libzmq --enable-avisynth --enable-sdl2 --enable-libwebp --enable-libx264 --enable-libx265 --enable-libxvid --enable-libaom --enable-libopenjpeg --enable-libvpx --enable-mediafoundation --enable-libass --enable-libfreetype --enable-libfribidi --enable-libharfbuzz --enable-libvidstab --enable-libvmaf --enable-libzimg --enable-amf --enable-cuda-llvm --enable-cuvid --enable-dxva2 --enable-d3d11va --enable-d3d12va --enable-ffnvcodec --enable-libvpl --enable-nvdec --enable-nvenc --enable-vaapi --enable-libgme --enable-libopenmpt --enable-libopencore-amrwb --enable-libmp3lame --enable-libtheora --enable-libvo-amrwbenc --enable-libgsm --enable-libopencore-amrnb --enable-libopus --enable-libspeex --enable-libvorbis --enable-librubberband
+[2025-12-17 14:23:20] === 测试简单视频生成 ===
+[2025-12-17 14:23:20] 
+测试 320x240 视频...
+[2025-12-17 14:23:20] ✓ 视频生成成功: test_320x240.mp4
+[2025-12-17 14:23:20]   文件大小: 2339 字节 (2.28 KB)
+[2025-12-17 14:23:20]   生成耗时: 0.07 秒
+[2025-12-17 14:23:20] 
+测试 640x480 视频...
+[2025-12-17 14:23:20] ✓ 视频生成成功: test_640x480.mp4
+[2025-12-17 14:23:20]   文件大小: 4061 字节 (3.97 KB)
+[2025-12-17 14:23:20]   生成耗时: 0.12 秒
+[2025-12-17 14:23:20] 
+测试 1280x720 视频...
+[2025-12-17 14:23:21] ✓ 视频生成成功: test_1280x720.mp4
+[2025-12-17 14:23:21]   文件大小: 8643 字节 (8.44 KB)
+[2025-12-17 14:23:21]   生成耗时: 0.16 秒
+[2025-12-17 14:23:21] 
+=== 测试带音频的视频生成 ===
+[2025-12-17 14:23:21] ✓ 带音频视频生成成功: test_with_audio.mp4
+[2025-12-17 14:23:21]   文件大小: 21813 字节 (21.30 KB)
+[2025-12-17 14:23:21] 
+=== 测试视频片段合并 ===
+[2025-12-17 14:23:21] ✓ 视频合并成功: test_concat.mp4
+[2025-12-17 14:23:21]   文件大小: 4052 字节 (3.96 KB)
+[2025-12-17 14:23:21] 
+=== 测试使用图片生成视频 ===
+[2025-12-17 14:23:21] 创建测试图片: test_image.jpg
+[2025-12-17 14:23:21] ✓ 图片视频生成成功: test_with_image.mp4
+[2025-12-17 14:23:21]   文件大小: 3764 字节 (3.68 KB)
+[2025-12-17 14:23:21] 
+=== 分析1KB视频问题 ===
+[2025-12-17 14:23:21] 没有发现1KB以下的视频文件
+[2025-12-17 14:23:21] 
+=== 视频生成诊断测试完成 ===
+[2025-12-17 14:23:21] 详细日志请查看: diagnostic_test.log

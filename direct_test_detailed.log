@@ -1,0 +1,31 @@
+2025-12-17 14:29:04,759 - INFO - 成功导入convert_presentation_to_video函数
+2025-12-17 14:29:04,760 - INFO - ===== 开始PPT转视频详细测试 =====
+2025-12-17 14:29:04,760 - INFO - Python版本: 3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]
+2025-12-17 14:29:04,760 - INFO - 当前工作目录: C:\Users\23576\Desktop\demo\project
+2025-12-17 14:29:04,764 - INFO - 创建临时目录: C:\Users\23576\AppData\Local\Temp\ppt2video_test_z7lm69rx
+2025-12-17 14:29:04,852 - INFO - 成功创建测试PPT: C:\Users\23576\AppData\Local\Temp\ppt2video_test_z7lm69rx\test_presentation.pptx
+2025-12-17 14:29:04,852 - INFO - 测试PPT存在，大小: 35064 字节
+2025-12-17 14:29:04,852 - INFO - 输出视频路径: C:\Users\23576\AppData\Local\Temp\ppt2video_test_z7lm69rx\output_test.mp4
+2025-12-17 14:29:04,853 - INFO - ===== 开始转换PPT到视频 =====
+2025-12-17 14:29:05,323 - INFO - 转换完成，耗时: 0.47 秒
+2025-12-17 14:29:05,324 - INFO - 转换结果: 失败
+2025-12-17 14:29:05,324 - ERROR - ❌ 错误: 输出视频文件不存在
+2025-12-17 14:29:05,324 - INFO - ===== 测试结束 =====
+2025-12-17 14:29:39,159 - INFO - 成功导入convert_presentation_to_video函数
+2025-12-17 14:29:39,159 - INFO - ===== 开始PPT转视频详细测试 =====
+2025-12-17 14:29:39,159 - INFO - Python版本: 3.14.0 (tags/v3.14.0:ebf955d, Oct  7 2025, 10:15:03) [MSC v.1944 64 bit (AMD64)]
+2025-12-17 14:29:39,160 - INFO - 当前工作目录: C:\Users\23576\Desktop\demo\project
+2025-12-17 14:29:39,162 - INFO - 创建临时目录: C:\Users\23576\AppData\Local\Temp\ppt2video_test_is9xikl7
+2025-12-17 14:29:39,194 - INFO - 成功创建测试PPT: C:\Users\23576\AppData\Local\Temp\ppt2video_test_is9xikl7\test_presentation.pptx
+2025-12-17 14:29:39,194 - INFO - 测试PPT存在，大小: 35064 字节
+2025-12-17 14:29:39,194 - INFO - 输出视频路径: C:\Users\23576\AppData\Local\Temp\ppt2video_test_is9xikl7\output_test.mp4
+2025-12-17 14:29:39,195 - INFO - ===== 开始转换PPT到视频 =====
+2025-12-17 14:30:03,712 - INFO - 转换完成，耗时: 24.52 秒
+2025-12-17 14:30:03,712 - INFO - 转换结果: 成功
+2025-12-17 14:30:03,712 - INFO - 输出视频文件存在
+2025-12-17 14:30:03,712 - INFO - 文件路径: C:\Users\23576\AppData\Local\Temp\ppt2video_test_is9xikl7\output_test.mp4
+2025-12-17 14:30:03,713 - INFO - 文件大小: 628533 字节
+2025-12-17 14:30:03,713 - INFO - 文件大小: 613.80 KB
+2025-12-17 14:30:03,713 - INFO - 文件大小: 0.60 MB
+2025-12-17 14:30:03,713 - INFO - ✅ 视频文件大小正常
+2025-12-17 14:30:03,714 - INFO - ===== 测试结束 =====
