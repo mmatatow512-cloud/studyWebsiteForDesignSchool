@@ -1,0 +1,32 @@
+[
+    {
+        "course_id": "design_ps_001",
+        "course_name": "设计学科PS实战课程",
+        "units": [
+            {
+                "unit_id": "design_ps_001_unit_01",
+                "unit_name": "PS基础操作",
+                "course_id": "design_ps_001",
+                "sort": 1,
+                "knowledge_points": [
+                    {
+                        "point_id": "design_ps_001_unit_01_kp_01",
+                        "point_name": "PS画布大小调整",
+                        "content": "PS画布大小调整步骤：1. 打开图像菜单；2. 选择画布大小选项；3. 输入宽度和高度数值；4. 点击确定。快捷键：Alt+Ctrl+C。",
+                        "unit_id": "design_ps_001_unit_01",
+                        "course_id": "design_ps_001",
+                        "page_num": 5,
+                        "video_timestamp": "00:10-00:25"
+                    }
+                ]
+            },
+            {
+                "unit_id": "design_ps_001_unit_02",
+                "unit_name": "PS抠图技巧",
+                "course_id": "design_ps_001",
+                "sort": 2,
+                "knowledge_points": []
+            }
+        ]
+    }
+]
