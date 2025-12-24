@@ -1,0 +1,31 @@
+报告2（主题：技术发展）的完整评分结果：
+{
+  "total_score": 67.5,
+  "dimension_scores": [
+    {
+      "name": "主题相关性",
+      "score": 100,
+      "weight": 0.25
+    },
+    {
+      "name": "逻辑结构完整性",
+      "score": 80,
+      "weight": 0.25
+    },
+    {
+      "name": "知识点覆盖率",
+      "score": 0,
+      "weight": 0.25
+    },
+    {
+      "name": "语言规范性",
+      "score": 90,
+      "weight": 0.25
+    }
+  ],
+  "suggestions": "结构完整性改进建议\n问题:\n• 缺乏清晰的标题和层次结构\n\n改进建议:\n• 建议使用标题和小标题来组织内容，提高报告的可读性和结构完整性",
+  "level": {
+    "level": "below_average",
+    "description": "及格"
+  }
+}
