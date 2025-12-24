@@ -1,0 +1,49 @@
+[
+    {
+        "course_id": "c001",
+        "course_name": "设计基础课程",
+        "units": [
+            {
+                "unit_id": "u001",
+                "unit_name": "设计概论",
+                "sort": 1
+            },
+            {
+                "unit_id": "u002",
+                "unit_name": "色彩理论",
+                "sort": 2
+            },
+            {
+                "unit_id": "u003",
+                "unit_name": "构图技巧",
+                "sort": 3
+            },
+            {
+                "unit_id": "u004",
+                "unit_name": "实践项目",
+                "sort": 4
+            }
+        ]
+    },
+    {
+        "course_id": "c002",
+        "course_name": "Web设计课程",
+        "units": [
+            {
+                "unit_id": "u001",
+                "unit_name": "HTML基础",
+                "sort": 1
+            },
+            {
+                "unit_id": "u002",
+                "unit_name": "CSS样式",
+                "sort": 2
+            },
+            {
+                "unit_id": "u003",
+                "unit_name": "JavaScript交互",
+                "sort": 3
+            }
+        ]
+    }
+]

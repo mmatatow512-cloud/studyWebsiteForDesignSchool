@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文字/富文本输入 - 设计学科</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js"></script>
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <style>
+        .input-container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        #plain-text-input {
+            min-height: 200px;
+            resize: vertical;
+        }
+        .editor-container {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+        }
+        .btn-group {
+            margin-bottom: 15px;
+        }
+        @media (max-width: 768px) {
+            .input-container {
+                margin: 20px auto;
+                padding: 10px;
+            }
+            #plain-text-input {
+                min-height: 150px;
+            }
+            .btn {
+                font-size: 0.9rem;
+                padding: 0.4rem 0.8rem;
+            }
+            .btn-group .btn {
+                margin-bottom: 5px;
+            }
+            .d-flex {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="input-container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>文字/富文本输入</h1>
+            <a href="javascript:history.back()" class="btn btn-secondary">返回首页</a>
+        </div>
+        
+        <!-- 输入类型切换 -->
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary active" id="plain-text-btn">纯文本</button>
+            <button type="button" class="btn btn-outline-primary" id="rich-text-btn">富文本</button>
+        </div>
+        
+        <!-- 纯文本输入区域 -->
+        <div id="plain-text-container" class="form-group">
+            <label for="plain-text-input" class="form-label">纯文本输入</label>
+            <textarea class="form-control" id="plain-text-input" placeholder="请输入您的问题..."></textarea>
+        </div>
+        
+        <!-- 富文本输入区域 -->
+        <div id="rich-text-container" class="form-group" style="display: none;">
+            <label for="rich-text-editor" class="form-label">富文本输入</label>
+            <div class="editor-container">
+                <textarea id="rich-text-editor" placeholder="请输入您的问题..."></textarea>
+            </div>
+        </div>
+        
+        <!-- 操作按钮 -->
+        <div class="d-flex gap-2 mb-4">
+            <button type="button" class="btn btn-secondary" id="undo-btn">撤销</button>
+            <button type="button" class="btn btn-secondary" id="redo-btn">恢复</button>
+            <button type="button" class="btn btn-secondary" id="clear-btn">清空</button>
+        </div>
+        
+        <!-- 提交按钮 -->
+        <button type="button" class="btn btn-success" id="submit-btn">提交</button>
+    </div>
+    
+    <!-- 自定义模态框 -->
+    <div class="modal fade" id="validationModal" tabindex="-1" aria-labelledby="validationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="validationModalLabel">验证结果</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="validationModalBody">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // 显示自定义模态框
+        function showModal(message, isSuccess = true) {
+            const modalBody = document.getElementById('validationModalBody');
+            const modalTitle = document.getElementById('validationModalLabel');
+            
+            if (isSuccess) {
+                modalTitle.textContent = '验证成功';
+                modalBody.innerHTML = `<div class="alert alert-success" role="alert">${message}</div>`;
+            } else {
+                modalTitle.textContent = '验证失败';
+                modalBody.innerHTML = `<div class="alert alert-danger" role="alert">${message}</div>`;
+            }
+            
+            const modal = new bootstrap.Modal(document.getElementById('validationModal'));
+            modal.show();
+        }
+        // 初始化富文本编辑器
+        tinymce.init({
+            selector: '#rich-text-editor',
+            height: 400,
+            menubar: true,
+            plugins: [
+                'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
+                'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
+                'insertdatetime', 'media', 'table', 'code', 'help', 'wordcount',
+                'powerpaste', 'math', 'codeblock'
+            ],
+            toolbar: 'undo redo | formatselect | bold italic backcolor | 
+                      alignleft aligncenter alignright alignjustify | 
+                      bullist numlist outdent indent | code codeblock math | removeformat | help',
+            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
+            setup: function (editor) {
+                editor.on('change', function () {
+                    editor.save();
+                });
+            },
+            powerpaste_word_import: 'clean',
+            powerpaste_html_import: 'clean',
+            // 优化代码块配置
+            code_dialog_width: 800,
+            code_dialog_height: 500,
+            // 优化列表配置
+            advlist_bullet_styles: 'square,circle,disc',
+            advlist_number_styles: 'lower-alpha,lower-roman,decimal,upper-alpha,upper-roman',
+            // 代码语法高亮配置
+            code_language_classes: {
+                'html': 'HTML',
+                'css': 'CSS',
+                'javascript': 'JavaScript',
+                'python': 'Python',
+                'java': 'Java',
+                'csharp': 'C#',
+                'cpp': 'C++',
+                'php': 'PHP',
+                'sql': 'SQL',
+                'xml': 'XML'
+            }
+        });
+        
+        // 输入类型切换
+        document.getElementById('plain-text-btn').addEventListener('click', function() {
+            this.classList.add('active');
+            this.classList.remove('btn-outline-primary');
+            this.classList.add('btn-primary');
+            
+            document.getElementById('rich-text-btn').classList.remove('active');
+            document.getElementById('rich-text-btn').classList.add('btn-outline-primary');
+            document.getElementById('rich-text-btn').classList.remove('btn-primary');
+            
+            document.getElementById('plain-text-container').style.display = 'block';
+            document.getElementById('rich-text-container').style.display = 'none';
+        });
+        
+        document.getElementById('rich-text-btn').addEventListener('click', function() {
+            this.classList.add('active');
+            this.classList.remove('btn-outline-primary');
+            this.classList.add('btn-primary');
+            
+            document.getElementById('plain-text-btn').classList.remove('active');
+            document.getElementById('plain-text-btn').classList.add('btn-outline-primary');
+            document.getElementById('plain-text-btn').classList.remove('btn-primary');
+            
+            document.getElementById('plain-text-container').style.display = 'none';
+            document.getElementById('rich-text-container').style.display = 'block';
+        });
+        
+        // 撤销/恢复功能
+        let plainTextHistory = [''];
+        let plainTextHistoryIndex = 0;
+        
+        document.getElementById('plain-text-input').addEventListener('input', function() {
+            // 移除当前索引之后的历史记录
+            plainTextHistory = plainTextHistory.slice(0, plainTextHistoryIndex + 1);
+            // 添加新的历史记录
+            plainTextHistory.push(this.value);
+            plainTextHistoryIndex++;
+            
+            // 限制历史记录数量
+            if (plainTextHistory.length > 50) {
+                plainTextHistory.shift();
+                plainTextHistoryIndex--;
+            }
+            
+            // 更新按钮状态
+            updateUndoRedoButtons();
+        });
+        
+        document.getElementById('undo-btn').addEventListener('click', function() {
+            if (document.getElementById('plain-text-container').style.display !== 'none') {
+                // 纯文本撤销
+                if (plainTextHistoryIndex > 0) {
+                    plainTextHistoryIndex--;
+                    document.getElementById('plain-text-input').value = plainTextHistory[plainTextHistoryIndex];
+                    updateUndoRedoButtons();
+                }
+            } else {
+                // 富文本撤销
+                tinymce.get('rich-text-editor').undoManager.undo();
+            }
+        });
+        
+        document.getElementById('redo-btn').addEventListener('click', function() {
+            if (document.getElementById('plain-text-container').style.display !== 'none') {
+                // 纯文本恢复
+                if (plainTextHistoryIndex < plainTextHistory.length - 1) {
+                    plainTextHistoryIndex++;
+                    document.getElementById('plain-text-input').value = plainTextHistory[plainTextHistoryIndex];
+                    updateUndoRedoButtons();
+                }
+            } else {
+                // 富文本恢复
+                tinymce.get('rich-text-editor').undoManager.redo();
+            }
+        });
+        
+        // 更新撤销/恢复按钮状态
+        function updateUndoRedoButtons() {
+            const undoBtn = document.getElementById('undo-btn');
+            const redoBtn = document.getElementById('redo-btn');
+            
+            if (document.getElementById('plain-text-container').style.display !== 'none') {
+                undoBtn.disabled = plainTextHistoryIndex <= 0;
+                redoBtn.disabled = plainTextHistoryIndex >= plainTextHistory.length - 1;
+            } else {
+                // 富文本编辑器使用TinyMCE内置的状态管理
+                const editor = tinymce.get('rich-text-editor');
+                undoBtn.disabled = !editor.undoManager.canUndo();
+                redoBtn.disabled = !editor.undoManager.canRedo();
+            }
+        }
+        
+        // 添加快捷键支持
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'z') {
+                e.preventDefault();
+                document.getElementById('undo-btn').click();
+            } else if ((e.ctrlKey || e.metaKey) && e.key === 'y') {
+                e.preventDefault();
+                document.getElementById('redo-btn').click();
+            }
+        });
+        
+        // 输入类型切换时更新按钮状态
+        document.getElementById('plain-text-btn').addEventListener('click', function() {
+            updateUndoRedoButtons();
+        });
+        
+        document.getElementById('rich-text-btn').addEventListener('click', function() {
+            updateUndoRedoButtons();
+        });
+        
+        // 初始化按钮状态
+        updateUndoRedoButtons();
+        
+        // 清空功能
+        document.getElementById('clear-btn').addEventListener('click', function() {
+            if (confirm('确定要清空输入内容吗？')) {
+                if (document.getElementById('plain-text-container').style.display !== 'none') {
+                    document.getElementById('plain-text-input').value = '';
+                    plainTextHistory.push('');
+                    plainTextHistoryIndex++;
+                } else {
+                    tinymce.get('rich-text-editor').setContent('');
+                }
+            }
+        });
+        
+        // 提交功能
+        document.getElementById('submit-btn').addEventListener('click', function() {
+            let content = '';
+            let isRichText = false;
+            
+            if (document.getElementById('plain-text-container').style.display !== 'none') {
+                content = document.getElementById('plain-text-input').value;
+                isRichText = false;
+            } else {
+                content = tinymce.get('rich-text-editor').getContent();
+                isRichText = true;
+            }
+            
+            if (!content.trim()) {
+                showModal('请输入内容后再提交！', false);
+                return;
+            }
+            
+            // 显示加载状态
+            const submitBtn = this;
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> 提交中...';
+            submitBtn.disabled = true;
+            
+            // 记录请求开始时间
+            const startTime = Date.now();
+            
+            // 创建带超时的fetch请求
+            const fetchWithTimeout = (url, options, timeout = 1000) => {
+                return Promise.race([
+                    fetch(url, options),
+                    new Promise((_, reject) => 
+                        setTimeout(() => reject(new Error('请求超时')), timeout)
+                    )
+                ]);
+            };
+            
+            // 调用后端API进行校验
+            fetchWithTimeout('http://localhost:8000/api/v1/validate', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    content: content,
+                    is_rich_text: isRichText
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // 计算响应时间
+                const responseTime = Date.now() - startTime;
+                console.log(`验证接口响应时间: ${responseTime}ms`);
+                
+                // 恢复按钮状态
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                if (data.valid) {
+                    showModal('输入内容有效，可以提交！');
+                    // 这里可以添加提交到服务器的逻辑
+                } else {
+                    showModal(data.msg, false);
+                }
+            })
+            .catch(error => {
+                // 恢复按钮状态
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+                
+                console.error('校验失败:', error);
+                if (error.message === '请求超时') {
+                    showModal('校验请求超时，请稍后重试！', false);
+                } else {
+                    showModal('校验失败，请稍后重试！', false);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

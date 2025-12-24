@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI智能测验管理</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 15px;
+
+        }
+        h1 {
+            color: #333;
+        }
+        .action-buttons {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container page-container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>AI智能测验管理</h1>
+            <div class="d-flex gap-2">
+                <a href="{{ url_for('dashboard') }}" class="btn btn-primary">返回首页</a>
+            </div>
+        </div>
+        <div class="action-buttons">
+            <a href="{{ url_for('teacher_create_quiz') }}" class="btn btn-primary">创建新测验</a>
+            <a href="{{ url_for('teacher_upload_question') }}" class="btn btn-primary">上传题目</a>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>测验名称</th>
+                    <th>知识点</th>
+                    <th>难度</th>
+                    <th>时间限制</th>
+                    <th>防作弊</th>
+                    <th>创建时间</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for quiz in quizzes %}
+                <tr>
+                    <td>{{ quiz.title }}</td>
+                    <td>{{ quiz.knowledge_points }}</td>
+                    <td>{{ quiz.difficulty }}</td>
+                    <td>{{ quiz.time_limit }}分钟</td>
+                    <td>{{ "开启" if quiz.anti_cheat else "关闭" }}</td>
+                    <td>{{ quiz.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                    <td>
+                        <a href="{{ url_for('teacher_view_quiz', quiz_id=quiz.id) }}" class="btn btn-primary">查看详情</a>
+                        <a href="{{ url_for('teacher_view_student_answers', quiz_id=quiz.id) }}" class="btn btn-primary">查看学生答题</a>
+                        <form action="{{ url_for('teacher_delete_quiz', quiz_id=quiz.id) }}" method="POST" style="display: inline;">
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('确定要删除该测验吗？删除后将无法恢复，包括所有学生答题记录。')">删除测验</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% if not quizzes %}
+        <p>暂无测验，点击"创建新测验"开始创建。</p>
+        {% endif %}
+    </div>
+</body>
+</html>

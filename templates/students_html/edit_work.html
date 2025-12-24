@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>编辑作品 - 用户信息管理系统</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <style>
+        .page-container {
+            max-width: 1000px;
+            margin: 50px auto;
+        }
+        .file-item {
+            margin-bottom: 10px;
+            padding: 15px;
+            border: 1px solid #e1d9e1;
+            border-radius: 8px;
+            background-color: #f4f2f4;
+        }
+        .file-item:hover {
+            background-color: #e1d9e1;
+            cursor: move;
+        }
+        .file-item.dragging {
+            opacity: 0.5;
+            border: 2px dashed #c1bbde;
+        }
+        .group-badge {
+            background-color: #c1bbde;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 0;
+            font-size: 12px;
+        }
+        .upload-section, .groups-section {
+            margin-top: 30px;
+            padding: 20px;
+            border: 1px solid #e1d9e1;
+            border-radius: 8px;
+            background-color: #f4f2f4;
+        }
+        .files-section {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>编辑作品</h1>
+            <div class="d-flex gap-2">
+                <a href="{{ url_for('portfolio') }}" class="btn btn-secondary">返回作品集</a>
+                <a href="javascript:history.back()" class="btn btn-secondary"><i class="fas fa-arrow-left mr-2"></i>返回</a>
+                <a href="{{ url_for('dashboard') }}" class="btn btn-primary">返回首页</a>
+            </div>
+        </div>
+        
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <!-- 作品基本信息 -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="card-title mb-0">作品基本信息</h5>
+            </div>
+            <div class="card-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">作品名称</label>
+                        <input type="text" class="form-control" id="title" name="title" value="{{ work.title }}" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="theme" class="form-label">作品主题</label>
+                        <textarea class="form-control" id="theme" name="theme" rows="3">{{ work.theme or '' }}</textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">更新基本信息</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- 功能组管理 -->
+        <div class="groups-section">
+            <h5>功能组管理</h5>
+            <div class="row">
+                <div class="col-md-6">
+                    <form method="POST" action="{{ url_for('create_group', work_id=work.id) }}">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" name="group_name" placeholder="新功能组名称" required>
+                            <button class="btn btn-outline-primary" type="submit">创建功能组</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            {% if groups %}
+            <div class="mt-3">
+                <strong>现有功能组：</strong>
+                <div class="mt-2 d-flex flex-wrap gap-2">
+                    {% for group in groups %}
+                    <div class="group-badge d-flex align-items-center gap-2">
+                        {{ group.name }}
+                        <form method="POST" action="{{ url_for('delete_group', group_id=group.id) }}" onsubmit="return confirm('确定要删除此功能组吗？组内文件将被移出分组。')" class="m-0">
+                            <button type="submit" class="btn-close btn-close-white" aria-label="Close" style="font-size: 10px;"></button>
+                        </form>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        
+        <!-- 上传新文件 -->
+        <div class="upload-section">
+            <h5>上传新文件</h5>
+            <form method="POST" action="{{ url_for('add_file', work_id=work.id) }}" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label for="files" class="form-label">选择文件（支持jpg、png、PDF格式）</label>
+                    <input type="file" class="form-control" id="files" name="files[]" multiple accept=".jpg,.jpeg,.png,.pdf" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="group_id" class="form-label">选择功能组（可选）</label>
+                    <select class="form-control" id="group_id" name="group_id">
+                        <option value="">无分组</option>
+                        {% for group in groups %}
+                        <option value="{{ group.id }}">{{ group.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">上传文件</button>
+            </form>
+        </div>
+        
+        <!-- 文件列表 -->
+        <div class="files-section">
+            <h5>文件列表</h5>
+            {% if work.files %}
+                <div id="fileList" class="mt-3">
+                    {% for file in work.files %}
+                    <div class="file-item" data-file-id="{{ file.id }}">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <div>
+                                <div class="d-flex align-items-center gap-2">
+                                    <a href="{{ url_for('static', filename=file.file_path) }}" target="_blank">{{ file.file_name }}</a>
+                                    <span class="text-muted">({{ file.file_type|upper }})</span>
+                                    {% if file.group %}
+                                        <span class="group-badge">{{ file.group.name }}</span>
+                                    {% endif %}
+                                </div>
+                                <div class="mt-2">
+                                    <form method="POST" action="{{ url_for('update_file_group', file_id=file.id) }}" class="d-inline">
+                                        <select name="group_id" class="form-select form-select-sm" onchange="this.form.submit()">
+                                            <option value="" {{ 'selected' if not file.group_id else '' }}>无分组</option>
+                                            {% for group in groups %}
+                                            <option value="{{ group.id }}" {{ 'selected' if file.group_id == group.id else '' }}>{{ group.name }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </form>
+                                    <form method="POST" action="{{ url_for('delete_file', file_id=file.id) }}" onsubmit="return confirm('确定要删除此文件吗？')" class="d-inline ms-2">
+                                        <button type="submit" class="btn btn-sm btn-danger">删除</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="text-muted" style="font-size: 12px;">
+                                {{ file.uploaded_at.strftime('%Y-%m-%d') }}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="mt-3">
+                    <p class="text-muted">提示：可以拖动文件来调整显示顺序</p>
+                    <button type="button" class="btn btn-sm btn-primary" onclick="saveFileOrder()">保存文件顺序</button>
+                </div>
+            {% else %}
+                <p class="text-muted">该作品暂无文件</p>
+            {% endif %}
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 文件拖拽排序功能
+        let draggedElement = null;
+        
+        const fileList = document.getElementById('fileList');
+        if (fileList) {
+            fileList.addEventListener('dragstart', (e) => {
+                draggedElement = e.target.closest('.file-item');
+                draggedElement.classList.add('dragging');
+            });
+            
+            fileList.addEventListener('dragend', (e) => {
+                draggedElement.classList.remove('dragging');
+                draggedElement = null;
+            });
+            
+            fileList.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                const afterElement = getDragAfterElement(fileList, e.clientY);
+                const draggable = document.querySelector('.dragging');
+                if (afterElement == null) {
+                    fileList.appendChild(draggable);
+                } else {
+                    fileList.insertBefore(draggable, afterElement);
+                }
+            });
+        }
+        
+        function getDragAfterElement(container, y) {
+            const draggableElements = [...container.querySelectorAll('.file-item:not(.dragging)')];
+            
+            return draggableElements.reduce((closest, child) => {
+                const box = child.getBoundingClientRect();
+                const offset = y - box.top - box.height / 2;
+                
+                if (offset < 0 && offset > closest.offset) {
+                    return { offset: offset, element: child };
+                } else {
+                    return closest;
+                }
+            }, { offset: Number.NEGATIVE_INFINITY }).element;
+        }
+        
+        // 保存文件顺序
+        function saveFileOrder() {
+            const fileItems = document.querySelectorAll('.file-item');
+            const fileOrders = {};
+            
+            fileItems.forEach((item, index) => {
+                const fileId = item.dataset.fileId;
+                fileOrders[fileId] = index + 1;
+            });
+            
+            fetch('{{ url_for('update_file_order', work_id=work.id) }}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ fileOrders: fileOrders }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('文件顺序更新成功');
+                } else {
+                    alert('文件顺序更新失败: ' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('更新失败，请刷新页面重试');
+            });
+        }
+    </script>
+</body>
+</html>

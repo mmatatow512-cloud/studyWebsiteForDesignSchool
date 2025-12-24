@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>创建AI智能测验</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 15px;
+
+        }
+        h1 {
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="number"], select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .back-btn {
+            background-color: #555;
+            margin-right: 10px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+        }
+        .checkbox-group input {
+            width: auto;
+            margin-right: 10px;
+        }
+        .note {
+            color: #666;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container page-container">
+        <h1>创建AI智能测验</h1>
+        <form method="POST">
+            <div class="form-group">
+                <label for="title">测验名称</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="course_id">关联课程</label>
+                <select id="course_id" name="course_id" required>
+                    {% for course in courses %}
+                        <option value="{{ course.id }}">{{ course.title }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>知识点范围（可多选）</label>
+                <div style="display: flex; flex-wrap: wrap; gap: 15px; margin: 10px 0;">
+                    <label style="display: flex; align-items: center; gap: 5px;">
+                        <input type="checkbox" name="knowledge_points" value="现代设计史"> 现代设计史
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 5px;">
+                        <input type="checkbox" name="knowledge_points" value="造型艺术"> 造型艺术
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 5px;">
+                        <input type="checkbox" name="knowledge_points" value="设计思维"> 设计思维
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 5px;">
+                        <input type="checkbox" name="knowledge_points" value="设计基础"> 设计基础
+                    </label>
+                </div>
+                <div class="note">请至少选择一个知识点</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="difficulty">难度</label>
+                <select id="difficulty" name="difficulty" required>
+                    <option value="简单">简单</option>
+                    <option value="中等">中等</option>
+                    <option value="困难">困难</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="time_limit">时间限制（分钟）</label>
+                <input type="number" id="time_limit" name="time_limit" min="5" max="120" required value="30">
+            </div>
+            
+            <div class="form-group">
+                <label for="single_count">单选题数量</label>
+                <input type="number" id="single_count" name="single_count" min="0" max="50" required value="5">
+            </div>
+            
+            <div class="form-group">
+                <label for="multiple_count">多选题数量</label>
+                <input type="number" id="multiple_count" name="multiple_count" min="0" max="50" required value="3">
+            </div>
+            
+            <div class="form-group">
+                <label for="judge_count">判断题数量</label>
+                <input type="number" id="judge_count" name="judge_count" min="0" max="50" required value="2">
+            </div>
+            
+            <div class="form-group">
+                <label for="short_count">简答题数量</label>
+                <input type="number" id="short_count" name="short_count" min="0" max="20" required value="2">
+            </div>
+            
+            <div class="form-group">
+                <label for="discussion_count">论述题数量</label>
+                <input type="number" id="discussion_count" name="discussion_count" min="0" max="10" required value="1">
+            </div>
+            
+            <div class="form-group">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="anti_cheat" name="anti_cheat" checked>
+                    <label for="anti_cheat">启用防作弊功能</label>
+                </div>
+                <div class="note">防作弊功能包括：屏幕切换检测、摄像头监控、标签页切换检测、5分钟无活动检测、多设备检测</div>
+            </div>
+            
+            <div class="form-actions">
+                <a href="{{ url_for('dashboard') }}" class="btn btn-primary">返回主页</a>
+                <a href="{{ url_for('teacher_ai_test_management') }}" class="btn btn-primary">返回列表</a>
+                <button type="submit" class="btn btn-primary">创建测验</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

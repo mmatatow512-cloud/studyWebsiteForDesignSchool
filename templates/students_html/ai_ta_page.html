@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI助教答疑</title>
+    <!-- 引入Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+    <!-- 引入Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <style>
+        /* 自定义样式 */
+        body {
+        }
+        .container {
+            margin-top: 20px;
+            margin-bottom: 30px;
+            max-width: 1000px;
+        }
+        .main-content {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .page-header {
+            background-color: #a89fd2;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .page-header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        /* 标签栏样式 */
+        .nav-tabs {
+            border-bottom: 2px solid #e1d9e1;
+            background-color: #f4f2f4;
+        }
+        .nav-tabs .nav-item {
+            margin-bottom: 0;
+        }
+        .nav-tabs .nav-link {
+            border: none;
+            border-bottom: 3px solid transparent;
+            color: #6c757d;
+            font-weight: 500;
+            padding: 15px 25px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border-radius: 8px 8px 0 0;
+        }
+        .nav-tabs .nav-link:hover {
+            border-bottom-color: #c3e6cb;
+            background-color: #f1f3f5;
+        }
+        .nav-tabs .nav-link.active {
+            background-color: white;
+            color: #a89fd2;
+            border-bottom-color: #a89fd2;
+        }
+        /* 内容展示区 */
+        .tab-content {
+            padding: 20px;
+        }
+        /* 顶部导航按钮样式 */
+        .top-nav .btn-outline-primary:hover {
+            background-color: #a89fd2 !important;
+            color: white !important;
+            border-color: #a89fd2 !important;
+        }
+        .top-nav .btn-outline-primary.active {
+            background-color: #a89fd2 !important;
+            color: white !important;
+            border-color: #a89fd2 !important;
+        }
+        .content-section {
+            min-height: 400px;
+        }
+        /* 搜索区域样式 */
+        .search-section {
+            background-color: #f4f2f4;
+            padding: 20px;
+            border-radius: 0;
+            margin-bottom: 20px;
+        }
+        .search-input-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .search-input {
+            flex: 1;
+            min-width: 250px;
+            padding: 10px 15px;
+            border: 2px solid #e1d9e1;
+            border-radius: 0;
+            font-size: 16px;
+        }
+        .search-btn {
+            background-color: #a89fd2;
+            color: white;
+            border: none;
+            border-radius: 0;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .search-btn:hover {
+            background-color: #c8a2c8;
+            transform: translateY(-1px);
+        }
+        
+        /* 搜索输入框焦点样式 */
+        .search-input:focus {
+            outline: none;
+            border-color: #7b5ea7;
+            box-shadow: 0 0 0 3px rgba(123, 94, 167, 0.1);
+        }
+        /* 搜索类型切换 */
+        .search-type-section {
+            margin-top: 15px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .search-type-label {
+            color: #666;
+            font-weight: 500;
+        }
+        .search-type-option {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+        /* 搜索结果样式 */
+        .search-results {
+            margin-top: 20px;
+        }
+        .result-item {
+            background-color: white;
+            border: 2px solid #e6ccff;
+            border-radius: 0;
+            padding: 15px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        .result-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        .result-title {
+            font-weight: 600;
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        .result-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        .result-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .tag {
+            background-color: #f8f0ff;
+            color: #7b5ea7;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        /* 加载动画 */
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+        .loading::after {
+            content: '';
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #7b5ea7;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* 对话样式 */
+        .message {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+        .message.user {
+            align-items: flex-end;
+        }
+        .message.ai {
+            align-items: flex-start;
+        }
+        .message-header {
+            font-weight: 600;
+            color: #7b5ea7;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+        .message-content {
+            max-width: 80%;
+            padding: 6px 15px;
+            border-radius: 18px;
+            line-height: 1.5;
+        }
+        .message.user .message-content {
+            background-color: #7b5ea7;
+            color: white;
+            border-bottom-right-radius: 4px;
+        }
+        .message.ai .message-content {
+            background-color: #f0e6ff;
+            color: #333;
+            border-bottom-left-radius: 4px;
+            border: 1px solid #e6ccff;
+        }
+        .message-content.error {
+            color: #dc3545;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #666;
+        }
+        .loading-indicator {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #e0e0e0;
+            border-top: 2px solid #7b5ea7;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        .thinking-content {
+            font-style: italic;
+            color: #888;
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            background-color: #f0f0f0;
+            border-radius: 12px;
+        }
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .page-header h1 {
+                font-size: 24px;
+            }
+            .nav-tabs .nav-link {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+            .search-input-group {
+                flex-direction: column;
+            }
+            .search-input {
+                min-width: 100%;
+            }
+            .search-type-section {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 页面导航 -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #7b5ea7;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ url_for('dashboard') }}">学习平台</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('dashboard') }}">个人中心</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('courses') }}">我的课程</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('assignments') }}">我的作业</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('student_self_quiz') }}">自主AI测验</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ url_for('ai_ta_page') }}">AI助教</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ user.username }}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="{{ url_for('dashboard') }}">个人中心</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{{ url_for('login') }}">退出登录</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <div class="container">
+        <div class="main-content">
+            <!-- 顶部标题 -->
+            <div class="page-header">
+                <h1><i class="fas fa-robot"></i> AI助教答疑</h1>
+            </div>
+
+            <!-- 功能标签栏 -->
+            <ul class="nav nav-tabs" id="aiTaTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="qa-tab" data-bs-toggle="tab" data-bs-target="#qa" type="button" role="tab" aria-controls="qa" aria-selected="true">答疑</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="search-case-tab" data-bs-toggle="tab" data-bs-target="#search-case" type="button" role="tab" aria-controls="search-case" aria-selected="false">搜索设计案例</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="search-theory-tab" data-bs-toggle="tab" data-bs-target="#search-theory" type="button" role="tab" aria-controls="search-theory" aria-selected="false">搜索设计理论</button>
+                </li>
+            </ul>
+
+            <!-- 内容展示区 -->
+            <div class="tab-content" id="aiTaTabsContent">
+                <!-- 答疑标签页 -->
+                <div class="tab-pane fade show active" id="qa" role="tabpanel" aria-labelledby="qa-tab">
+                    <div class="content-section">
+                        <!-- 顶部导航按钮 -->
+                        <div class="top-nav mb-4">
+                            <button class="btn btn-outline-primary me-2 active" id="btn-chat" style="border-color: #7b5ea7; color: #7b5ea7; border-radius: 0;">智能对话</button>
+                            <button class="btn btn-outline-primary me-2" id="btn-history" style="border-color: #7b5ea7; color: #7b5ea7; border-radius: 0;">历史对话</button>
+                            <button class="btn btn-outline-primary" id="btn-faq" style="border-color: #7b5ea7; color: #7b5ea7; border-radius: 0;">FAQ</button>
+                        </div>
+
+                        <!-- 对话区域 -->
+                        <div class="chat-area mb-4" id="chat-area" style="height: 400px; overflow-y: auto; border: 2px solid #e6ccff; padding: 15px;">
+                            <p style="text-align: center; color: #666; padding: 20px;">开始与AI助教对话吧！</p>
+                        </div>
+
+                        <!-- 输入区域 -->
+                        <div class="input-area d-flex">
+                            <textarea class="form-control me-2" id="question" placeholder="请输入您的问题..." style="resize: vertical; height: 60px; min-height: 60px; max-height: none;"></textarea>
+                            <button class="btn btn-primary" id="send-btn">发送</button>
+                        </div>
+
+                        <!-- 历史对话区域 -->
+                        <div class="history-area" style="display: none;" id="history-area">
+                            <p style="text-align: center; color: #666; padding: 20px;">正在加载历史对话...</p>
+                        </div>
+
+                        <!-- FAQ区域 -->
+                        <div class="faq-area" style="display: none;">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="faq-search" placeholder="搜索FAQ...">
+                            </div>
+                            <div id="faq-results">
+                                <p style="text-align: center; color: #666; padding: 20px;">正在加载FAQ...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 搜索设计案例标签页 -->
+                <div class="tab-pane fade" id="search-case" role="tabpanel" aria-labelledby="search-case-tab">
+                    <div class="content-section">
+                        <!-- 搜索区域 -->
+                        <div class="search-section">
+                            <div class="search-input-group">
+                                <input type="text" class="search-input" id="caseSearchInput" placeholder="搜索设计案例..." autocomplete="off">
+                                <button class="search-btn" id="caseSearchBtn"><i class="fas fa-search"></i> 搜索</button>
+                            </div>
+                        </div>
+
+                        <!-- 搜索结果区域 -->
+                        <div class="search-results" id="caseSearchResults">
+                            <p style="text-align: center; color: #666; padding: 20px;">请输入关键词搜索设计案例</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 搜索设计理论标签页 -->
+                <div class="tab-pane fade" id="search-theory" role="tabpanel" aria-labelledby="search-theory-tab">
+                    <div class="content-section">
+                        <!-- 搜索区域 -->
+                        <div class="search-section">
+                            <div class="search-input-group">
+                                <input type="text" class="search-input" id="theorySearchInput" placeholder="搜索设计理论..." autocomplete="off">
+                                <button class="search-btn" id="theorySearchBtn"><i class="fas fa-search"></i> 搜索</button>
+                            </div>
+                        </div>
+
+                        <!-- 搜索结果区域 -->
+                        <div class="search-results" id="theorySearchResults">
+                            <p style="text-align: center; color: #666; padding: 20px;">请输入关键词搜索设计理论</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入Bootstrap JavaScript -->
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.min.js"></script>
+    <!-- 引入AI助教脚本 -->
+    <script src="{{ url_for('static', filename='js/ai-tutor.js') }}"></script>
+</body>
+</html>

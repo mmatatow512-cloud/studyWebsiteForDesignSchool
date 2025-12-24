@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ course.title }} - 观看教学视频</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <style>
+        .page-container {
+            max-width: 1000px;
+            margin: 50px auto;
+        }
+        .video-container {
+            width: 100%;
+            height: 500px;
+            background-color: #000;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .video-container video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .course-info {
+            background-color: #f4f2f4;
+            padding: 20px;
+            border-radius: 8px;
+            height: 500px;
+            overflow-y: auto;
+        }
+        .course-info h4 {
+            margin-bottom: 20px;
+            color: #a89fd2;
+        }
+        .course-info-item {
+            margin-bottom: 15px;
+        }
+        .course-info-item label {
+            font-weight: bold;
+            color: #555;
+        }
+        
+        /* AI助教搜索结果样式 */
+        #aiSearchResults .card {
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+
+        
+        #aiSearchResults .card-title {
+            color: #343a40;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        #aiSearchResults .card-text {
+            color: #6c757d;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        #aiSearchResults .badge {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        #aiSearchResults .btn-primary {
+            font-size: 0.875rem;
+            padding: 0.25rem 0.75rem;
+        }
+        
+        /* 相关学习资料样式 */
+        .related-materials .card {
+            border-left: 4px solid #17a2b8;
+        }
+        
+        .related-materials .card-header {
+            background-color: #17a2b8;
+            color: white;
+            font-size: 0.9rem;
+        }
+        
+        .related-materials .card-body {
+            padding: 1rem;
+        }
+        
+        .related-materials .list-group-item {
+            border: none;
+            padding: 0.5rem 0;
+        }
+        
+        .related-materials .list-group-item a {
+            text-decoration: none;
+            color: #17a2b8;
+        }
+        
+
+        
+        /* 侧边栏单元项活跃状态样式 */
+        .unit-item.active {
+            background-color: #0d6efd;
+            color: white;
+        }
+        
+        .unit-item.active i {
+            color: white;
+        }
+        
+        /* 确保活跃状态下文字颜色正确应用 */
+        .unit-item.active span {
+            color: white;
+        }
+        
+
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .page-container {
+                margin: 20px auto;
+                padding: 20px;
+            }
+            
+            .modal-dialog.modal-lg {
+                max-width: 95%;
+            }
+            
+            .video-container {
+                height: 300px;
+            }
+            
+            .course-info {
+                height: auto;
+            }
+            
+            /* 确保侧边栏在小屏幕上正常显示 */
+            .col-md-4 .course-info {
+                max-height: 300px;
+                overflow-y: auto;
+            }
+            
+            /* 优化小屏幕上的单元项显示 */
+            .unit-item {
+                padding: 15px 10px;
+            }
+            
+            .unit-item span {
+                font-size: 0.9rem;
+            }
+            
+            /* 调整小屏幕上的按钮布局 */
+            .d-flex.gap-2 {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .d-flex.gap-2 .btn {
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>{{ course.title }}</h1>
+            <div class="d-flex gap-2">
+
+                <a href="{{ url_for('courses') }}" class="btn btn-secondary"><i class="fas fa-arrow-left mr-2"></i>返回</a>
+                <a href="{{ url_for('dashboard') }}" class="btn btn-primary">返回首页</a>
+            </div>
+        </div>
+        
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <!-- 视频播放器部分 -->
+        <div class="row mb-4">
+            <!-- 左半部分：视频播放器 -->
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0" id="currentUnitTitle">{% if units and units|length > 0 %} {{ units[0].unit_title }} {% else %} 教学视频 {% endif %}</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="video-container">
+                            {% if units and units|length > 0 %}
+                                <!-- 默认播放第一个单元的视频 -->
+                                <video id="courseVideo" controls>
+                                    <source id="videoSource" src="/course_files/{{ units[0].file_path }}" type="video/mp4">
+                                    您的浏览器不支持HTML5视频播放
+                                </video>
+                            {% else %}
+                                <div class="d-flex justify-content-center align-items-center h-100 text-white">
+                                    <p>本课程暂无教学单元</p>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 右半部分：课程单元侧边栏 -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">课程单元</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="course-info" style="height: 500px; overflow-y: auto;">
+                            {% if units and units|length > 0 %}
+                                <ul class="list-group list-group-flush">
+                                    {% for unit in units %}
+                                        {% set index = loop.index %}
+                                        <li class="list-group-item unit-item {% if index == 1 %}active{% endif %}" data-unit-id="{{ index }}" data-video-path="/course_files/{{ unit.file_path }}" data-unit-title="{{ unit.unit_title }}">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <span><strong>第{{ index }}单元：</strong>{{ unit.unit_title }}</span>
+                                                <i class="fas fa-play-circle"></i>
+                                            </div>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% else %}
+                                <p class="p-3 text-center">暂无课程单元</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 课程信息区域 -->
+        <div class="row">
+            <!-- 课程信息 -->
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="card-title mb-0">课程信息</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="course-info">
+                            <div class="course-info-item">
+                                <label>课程代码：</label>
+                                <span>{{ course.course_code }}</span>
+                            </div>
+                            <div class="course-info-item">
+                                <label>授课老师：</label>
+                                <span>{{ course.teacher.username }}</span>
+                            </div>
+                            <div class="course-info-item">
+                                <label>学分：</label>
+                                <span>{{ course.credit }}</span>
+                            </div>
+                            <div class="course-info-item">
+                                <label>课程简介：</label>
+                                <p>{{ course.description or '暂无课程简介' }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+    <script>
+        // 课程单元切换功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 获取所有单元项
+            const unitItems = document.querySelectorAll('.unit-item');
+            const videoElement = document.getElementById('courseVideo');
+            const videoSource = document.getElementById('videoSource');
+            const currentUnitTitle = document.getElementById('currentUnitTitle');
+            
+            // 为每个单元项添加点击事件
+            unitItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    // 获取该单元的视频路径和标题
+                    const videoPath = this.getAttribute('data-video-path');
+                    const unitTitle = this.getAttribute('data-unit-title');
+                    
+                    // 更新视频源和标题
+                    videoSource.setAttribute('src', videoPath);
+                    currentUnitTitle.textContent = unitTitle;
+                    
+                    // 加载视频
+                    videoElement.load();
+                    
+                    // 在视频加载完成后再播放
+                    videoElement.addEventListener('loadeddata', function playVideo() {
+                        videoElement.play().catch(error => {
+                            console.error('播放视频时发生错误:', error);
+                        });
+                        // 移除事件监听器，避免重复调用
+                        videoElement.removeEventListener('loadeddata', playVideo);
+                    });
+                    
+                    // 更新活跃状态
+                    unitItems.forEach(unit => unit.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+
+
+
+    <script>
+        // 课程观看进度保存功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 从模板获取课程数据
+            const courseData = {
+                id: {{ course.id|tojson }},
+                title: {{ course.title|tojson }}
+            };
+            
+            const videoElement = document.querySelector('video');
+            if (videoElement) {
+                // 获取课程ID
+                const courseId = courseData.id;
+                
+                // 初始化时获取保存的观看进度
+                function fetchInitialProgress() {
+                    fetch(`/get_progress/${courseId}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                const progress = data.data;
+                                // 设置视频当前播放位置
+                                if (progress.last_watch_time > 0) {
+                                    videoElement.currentTime = progress.last_watch_time;
+                                    console.log(`恢复播放进度：${progress.last_watch_time}秒`);
+                                }
+                            }
+                        })
+                        .catch(error => {
+                            console.error('获取观看进度失败：', error);
+                        });
+                }
+
+                // 保存观看进度
+                function saveProgress() {
+                    if (!videoElement) return;
+                    
+                    const watchProgress = (videoElement.currentTime / videoElement.duration) * 100 || 0;
+                    const lastWatchTime = videoElement.currentTime;
+                    
+                    fetch('/save_progress', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            course_id: courseId,
+                            watch_progress: watchProgress,
+                            last_watch_time: lastWatchTime
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            console.log('进度保存成功');
+                        } else {
+                            console.error('进度保存失败：', data.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('保存进度时发生错误：', error);
+                    });
+                }
+
+                // 视频加载完成后获取初始进度
+                videoElement.addEventListener('loadedmetadata', fetchInitialProgress);
+                
+                // 定期保存进度（每10秒）
+                let progressTimer = null;
+                videoElement.addEventListener('play', () => {
+                    progressTimer = setInterval(saveProgress, 10000);
+                });
+                
+                // 暂停时保存进度
+                videoElement.addEventListener('pause', () => {
+                    if (progressTimer) {
+                        clearInterval(progressTimer);
+                        progressTimer = null;
+                    }
+                    saveProgress();
+                });
+                
+                // 视频播放结束时保存进度
+                videoElement.addEventListener('ended', () => {
+                    if (progressTimer) {
+                        clearInterval(progressTimer);
+                        progressTimer = null;
+                    }
+                    saveProgress();
+                });
+            }
+        });
+    </script>
+    {% include 'ai_ta_floating.html' %}
+</body>
+</html>

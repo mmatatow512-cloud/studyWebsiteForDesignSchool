@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>批改作业 - 用户信息管理系统</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="page-container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>批改作业</h1>
+            <div class="d-flex gap-2">
+                <a href="{{ url_for('dashboard') }}" class="btn btn-primary">返回首页</a>
+            </div>
+        </div>
+        
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <!-- 课程筛选 -->
+        {% if courses %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <form method="GET" action="{{ url_for('teacher_grade_assignments') }}">
+                        <div class="row g-3 align-items-center">
+                            <div class="col-auto">
+                                <label for="course_filter" class="col-form-label">课程筛选:</label>
+                            </div>
+                            <div class="col-auto">
+                                <select name="course_id" id="course_filter" class="form-select">
+                                    <option value="">全部课程</option>
+                                    {% for course in user.courses_taught %} <!-- 使用user.courses_taught获取所有课程，不筛选 -->
+                                        <option value="{{ course.id }}" {% if request.args.get('course_id', '') == course.id|string %}selected{% endif %}>{{ course.title }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-auto">
+                                <button type="submit" class="btn btn-primary">筛选</button>
+                                {% if request.args.get('course_id') %}
+                                    <a href="{{ url_for('teacher_grade_assignments') }}" class="btn btn-secondary">清除筛选</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        {% endif %}
+        
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">AI测验批改</h5>
+            </div>
+            <div class="card-body">
+                {% if courses %}
+                    {% for course_id, course_data in course_quiz_data.items() %}
+                        <div class="mb-4">
+                            <h6 class="text-primary">{{ course_data.course.title }} ({{ course_data.quizzes|length }}个测验)</h6>
+                            {% if course_data.student_records %}
+                                <div class="table-responsive">
+                                    <table class="table table-sm table-bordered">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>测验名称</th>
+                                                <th>学生</th>
+                                                <th>提交时间</th>
+                                                <th>总分</th>
+                                                <th>状态</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {% for student_quiz in course_data.student_records %}
+                                                <tr>
+                                                    <td>{{ student_quiz.quiz.title }}</td>
+                                                    <td>{{ student_quiz.student.username }}</td>
+                                                    <td>{{ student_quiz.submit_time.strftime('%Y-%m-%d %H:%M') if student_quiz.submit_time else '未提交' }}</td>
+                                                    <td>{{ student_quiz.total_score|round(1) }}</td>
+                                                    <td>
+                                                        <span class="badge bg-success">已完成</span>
+                                                    </td>
+                                                    <td>
+                                                        <a href="#" class="btn btn-sm btn-primary">查看详情</a>
+                                                        <a href="#" class="btn btn-sm btn-warning">批改主观题</a>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            {% else %}
+                                <p class="text-muted">该课程暂无学生提交的测验</p>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="text-muted">您还没有创建任何课程</p>
+                {% endif %}
+            </div>
+        </div>
+        
+        <!-- 作业批改板块 -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h5 class="card-title mb-0">作业批改</h5>
+            </div>
+            <div class="card-body">
+                {% if courses %}
+                    {% for course_id, course_data in course_assignment_data.items() %}
+                        <div class="mb-4">
+                            <h6 class="text-primary">{{ course_data.course.title }} ({{ course_data.assignments|length }}个作业)</h6>
+                            
+                            <!-- 按作业分组显示提交 -->
+                            {% for assignment in course_data.assignments %}
+                                <div class="mt-3">
+                                    <h7 class="text-secondary">{{ assignment.title }}</h7>
+                                    {% set assignment_submissions = course_data.submissions|selectattr('assignment.id', 'equalto', assignment.id)|list %}
+                                    {% if assignment_submissions %}
+                                        <div class="table-responsive">
+                                            <table class="table table-sm table-bordered">
+                                                <thead class="table-light">
+                                                    <tr>
+                                                        <th>学生</th>
+                                                        <th>提交时间</th>
+                                                        <th>文件类型</th>
+                                                        <th>状态</th>
+                                                        <th>成绩</th>
+                                                        <th>操作</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for item in assignment_submissions %}
+                                                        <tr>
+                                                            <td>{{ item.submission.student.username }}</td>
+                                                            <td>{{ item.submission.submitted_at.strftime('%Y-%m-%d %H:%M') if item.submission.submitted_at else '未提交' }}</td>
+                                                            <td>{{ item.submission.file_type }}</td>
+                                                            <td>
+                                                                {% if item.submission.status == 'submitted' %}
+                                                                    <span class="badge bg-primary">已提交</span>
+                                                                {% elif item.submission.status == 'graded' %}
+                                                                    <span class="badge bg-success">已批改</span>
+                                                                {% else %}
+                                                                    <span class="badge bg-secondary">未提交</span>
+                                                                {% endif %}
+                                                            </td>
+                                                            <td>{{ item.submission.grade if item.submission.grade else '-' }}</td>
+                                                            <td>
+                                            {% if item.submission.file_path %}
+                                                <a href="{{ url_for('download_assignment_file', submission_id=item.submission.id) }}" class="btn btn-sm btn-primary">查看作业</a>
+                                            {% else %}
+                                                <span class="text-muted">无作业文件</span>
+                                            {% endif %}
+                                            <a href="#" class="btn btn-sm btn-warning">批改</a>
+                                        </td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    {% else %}
+                                        <p class="text-muted">暂无学生提交该作业</p>
+                                    {% endif %}
+                                    
+                                    <!-- 缺交学生统计 -->
+                                    {% if assignment.missing_students and assignment.missing_students|length > 0 %}
+                                        <div class="mt-2">
+                                            <h8 class="text-danger">缺交学生 ({{ assignment.missing_students|length }}人):</h8>
+                                            <div class="mt-1">
+                                                {% for student in assignment.missing_students %}
+                                                    <span class="badge bg-danger me-1 mb-1">{{ student.username }}</span>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    {% elif not assignment.missing_students or assignment.missing_students|length == 0 %}
+                                        <div class="mt-2">
+                                            <h8 class="text-success">所有学生均已提交</h8>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="text-muted">您还没有创建任何课程</p>
+                {% endif %}
+            </div>
+        </div>
+        
+        <!-- 成绩排名板块 -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h5 class="card-title mb-0">学生成绩排名</h5>
+            </div>
+            <div class="card-body">
+                {% if courses %}
+                    {% for course_id, course_data in course_rank_data.items() %}
+                        <div class="mb-4">
+                            <h6 class="text-primary">{{ course_data.course.title }}</h6>
+                            
+                            {% for quiz_id, quiz_data in course_data.quiz_rankings.items() %}
+                                {% if quiz_data.ranked_scores %}
+                                    <div class="mt-3">
+                                        <h7 class="text-secondary">{{ quiz_data.quiz.title }} - 排名</h7>
+                                        <div class="table-responsive">
+                                            <table class="table table-sm table-bordered">
+                                                <thead class="table-light">
+                                                    <tr>
+                                                        <th>排名</th>
+                                                        <th>学生</th>
+                                                        <th>总分</th>
+                                                        <th>提交时间</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for score in quiz_data.ranked_scores %}
+                                                        <tr>
+                                                            <td>{{ score.rank }}</td>
+                                                            <td>{{ score.student.username }}</td>
+                                                            <td>{{ score.total_score|round(1) }}</td>
+                                                            <td>{{ score.submit_time.strftime('%Y-%m-%d %H:%M') if score.submit_time else '未提交' }}</td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="text-muted">您还没有创建任何课程</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

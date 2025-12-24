@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目组进度看板 - 用户信息管理系统</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- 引入全局样式 -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .page-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 30px;
+        }
+        .stats-card {
+            padding: 20px;
+            text-align: center;
+            background-color: white;
+            border: 2px solid #e1d9e1;
+            border-radius: 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .stats-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: #a89fd2;
+        }
+        .stats-value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .progress-bar {
+            height: 20px;
+            border-radius: 0;
+        }
+        .project-timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        .project-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #e1d9e1;
+            transform: translateX(-50%);
+        }
+        .timeline-item {
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .timeline-content {
+            padding: 20px;
+            position: relative;
+            background-color: white;
+            border: 2px solid #e6ccff;
+            border-radius: 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-right: 55%;
+            margin-left: 5%;
+        }
+        .timeline-item:nth-child(even) .timeline-content {
+            margin-left: 55%;
+            margin-right: 5%;
+        }
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 25px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #7b5ea7;
+            border: 4px solid white;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+        .member-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #7b5ea7;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+        .member-progress {
+            margin-top: 10px;
+        }
+        .card-header {
+            background-color: #7b5ea7 !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>
+                <i class="fas fa-chart-line"></i> 项目组进度看板
+            </h1>
+            <div class="d-flex gap-2">
+                <a href="{{ url_for('project_group_chat', group_id=group.id) }}" class="btn btn-primary">
+                    <i class="fas fa-comments"></i> 聊天室
+                </a>
+                <a href="{{ url_for('project_group_tasks', group_id=group.id) }}" class="btn btn-primary">
+                    <i class="fas fa-tasks"></i> 任务管理
+                </a>
+                <a href="{{ url_for('discussions') }}" class="btn btn-secondary">返回我的班级</a>
+                <a href="javascript:history.back()" class="btn btn-secondary"><i class="fas fa-arrow-left mr-2"></i>返回</a>
+                <a href="{{ url_for('logout') }}" class="btn btn-danger">退出登录</a>
+            </div>
+        </div>
+        
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <!-- 项目概览统计 -->
+        <div class="row mb-4">
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-icon text-primary">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="stats-value">12</div>
+                    <div class="stats-label">总任务数</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-icon text-success">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stats-value">7</div>
+                    <div class="stats-label">已完成任务</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-icon text-warning">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stats-value">3</div>
+                    <div class="stats-label">进行中任务</div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <div class="stats-icon text-info">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stats-value">5</div>
+                    <div class="stats-label">项目组成员</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 项目进度 -->
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-chart-pie"></i> 项目整体进度
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-4">
+                    <h6>项目完成度</h6>
+                    <div class="progress mb-2">
+                        <div class="progress-bar bg-success" role="progressbar" style="width: 58%" aria-valuenow="58" aria-valuemin="0" aria-valuemax="100">
+                            58%
+                        </div>
+                    </div>
+                    <p class="text-sm text-muted">已完成 7/12 个任务</p>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <h6>设计阶段</h6>
+                            <div class="progress">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                                    80%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <h6>开发阶段</h6>
+                            <div class="progress">
+                                <div class="progress-bar bg-info" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+                                    40%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="mb-3">
+                            <h6>测试阶段</h6>
+                            <div class="progress">
+                                <div class="progress-bar bg-warning" role="progressbar" style="width: 10%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                                    10%
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 项目时间线 -->
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-calendar-alt"></i> 项目时间线
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="project-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h6 class="text-primary">项目启动</h6>
+                            <p>项目组组建完成，确定项目主题和目标</p>
+                            <p class="text-sm text-muted">2025-12-01</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h6 class="text-primary">需求分析</h6>
+                            <p>完成用户需求分析和功能规划</p>
+                            <p class="text-sm text-muted">2025-12-05</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h6 class="text-primary">设计阶段</h6>
+                            <p>完成界面设计和交互设计</p>
+                            <p class="text-sm text-muted">2025-12-15 (当前阶段)</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h6 class="text-primary">开发阶段</h6>
+                            <p>进行系统开发和功能实现</p>
+                            <p class="text-sm text-muted">2025-12-20 - 2025-12-30</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h6 class="text-primary">测试与优化</h6>
+                            <p>进行系统测试和性能优化</p>
+                            <p class="text-sm text-muted">2026-01-01 - 2026-01-10</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <h6 class="text-primary">项目交付</h6>
+                            <p>完成项目交付和验收</p>
+                            <p class="text-sm text-muted">2026-01-15</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 成员工作进度 -->
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="card-title mb-0">
+                    <i class="fas fa-users"></i> 成员工作进度
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="member-avatar">明</div>
+                            <div>
+                                <h6 class="mb-1">小明 (项目组长)</h6>
+                                <div class="member-progress">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">
+                                            70%
+                                        </div>
+                                    </div>
+                                    <p class="text-sm text-muted mt-1">已完成 3/5 个任务</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="member-avatar">红</div>
+                            <div>
+                                <h6 class="mb-1">小红 (设计师)</h6>
+                                <div class="member-progress">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                                            90%
+                                        </div>
+                                    </div>
+                                    <p class="text-sm text-muted mt-1">已完成 4/4 个任务</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="member-avatar">刚</div>
+                            <div>
+                                <h6 class="mb-1">小刚 (开发人员)</h6>
+                                <div class="member-progress">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-info" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
+                                            30%
+                                        </div>
+                                    </div>
+                                    <p class="text-sm text-muted mt-1">已完成 1/4 个任务</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="member-avatar">张</div>
+                            <div>
+                                <h6 class="mb-1">张老师 (指导老师)</h6>
+                                <div class="member-progress">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                            100%
+                                        </div>
+                                    </div>
+                                    <p class="text-sm text-muted mt-1">已完成所有辅导任务</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

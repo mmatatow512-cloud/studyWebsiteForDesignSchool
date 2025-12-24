@@ -1,0 +1,506 @@
+<!-- AI助教悬浮球组件 -->
+<style>
+    /* 悬浮球样式 */
+    .ai-ta-floating {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 60px;
+        height: 60px;
+        background-color: #f5f0e6;
+        border-radius: 50%;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        z-index: 1000;
+        transition: all 0.3s ease;
+    }
+    
+
+    
+    .ai-ta-floating i {
+        color: #6c757d;
+        font-size: 24px;
+    }
+    
+    /* 搜索弹窗样式 */
+    .ai-ta-search-box {
+        position: fixed;
+        bottom: 100px;
+        right: 30px;
+        width: 350px;
+        background-color: white;
+        border-radius: 15px;
+        border: 2px solid #e1d9e1;
+        box-shadow: 0 6px 20px rgba(168, 159, 210, 0.3);
+        z-index: 1001;
+        display: none;
+        overflow: hidden;
+    }
+    
+    .ai-ta-search-header {
+        background-color: #a89fd2;
+        color: white;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .ai-ta-search-header h3 {
+        margin: 0;
+        font-size: 18px;
+    }
+    
+    .ai-ta-close-btn {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    
+    .ai-ta-search-body {
+        padding: 15px;
+    }
+    
+    /* 聊天区域样式 */
+    .chat-area {
+        height: 300px;
+        border: 1px solid #e0e0e0;
+        padding: 16px;
+        overflow-y: auto;
+        margin-bottom: 16px;
+        background-color: white;
+        border-radius: 12px;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+    /* 美化滚动条 */
+    .chat-area::-webkit-scrollbar {
+        width: 8px;
+    }
+    .chat-area::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 4px;
+    }
+    .chat-area::-webkit-scrollbar-thumb {
+        background: #c1c1c1;
+        border-radius: 4px;
+    }
+    .chat-area::-webkit-scrollbar-thumb:hover {
+        background: #a8a8a8;
+    }
+    .message {
+        margin-bottom: 20px;
+        max-width: 85%;
+        animation: fadeIn 0.3s ease-out;
+    }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .message.user {
+        margin-left: auto;
+        margin-right: 0;
+    }
+    .message.ai {
+        margin-left: 0;
+        margin-right: auto;
+    }
+    .message-content {
+        padding: 16px 20px;
+        border-radius: 20px;
+        line-height: 1.6;
+        word-wrap: break-word;
+        white-space: pre-wrap;
+        font-size: 15px;
+        transition: all 0.2s ease;
+    }
+    .message.user .message-content {
+        background-color: #007bff;
+        color: white;
+        border-bottom-right-radius: 6px;
+        box-shadow: 0 2px 8px rgba(0, 123, 255, 0.2);
+    }
+    .message.ai .message-content {
+        background-color: white;
+        color: #333;
+        border: 1px solid #e9ecef;
+        border-bottom-left-radius: 6px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+    .message.ai .message-content:hover {
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+    }
+    .message-header {
+        font-size: 0.8rem;
+        margin-bottom: 8px;
+        color: #718096;
+        font-weight: 600;
+        padding: 0 16px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    /* 加载动画样式 */
+    .loading-indicator {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 3px solid rgba(0, 123, 255, 0.3);
+        border-radius: 50%;
+        border-top-color: #007bff;
+        animation: spin 1s ease-in-out infinite;
+        margin-right: 10px;
+        vertical-align: middle;
+    }
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+    .typing-indicator {
+        color: #6c757d;
+        font-style: italic;
+        display: flex;
+        align-items: center;
+    }
+    .message.ai .message-content.error {
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+        color: #721c24;
+        border-left: 4px solid #dc3545;
+    }
+    .input-area {
+        display: flex;
+        gap: 12px;
+        align-items: flex-end;
+        padding: 10px 0;
+        border-top: 1px solid #eee;
+    }
+    .input-area textarea {
+        flex: 1;
+        height: 90px;
+        padding: 14px 16px;
+        border: 1px solid #e0e0e0;
+        border-radius: 12px;
+        font-size: 15px;
+        line-height: 1.5;
+        resize: none;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .input-area textarea:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+    }
+    .send-btn {
+        padding: 0 24px;
+        height: 48px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 24px;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    .send-btn:hover {
+        background: #0056b3;
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(0, 123, 255, 0.25);
+    }
+    .send-btn:active {
+        transform: translateY(0);
+    }
+    
+    /* 加载动画 */
+    .ai-ta-loading {
+        text-align: center;
+        padding: 20px;
+        color: #666;
+    }
+    
+    .ai-ta-loading::after {
+        content: '';
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 2px solid #f3f3f3;
+        border-top: 2px solid #a89fd2;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin-left: 10px;
+    }
+    
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
+
+<!-- 悬浮球 -->
+<div class="ai-ta-floating" id="aiTaFloating">
+    <i class="fas fa-robot"></i>
+</div>
+
+<!-- 智能对话弹窗 -->
+<div class="ai-ta-search-box" id="aiTaSearchBox">
+    <div class="ai-ta-search-header">
+        <h3>AI助教答疑</h3>
+        <button class="ai-ta-close-btn" id="aiTaCloseBtn">&times;</button>
+    </div>
+    <div class="ai-ta-search-body">
+        <!-- 智能对话区域 -->
+        <div class="chat-area" id="chat-area">
+            <p style="text-align: center; color: #666; padding: 20px;">请输入问题开始对话</p>
+        </div>
+        
+        <!-- 输入区域 -->
+        <div class="input-area" style="display: flex; align-items: center; padding: 10px 0; border-top: 1px solid #eee;">
+            <textarea id="question" class="ai-ta-search-input" placeholder="请输入您的问题..." autocomplete="off" style="margin-bottom: 0; border-radius: 20px 0 0 20px; resize: none;"></textarea>
+            <button id="send-btn" class="send-btn" style="background-color: #a89fd2; color: white; border: none; border-radius: 0 20px 20px 0; padding: 10px 15px; cursor: pointer; font-size: 14px; transition: all 0.3s ease;">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // 悬浮球交互
+    document.addEventListener('DOMContentLoaded', function() {
+        const floatingBtn = document.getElementById('aiTaFloating');
+        const searchBox = document.getElementById('aiTaSearchBox');
+        const closeBtn = document.getElementById('aiTaCloseBtn');
+        const sendBtn = document.getElementById('send-btn');
+        const questionInput = document.getElementById('question');
+        
+        // 切换搜索弹窗显示/隐藏
+        floatingBtn.addEventListener('click', function() {
+            searchBox.style.display = searchBox.style.display === 'block' ? 'none' : 'block';
+            if (searchBox.style.display === 'block') {
+                questionInput.focus();
+            }
+        });
+        
+        // 关闭搜索弹窗
+        closeBtn.addEventListener('click', function() {
+            searchBox.style.display = 'none';
+        });
+        
+        // 点击弹窗外部关闭
+        document.addEventListener('click', function(e) {
+            if (!searchBox.contains(e.target) && !floatingBtn.contains(e.target)) {
+                searchBox.style.display = 'none';
+            }
+        });
+        
+        // 发送问题按钮点击事件
+        sendBtn.addEventListener('click', sendQuestion);
+        
+        // 回车键发送问题
+        questionInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendQuestion();
+            }
+        });
+    });
+    
+    // 发送问题函数
+    async function sendQuestion() {
+        const question = document.getElementById('question').value.trim();
+        if (!question) return;
+
+        const chatArea = document.getElementById('chat-area');
+        // 生成唯一的会话ID
+        const sessionId = 'session-' + Date.now();
+
+        // 显示问题
+        chatArea.innerHTML += `
+            <div class="message user">
+                <div class="message-content">
+                    ${question}
+                </div>
+            </div>
+        `;
+
+        // 清空输入框
+        document.getElementById('question').value = '';
+        // 滚动到对话底部
+        chatArea.scrollTop = chatArea.scrollHeight;
+
+        // 创建AI回答元素
+        const answerId = 'answer-' + Date.now();
+        const loadingId = 'loading-' + Date.now();
+        let aiAnswerElement = document.createElement('div');
+        aiAnswerElement.className = 'message ai';
+        aiAnswerElement.innerHTML = `
+            <div class="message-header">AI助教</div>
+            <div class="message-content">
+                <div class="typing-indicator" id="${loadingId}">
+                    <div class="loading-indicator"></div>
+                    <span>AI正在思考中...</span>
+                </div>
+                <span class="answer-content" id="${answerId}" style="display: none;"></span>
+            </div>
+        `;
+        chatArea.appendChild(aiAnswerElement);
+        chatArea.scrollTop = chatArea.scrollHeight;
+
+        let fullAnswer = '';
+
+        // 使用SSE调用后端API
+        const eventSource = new EventSource(`/api/ai-tutor/chat?${new URLSearchParams({question: question})}`);
+
+        // 处理流式响应
+        eventSource.onmessage = function(event) {
+            if (event.data === '[DONE]') {
+                // 关闭连接
+                eventSource.close();
+                
+                // 保存对话记录
+                saveConversation(question, fullAnswer, sessionId);
+                return;
+            }
+
+            try {
+                const data = JSON.parse(event.data);
+                const answerSpan = document.getElementById(answerId);
+                const loadingIndicator = document.getElementById(loadingId);
+
+                if (data.type === 'thinking') {
+                    // 第一次收到思考内容时，隐藏加载指示器并显示思考内容
+                    if (loadingIndicator && answerSpan.style.display === 'none') {
+                        loadingIndicator.style.display = 'none';
+                        answerSpan.style.display = 'block';
+                    }
+                    // 显示思考过程（灰色文本）
+                    let thinkingElement = document.getElementById('thinking-' + answerId);
+                    if (!thinkingElement) {
+                        thinkingElement = document.createElement('div');
+                        thinkingElement.id = 'thinking-' + answerId;
+                        thinkingElement.className = 'thinking-content';
+                        thinkingElement.style.color = '#888888';
+                        thinkingElement.style.width = '100%';
+                        thinkingElement.style.marginBottom = '8px';
+                        thinkingElement.style.padding = '0 20px';
+                        answerSpan.parentNode.insertBefore(thinkingElement, answerSpan);
+                    }
+                    thinkingElement.textContent += data.content + ' ';
+                    chatArea.scrollTop = chatArea.scrollHeight;
+                } else if (data.type === 'answer') {
+                    // 第一次收到回答内容时，隐藏加载指示器并显示回答内容
+                    if (loadingIndicator && answerSpan.style.display === 'none') {
+                        loadingIndicator.style.display = 'none';
+                        answerSpan.style.display = 'block';
+                    }
+                    // 追加回答内容
+                    answerSpan.textContent += data.content;
+                    fullAnswer += data.content;
+                    chatArea.scrollTop = chatArea.scrollHeight;
+                } else if (data.type === 'error') {
+                    // 处理错误类型的事件
+                    if (loadingIndicator && answerSpan.style.display === 'none') {
+                        loadingIndicator.style.display = 'none';
+                        answerSpan.style.display = 'block';
+                    }
+                    // 显示错误信息
+                    answerSpan.textContent = data.content;
+                    answerSpan.style.color = '#ff0000';
+                    fullAnswer = data.content; // 设置一个非空的回答内容，避免保存对话失败
+                    chatArea.scrollTop = chatArea.scrollHeight;
+                }
+            } catch (error) {
+                console.error('解析SSE数据失败:', error);
+            }
+        };
+
+        // 处理错误
+        eventSource.onerror = function(error) {
+            console.error('SSE连接错误:', error);
+            console.error('错误详情:', {type: error.type, target: error.target, readyState: eventSource.readyState});
+            
+            // 获取更详细的错误信息
+            let errorMessage = 'AI回答出错，请稍后重试。';
+            const answerContent = aiAnswerElement.querySelector('.message-content');
+            
+            // 检查是否是401未登录错误
+            if (error.target.readyState === EventSource.CLOSED) {
+                // 创建一个临时请求来检查实际错误状态
+                fetch(`/api/ai-tutor/chat?${new URLSearchParams({question: '测试'})}`, {
+                    method: 'GET',
+                    credentials: 'same-origin'
+                }).then(response => {
+                    if (response.status === 401) {
+                        errorMessage = '会话已过期，请重新登录后再试。';
+                    }
+                    answerContent.className = 'message-content error';
+                    answerContent.innerHTML = `<span id="ai-answer">${errorMessage}</span>`;
+                    fullAnswer = errorMessage;
+                    // 保存对话记录
+                    saveConversation(question, fullAnswer, sessionId);
+                }).catch(() => {
+                    answerContent.className = 'message-content error';
+                    answerContent.innerHTML = `<span id="ai-answer">${errorMessage}</span>`;
+                    fullAnswer = errorMessage;
+                    // 保存对话记录
+                    saveConversation(question, fullAnswer, sessionId);
+                });
+            } else {
+                answerContent.className = 'message-content error';
+                answerContent.innerHTML = `<span id="ai-answer">${errorMessage}</span>`;
+                fullAnswer = errorMessage;
+                // 保存对话记录
+                saveConversation(question, fullAnswer, sessionId);
+            }
+            
+            // 关闭连接
+            eventSource.close();
+            chatArea.scrollTop = chatArea.scrollHeight;
+        };
+    }
+    
+    // 保存对话记录函数
+    async function saveConversation(question, answer, sessionId) {
+        try {
+            const response = await fetch('/api/ai-tutor/save-conversation', {
+                method: 'POST',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    question: question,
+                    answer: answer,
+                    session_id: sessionId
+                })
+            });
+            
+            const result = await response.json();
+            if (!result.success) {
+                console.error('保存对话失败:', result.error);
+            }
+        } catch (error) {
+            console.error('保存对话错误:', error);
+        }
+    }
+    
+    // 添加加载动画样式
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes pulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+    `;
+    document.head.appendChild(style);
+</script>

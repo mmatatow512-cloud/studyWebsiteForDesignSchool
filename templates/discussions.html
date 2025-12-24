@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的班级 - 用户信息管理系统</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- 引入紫色主题样式 -->
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <style>
+        /* 保留必要的页面特定样式 */
+        .page-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .chat-container {
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 15px;
+        }
+        .chat-message {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 80%;
+        }
+        .message-sent {
+            background-color: #e6ccff;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+        .message-received {
+            background-color: #f0e6ff;
+            align-self: flex-start;
+        }
+        .teacher-chat {
+            border: 2px solid #e6ccff;
+        }
+        .student-chat {
+            border: 2px solid #e6ccff;
+        }
+        .chat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+        }
+        .chat-footer {
+            padding: 15px;
+            border-top: 1px solid #dee2e6;
+        }
+        .message-input {
+            resize: none;
+            min-height: 80px;
+        }
+        .chat-actions {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .project-group-btn {
+            margin-top: 10px;
+        }
+        /* 课程筛选器和卡片样式 */
+        .course-filter {
+            margin-bottom: 20px;
+        }
+        .course-card {
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .course-header {
+            background-color: #f0e6ff;
+            color: #333;
+            padding: 15px;
+            border-radius: 10px 10px 0 0;
+        }
+        .course-body {
+            padding: 20px;
+        }
+        .class-member {
+            display: inline-block;
+            background-color: #f0e6ff;
+            padding: 5px 10px;
+            border-radius: 15px;
+            margin: 5px;
+            font-size: 14px;
+        }
+        .teacher-info {
+            background-color: #e6ccff;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>我的班级</h1>
+            <div class="d-flex gap-2">
+                <a href="{{ url_for('dashboard') }}" class="btn btn-primary"><i class="fas fa-home mr-2"></i>返回首页</a>
+            </div>
+        </div>
+        
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <!-- 课程筛选器 -->
+        <div class="course-filter">
+            <label for="courseSelect" class="form-label">选择课程：</label>
+            <select class="form-select" id="courseSelect" onchange="filterCourses()">
+                <option value="all">所有课程</option>
+                {% for info in course_info %}
+                    <option value="{{ info.course.id }}">{{ info.course.title }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+        <!-- 课程列表 -->
+        <div class="course-list">
+            {% for info in course_info %}
+                <div class="course-card" data-course-id="{{ info.course.id }}">
+                    <div class="course-header">
+                        <h5 class="mb-0">
+                            {{ info.course.title }}
+                        </h5>
+                        <span class="badge bg-light text-dark">{{ info.course.course_code }}</span>
+                    </div>
+                    <div class="course-body">
+                        <!-- 授课老师信息 -->
+                        <div class="teacher-info mb-4">
+                            <h6 class="mb-2">
+                                授课老师
+                            </h6>
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="d-flex align-items-center">
+                                    <div class="mr-3">
+                                        <i class="fas fa-user-circle" style="font-size: 32px; color: #7b5ea7;"></i>
+                                    </div>
+                                    <div>
+                                        <strong>{{ info.teacher.username }}</strong>
+                                        <p class="mb-0 text-sm">教师</p>
+                                    </div>
+                                </div>
+                                <button class="btn btn-sm btn-primary" onclick="startPrivateChat({{ info.teacher.id }}, '{{ info.teacher.username }}')">
+                                    <i class="fas fa-comment-dots mr-1"></i>私聊
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- 班级成员列表 -->
+                        <div class="class-members mb-4">
+                            <h6 class="mb-2">
+                                班级成员 ({{ info.class_members|length }}人)
+                            </h6>
+                            <div class="member-list">
+                                {% for member in info.class_members %}
+                                    <span class="class-member d-flex align-items-center gap-2">
+                                        <i class="fas fa-user mr-1"></i>{{ member.username }}
+                                        <button class="btn btn-sm btn-outline-primary" onclick="startPrivateChat({{ member.id }}, '{{ member.username }}')">
+                                            <i class="fas fa-comment-dots"></i>私聊
+                                        </button>
+                                    </span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        
+                        <!-- 课程专属聊天群入口 -->
+                        <div class="chat-group-entry">
+                            <button class="btn btn-primary btn-block" onclick="openChatGroup({{ info.course.id }}, '{{ info.course.title }}')">
+                                <i class="fas fa-comments mr-2"></i>进入课程聊天群
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        
+        <!-- 课程聊天窗口模态框 -->
+        <div class="modal fade" id="courseChatModal" tabindex="-1" aria-labelledby="courseChatModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color: #7b5ea7; color: white;">
+                        <h5 class="modal-title" id="courseChatModalLabel">课程聊天群</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body p-0 chat-container">
+                        <div class="chat-messages" id="courseChatMessages">
+                            <!-- 消息将动态显示在这里 -->
+                        </div>
+                        <div class="chat-footer">
+                            <div class="chat-actions">
+                                <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#referenceModal">
+                                    <i class="fas fa-link"></i> 引用
+                                </button>
+                                <button type="button" class="btn btn-secondary btn-sm">
+                                    <i class="fas fa-image"></i> 图片
+                                </button>
+                                <button type="button" class="btn btn-secondary btn-sm">
+                                    <i class="fas fa-file-alt"></i> 文件
+                                </button>
+                            </div>
+                            <textarea class="form-control message-input" id="courseMessageInput" placeholder="输入消息..."></textarea>
+                            <div class="d-flex justify-content-end mt-2">
+                                <button type="button" class="btn btn-primary" onclick="sendCourseMessage()">发送</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 引用功能模态框 -->
+    <div class="modal fade" id="referenceModal" tabindex="-1" aria-labelledby="referenceModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="referenceModalLabel">引用内容</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="referenceType" class="form-label">选择引用类型</label>
+                        <select class="form-select" id="referenceType">
+                            <option value="course">课程板块</option>
+                            <option value="assignment">作业内容</option>
+                            <option value="project">项目内容</option>
+                            <option value="portfolio">作品集内容</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="referenceContent" class="form-label">引用内容</label>
+                        <textarea class="form-control" id="referenceContent" rows="3" placeholder="输入引用的具体内容"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" onclick="addReference()">添加引用</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 创建项目组模态框 -->
+    <div class="modal fade" id="createProjectGroupModal" tabindex="-1" aria-labelledby="createProjectGroupModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="createProjectGroupModalLabel">创建项目组</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="projectGroupName" class="form-label">项目组名称</label>
+                        <input type="text" class="form-control" id="projectGroupName" placeholder="输入项目组名称">
+                    </div>
+                    <div class="mb-3">
+                        <label for="projectGroupMembers" class="form-label">邀请成员（用逗号分隔）</label>
+                        <input type="text" class="form-control" id="projectGroupMembers" placeholder="成员1,成员2,成员3">
+                    </div>
+                    <div class="mb-3">
+                        <label for="projectGroupDescription" class="form-label">项目描述</label>
+                        <textarea class="form-control" id="projectGroupDescription" rows="3" placeholder="输入项目的简单描述"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-success" onclick="createProjectGroup()">创建项目组</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 课程筛选功能
+        function filterCourses() {
+            const selectedCourseId = document.getElementById('courseSelect').value;
+            const courseCards = document.querySelectorAll('.course-card');
+            
+            courseCards.forEach(card => {
+                const courseId = card.getAttribute('data-course-id');
+                if (selectedCourseId === 'all' || courseId === selectedCourseId) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+        
+        // 打开课程聊天群
+        function openChatGroup(courseId, courseTitle) {
+            // 跳转到聊天页面的最近聊天模块
+            window.location.href = `/messages?course=${courseId}&name=${encodeURIComponent(courseTitle)}&tab=recent`;
+        }
+        
+        // 发送课程消息
+        function sendCourseMessage() {
+            const input = document.getElementById('courseMessageInput');
+            const message = input.value.trim();
+            if (message === '') return;
+            
+            const messagesDiv = document.getElementById('courseChatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'chat-message message-sent';
+            messageDiv.innerHTML = `
+                <strong>{{ user.username }}</strong><br>
+                ${message}
+                <br><small class="text-muted">${new Date().toLocaleTimeString()}</small>
+            `;
+            messagesDiv.appendChild(messageDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+            
+            input.value = '';
+        }
+        
+        // 添加引用
+        function addReference() {
+            const referenceType = document.getElementById('referenceType').value;
+            const referenceContent = document.getElementById('referenceContent').value.trim();
+            if (referenceContent === '') return;
+            
+            const input = document.getElementById('courseMessageInput');
+            const typeMap = {
+                'course': '课程板块',
+                'assignment': '作业内容',
+                'project': '项目内容',
+                'portfolio': '作品集内容'
+            };
+            
+            input.value += `\n引用${typeMap[referenceType]}：\n${referenceContent}\n`;
+            document.getElementById('referenceModal').querySelector('.btn-close').click();
+        }
+        
+        // 创建项目组
+        function createProjectGroup() {
+            const name = document.getElementById('projectGroupName').value.trim();
+            const members = document.getElementById('projectGroupMembers').value.trim();
+            const description = document.getElementById('projectGroupDescription').value.trim();
+            
+            if (!name) {
+                alert('请输入项目组名称');
+                return;
+            }
+            
+            // 这里可以添加项目组创建的逻辑
+            alert(`项目组 "${name}" 创建成功！`);
+            
+            // 关闭模态框并清空表单
+            document.getElementById('createProjectGroupModal').querySelector('.btn-close').click();
+            document.getElementById('projectGroupName').value = '';
+            document.getElementById('projectGroupMembers').value = '';
+            document.getElementById('projectGroupDescription').value = '';
+        }
+        
+        // 开始私聊
+        function startPrivateChat(userId, username) {
+            window.location.href = `/messages?with=${userId}&name=${encodeURIComponent(username)}&tab=recent`;
+        }
+        
+        // 回车键发送消息
+        document.getElementById('courseMessageInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendCourseMessage();
+            }
+        });
+    </script>
+</body>
+</html>

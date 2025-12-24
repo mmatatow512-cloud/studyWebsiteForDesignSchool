@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI智能分析报告结果 - 用户信息管理系统</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <style>
+        .page-container {
+            max-width: 800px;
+            margin: 50px auto;
+        }
+        .score-card {
+            text-align: center;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        .high-score, .medium-score, .low-score {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            color: #333;
+            border-radius: 0.375rem;
+        }
+        .dimension-card {
+            margin-bottom: 15px;
+        }
+        .suggestion-item {
+            background-color: #ffffff;
+            padding: 15px;
+            border-radius: 0.375rem;
+            margin-bottom: 10px;
+            border: 1px solid #e0e0e0;
+        }
+        .comparison-section {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 0.375rem;
+            margin-top: 30px;
+            border: 1px solid #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>AI智能分析报告结果</h1>
+            <div class="d-flex gap-2">
+                <a href="{{ url_for('assignments') }}" class="btn btn-secondary">返回提交作业</a>
+                <a href="javascript:history.back()" class="btn btn-secondary">返回</a>
+                <a href="{{ url_for('logout') }}" class="btn btn-danger">退出登录</a>
+            </div>
+        </div>
+        
+        <!-- 总分显示 -->
+        <div class="score-card {% if total_score >= 85 %}high-score{% elif total_score >= 60 %}medium-score{% else %}low-score{% endif %}">
+            <h2>总分: <span class="display-4">{{ total_score }}</span> / 100</h2>
+            <p class="lead">
+                {% if total_score >= 85 %}优秀的报告！继续保持！{% elif total_score >= 60 %}良好的报告，还有改进空间。{% else %}需要进一步完善的报告。{% endif %}
+            </p>
+        </div>
+        
+        <!-- API调用状态信息 -->
+        <div class="alert alert-info mt-3">
+            <strong>分析方式：</strong>
+            {% if api_status == 'success' %}
+                云端AI分析（推荐）
+            {% elif api_status == 'failed' %}
+                本地AI分析 <small class="text-muted">(因{{ api_error if api_error else '网络或API问题' }}，使用本地替代方案)</small>
+            {% else %}
+                {{ api_status if api_status else '未知分析方式' }}
+            {% endif %}
+        </div>
+        
+        <!-- 各维度评分 -->
+        <h3>各维度评分</h3>
+        <div class="row">
+            {% for score in scores %}
+            <div class="col-md-6">
+                <div class="card dimension-card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ score.name }}</h5>
+                        <div class="progress" style="height: 20px;">
+                            <div class="progress-bar" 
+                                 role="progressbar" 
+                                 class="progress-bar-width" data-width="{{ score.score }}"
+                                 aria-valuenow="{{ score.score }}" aria-valuemin="0" aria-valuemax="100"
+                                 style="background-color: #0d6efd;">
+                                {{ score.score }}分
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <!-- 优化建议 -->
+        <h3 class="mt-4">优化建议</h3>
+        {% if suggestions %}
+            <div class="suggestions-list">
+                {% for suggestion in suggestions %}
+                    {% if suggestion.startswith("【") and "】" in suggestion %}
+                        <!-- 结构化的带维度标签的建议 -->
+                        <div class="suggestion-item">
+                            {% set dimension_end = suggestion.find("】") %}
+                            {% if dimension_end > 0 %}
+                                {% set dimension = suggestion[1:dimension_end] %}
+                                {% set content = suggestion[dimension_end+1:] %}
+                                <h5 style="color: #a89fd2;">{{ dimension }}改进建议</h5>
+                                
+                                {% if "问题:" in content and "改进建议:" in content %}
+                                    <!-- 结构化的问题+建议格式 -->
+                                    {% set problem_part = content.split("问题:")[1].split("改进建议:")[0].strip() %}
+                                    {% set suggestion_part = content.split("改进建议:")[1].strip() %}
+                                    
+                                    <div class="mt-2">
+                                        <h6 class="font-weight-bold">问题：</h6>
+                                        <ul class="list-disc pl-5">
+                                            {% for problem in problem_part.split("•") %}
+                                                {% if problem.strip() %}
+                                                    <li>{{ problem.strip() }}</li>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="mt-2">
+                                        <h6 class="font-weight-bold">改进建议：</h6>
+                                        <ul class="list-disc pl-5">
+                                            {% for sug in suggestion_part.split("•") %}
+                                                {% if sug.strip() %}
+                                                    <li>{{ sug.strip() }}</li>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                {% else %}
+                                    <p>{{ content }}</p>
+                                {% endif %}
+                            {% else %}
+                                <p>{{ suggestion }}</p>
+                            {% endif %}
+                        </div>
+                    {% else %}
+                        <!-- 普通建议 -->
+                        <div class="suggestion-item">
+                            <p>{{ suggestion }}</p>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="text-success">报告写得非常好，没有明显的改进建议！</p>
+        {% endif %}
+        
+        <!-- 报告对比分析 -->
+        {% if comparison.success %}
+        <div class="comparison-section">
+            <h3>报告对比分析</h3>
+            <p><strong>对比范例：</strong>{{ comparison.example.title }}</p>
+            <p><strong>范例关键词：</strong>{{ ', '.join(comparison.example.keywords) }}</p>
+            
+            <h4 class="mt-3">差异分析</h4>
+            <ul>
+                <li>段落数量：您的报告有{{ comparison.comparison.paragraph_count.student }}个段落，范例有{{ comparison.comparison.paragraph_count.example }}个段落</li>
+                <li>标题结构：{% if comparison.comparison.structure.student_has_headings %}已使用标题结构{% else %}未使用标题结构（建议添加）{% endif %}</li>
+                <li>关键词覆盖率：{{ (comparison.comparison.keyword_coverage.coverage_ratio * 100)|round(1) }}%（已覆盖：{{ ', '.join(comparison.comparison.keyword_coverage.covered_keywords) }}）</li>
+            </ul>
+            
+            <h4 class="mt-3">对比建议</h4>
+            {% if comparison.comparison.suggestions %}
+                <div class="suggestions-list">
+                    {% for suggestion in comparison.comparison.suggestions %}
+                        <div class="suggestion-item">
+                            <p>{{ suggestion }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p class="text-success">您的报告与优秀范例结构相似，继续保持！</p>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+    
+    <script>
+    // 页面加载后动态设置所有进度条宽度
+    document.addEventListener('DOMContentLoaded', function() {
+        var progressBars = document.querySelectorAll('.progress-bar-width');
+        progressBars.forEach(function(bar) {
+            var width = bar.getAttribute('data-width');
+            bar.style.width = width + '%';
+        });
+    });
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

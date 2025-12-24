@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>查看测验详情</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 15px;
+
+        }
+        h1 {
+            color: #333;
+        }
+        h2 {
+            color: #555;
+            margin-top: 30px;
+        }
+        .quiz-info {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        .info-item {
+            margin-bottom: 10px;
+        }
+        .info-label {
+            font-weight: bold;
+            display: inline-block;
+            width: 100px;
+        }
+
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .question-type {
+            background-color: #e0f7fa;
+            color: #006064;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .question-content {
+            margin-bottom: 10px;
+        }
+        .options {
+            margin-left: 20px;
+        }
+        .option {
+            margin-bottom: 5px;
+        }
+        .answer-info {
+            background-color: #e8f5e8;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .answer-label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        .score-std {
+            background-color: #fff3e0;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .student-list {
+            margin-top: 20px;
+        }
+        .student-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container page-container">
+        <h1>查看测验详情</h1>
+        
+        <div class="quiz-info">
+            <div class="info-item">
+                <span class="info-label">测验名称：</span>{{ quiz.title }}
+            </div>
+            <div class="info-item">
+                <span class="info-label">知识点：</span>{{ quiz.knowledge_points }}
+            </div>
+            <div class="info-item">
+                <span class="info-label">难度：</span>{{ quiz.difficulty }}
+            </div>
+            <div class="info-item">
+                <span class="info-label">时间限制：</span>{{ quiz.time_limit }}分钟
+            </div>
+            <div class="info-item">
+                <span class="info-label">防作弊：</span>{{ "开启" if quiz.anti_cheat else "关闭" }}
+            </div>
+            <div class="info-item">
+                <span class="info-label">创建时间：</span>{{ quiz.created_at.strftime('%Y-%m-%d %H:%M') }}
+            </div>
+        </div>
+        
+        <h2>测验题目</h2>
+        {% if quiz_questions %}
+            {% for quiz_q in quiz_questions %}
+                {% if quiz_q.question %}
+                <div class="question">
+                    <div class="question-header">
+                        <span>{{ loop.index }}. {{ quiz_q.question.content }}</span>
+                        <span class="question-type">{{ quiz_q.question.qtype }}</span>
+                    </div>
+                    
+                    {% if quiz_q.question.options_dict %}
+                    <div class="options">
+                        {% for key, value in quiz_q.question.options_dict.items() %}
+                        <div class="option">{{ key }}. {{ value }}</div>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    <div class="options">
+                        <div class="option">无选项</div>
+                    </div>
+                    {% endif %}
+                    
+                    <div class="answer-info">
+                        <span class="answer-label">参考答案：</span>{{ quiz_q.question.answer | default('') }}
+                    </div>
+                    
+                    {% if quiz_q.question.score_std %}
+                    <div class="score-std">
+                        <span class="answer-label">评分标准：</span>{{ quiz_q.question.score_std }}
+                    </div>
+                    {% endif %}
+                </div>
+                {% else %}
+                <div class="question">
+                    <p>题目信息丢失</p>
+                </div>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <p>暂无题目，学生开始测验时会自动生成/选取题目。</p>
+        {% endif %}
+        
+        <h2>学生参与情况</h2>
+        {% if student_quizzes %}
+            <div class="student-list">
+                {% for student_quiz in student_quizzes %}
+                <div class="student-item">
+                    <strong>学生ID：</strong>{{ student_quiz.student_id }} | 
+                    <strong>状态：</strong>{{ student_quiz.status }} | 
+                    <strong>总分：</strong>{{ student_quiz.total_score }} | 
+                    <strong>开始时间：</strong>{{ student_quiz.start_time.strftime('%Y-%m-%d %H:%M') }} | 
+                    {% if student_quiz.end_time %}
+                    <strong>结束时间：</strong>{{ student_quiz.end_time.strftime('%Y-%m-%d %H:%M') }} | 
+                    {% endif %}
+                    <strong>作弊次数：</strong>{{ student_quiz.cheat_count }} | 
+                    <strong>是否超时：</strong>{{ "是" if student_quiz.is_timeout else "否" }}
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>暂无学生参与此测验。</p>
+        {% endif %}
+        
+        <div class="form-actions">
+            <a href="{{ url_for('teacher_view_student_answers', quiz_id=quiz.id) }}" class="btn btn-primary">查看学生答题详情</a>
+        </div>
+    </div>
+</body>
+</html>

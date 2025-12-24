@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能教案整理 - 用户信息管理系统</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入 FontAwesome 图标库，增加视觉效果 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- 引入紫色主题样式 -->
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <style>
+        /* 与个人中心页面保持一致的容器宽度 */
+        .dashboard-container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 30px;
+        }
+        /* 保留必要的页面特定样式 */
+        .text-area {
+            min-height: 300px;
+        }
+        .status-container {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 10px;
+            display: none; /* 默认隐藏 */
+        }
+        /* 上传区域样式 */
+        .upload-area {
+            border: 2px dashed #c8a2c8;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            background-color: #f0e6ff;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .upload-area:hover {
+            border-color: #7b5ea7;
+            background-color: #e6ccff;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>智能教材制作</h1>
+            <div class="d-flex gap-2">
+                <a href="javascript:history.back()" class="btn btn-secondary"><i class="fas fa-arrow-left mr-2"></i>返回</a>
+                <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">返回首页</a>
+            </div>
+        </div>
+        
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <!-- 标签页导航 -->
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="text-tab" data-bs-toggle="tab" data-bs-target="#text-pane" type="button" role="tab">
+                    <i class="fas fa-file-alt me-2"></i>文本转 PPT
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="video-tab" data-bs-toggle="tab" data-bs-target="#video-pane" type="button" role="tab">
+                    <i class="fas fa-video me-2"></i>PPT 转 视频
+                </button>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="myTabContent">
+            
+            <!-- 模块一：文本转 PPT -->
+            <div class="tab-pane fade show active" id="text-pane" role="tabpanel">
+                
+                <div class="alert alert-light border mb-3">
+                    <strong><i class="fas fa-info-circle me-1"></i> 使用说明：</strong>
+                    <ul class="mb-0 ps-3">
+                        <li>第一行为PPT封面标题，第二行为副标题</li>
+                        <li>使用空行分隔不同的PPT页面</li>
+                        <li>每个页面的第一行为该页面标题，后续行为要点内容</li>
+                    </ul>
+                </div>
+                
+                <div class="card">
+                    <div class="card-body p-0">
+                        <div class="mb-3">
+                            <label for="theme" class="form-label fw-bold">选择PPT主题</label>
+                            <select class="form-select" id="theme" name="theme">
+                                <option value="business_blue">商务蓝 (Business Blue)</option>
+                                <option value="morandi">莫兰迪 (Morandi)</option>
+                                <option value="dark_tech">暗黑科技 (Dark Tech)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="content" class="form-label fw-bold">输入教案内容</label>
+                            <textarea class="form-control text-area font-monospace" id="content" name="content" placeholder="请输入教案内容...
+
+示例：
+2024年人工智能发展趋势
+技术与应用的深度融合
+
+大语言模型的演进
+参数规模持续增长
+多模态能力增强
+推理成本逐渐降低
+
+生成式AI的商业落地
+核心领域：营销文案与图像生成
+辅助编程普及率提升"></textarea>
+                        </div>
+                        
+                        <button type="button" class="btn btn-primary w-100 py-2" id="generateBtn">
+                            <i class="fas fa-magic me-2"></i>开始生成PPT
+                        </button>
+                        
+                        <div class="status-container" id="textStatus"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 模块二：PPT 转 视频 -->
+            <div class="tab-pane fade" id="video-pane" role="tabpanel">
+                
+                <div class="alert alert-light border mb-3">
+                    <strong><i class="fas fa-info-circle me-1"></i> 功能说明：</strong>
+                    系统将提取PPT备注生成语音，并合成视频。过程耗时较长（约1-3分钟），请耐心等待。
+                </div>
+
+                <div class="card">
+                    <div class="card-body p-0">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold">上传 PPT 文件</label>
+                            <input type="file" id="pptFile" accept=".pptx" class="d-none">
+                            <div class="upload-area" onclick="document.getElementById('pptFile').click()">
+                                <i class="fas fa-cloud-upload-alt fa-3x text-secondary mb-2"></i>
+                                <h5 id="fileName" class="text-muted">点击此处上传 .pptx 文件</h5>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="rate" class="form-label fw-bold">语速设置：<span id="rateValue" class="badge bg-secondary">170 字/分</span></label>
+                            <input type="range" class="form-range" id="rate" min="100" max="250" value="170">
+                            <div class="d-flex justify-content-between small text-muted">
+                                <span>慢速</span>
+                                <span>标准</span>
+                                <span>快速</span>
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-success w-100 py-2" id="convertBtn">
+                            <i class="fas fa-video me-2"></i>开始生成视频
+                        </button>
+
+                        <div class="status-container" id="videoStatus">
+                            <div class="progress" style="margin-bottom: 10px;">
+                                <div class="progress-bar" id="videoProgressBar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div id="videoProgressText"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 通用状态显示函数
+        function showStatus(element, message, type) {
+            element.style.display = 'block';
+            element.textContent = message;
+            element.className = 'status-container ' + type;
+        }
+
+        // ========================
+        // 模块一：文本转 PPT 逻辑
+        // ========================
+        document.getElementById('generateBtn').addEventListener('click', function() {
+            const content = document.getElementById('content').value;
+            const theme = document.getElementById('theme').value;
+            const status = document.getElementById('textStatus');
+            const btn = this;
+            
+            // 环境检测
+            if (window.location.protocol === 'file:') {
+                alert("请在 Python 服务器环境下运行 (localhost:5001)，不要直接双击打开 HTML 文件。");
+                return;
+            }
+
+            if (!content.trim()) {
+                showStatus(status, '请输入 PPT 内容', 'error');
+                return;
+            }
+            
+            btn.disabled = true;
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>正在生成...';
+            showStatus(status, '正在分析文本并生成PPT，请稍候...', 'loading');
+            
+            // 构建表单数据 (兼容性更好，防止后端无法解析 JSON)
+            const formData = new URLSearchParams();
+            formData.append('content', content);
+            formData.append('text', content); // 双重保险
+            formData.append('theme', theme);
+
+            fetch('/generate_ppt', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.blob();
+                }
+                return response.json().then(data => { throw new Error(data.message || '生成失败'); });
+            })
+            .then(blob => {
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `presentation_${new Date().getTime()}.pptx`;
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+                showStatus(status, 'PPT 生成成功！下载已开始。', 'success');
+            })
+            .catch(error => {
+                showStatus(status, `生成失败: ${error.message}`, 'error');
+            })
+            .finally(() => {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-magic me-2"></i>开始生成PPT';
+            });
+        });
+
+        // ========================        
+        // 模块二：PPT 转 视频 逻辑
+        // ========================        
+        const fileInput = document.getElementById('pptFile');
+        const fileNameDisplay = document.getElementById('fileName');
+        const rateInput = document.getElementById('rate');
+        const videoProgressBar = document.getElementById('videoProgressBar');
+        const videoProgressText = document.getElementById('videoProgressText');
+        
+        fileInput.addEventListener('change', function() {
+            if (this.files[0]) {
+                fileNameDisplay.textContent = this.files[0].name;
+                fileNameDisplay.classList.add('text-primary');
+            }
+        });
+
+        rateInput.addEventListener('input', function() {
+            document.getElementById('rateValue').textContent = this.value + ' 字/分';
+        });
+
+        // 更新进度条的函数
+        function updateProgress(percent, message) {
+            videoProgressBar.style.width = percent + '%';
+            videoProgressBar.setAttribute('aria-valuenow', percent);
+            videoProgressText.textContent = message;
+        }
+
+        document.getElementById('convertBtn').addEventListener('click', function() {
+            const btn = this;
+            const status = document.getElementById('videoStatus');
+
+            if (!fileInput.files[0]) {
+                showStatus(status, '请先上传 PPT 文件', 'error');
+                return;
+            }
+
+            btn.disabled = true;
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>渲染中...';
+            
+            // 显示状态容器和进度条
+            status.style.display = 'block';
+            status.className = 'status-container loading';
+            updateProgress(0, '正在准备视频转换...');
+
+            const formData = new FormData();
+            formData.append('ppt_file', fileInput.files[0]);
+            formData.append('rate', rateInput.value);
+
+            // 模拟进度更新
+            let progressInterval = setInterval(() => {
+                const currentProgress = parseInt(videoProgressBar.style.width);
+                if (currentProgress < 80) {
+                    // 缓慢增长到80%
+                    const newProgress = currentProgress + 2;
+                    let message = '正在进行视频渲染，请耐心等待...';
+                    if (newProgress < 20) {
+                        message = '正在解析PPT文件...';
+                    } else if (newProgress < 40) {
+                        message = '正在提取PPT内容和备注...';
+                    } else if (newProgress < 60) {
+                        message = '正在生成语音...';
+                    } else if (newProgress < 80) {
+                        message = '正在合成视频...';
+                    }
+                    updateProgress(newProgress, message);
+                }
+            }, 500);
+
+            // 创建带超时的fetch请求 - 增加超时时间到5分钟
+            const timeout = 300000; // 5分钟超时
+            const controller = new AbortController();
+            const id = setTimeout(() => controller.abort(), timeout);
+            
+            // 添加请求开始日志
+            console.log('[PPT转视频] 开始发送转换请求，超时设置为5分钟');
+            
+            fetch('/convert_ppt_to_video', {
+                method: 'POST',
+                body: formData,
+                signal: controller.signal
+            })
+            .then(response => {
+                clearTimeout(id);
+                console.log('[PPT转视频] 收到服务器响应，状态码:', response.status);
+                if (response.ok) {
+                    console.log('[PPT转视频] 响应成功，开始处理视频数据');
+                    return response.blob();
+                }
+                return response.json().then(data => { 
+                    console.error('[PPT转视频] 服务器返回错误:', data.message);
+                    throw new Error(data.message || '转换失败'); 
+                });
+            })
+            .catch(error => {
+                clearTimeout(id);
+                console.error('[PPT转视频] 请求失败:', error);
+                if (error.name === 'AbortError') {
+                    console.error('[PPT转视频] 请求超时');
+                    throw new Error('转换超时，请尝试更简洁的PPT内容或联系管理员');
+                }
+                throw error;
+            })
+            .then(blob => {
+                clearInterval(progressInterval);
+                updateProgress(100, '视频生成完成！正在准备下载...');
+                
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = "lecture_video.mp4";
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+                
+                // 保持进度条显示，更新完成信息
+                videoProgressText.textContent = '视频转换成功！下载已开始。';
+            })
+            .catch(error => {
+                clearInterval(progressInterval);
+                status.className = 'status-container error';
+                videoProgressText.textContent = `转换失败: ${error.message}`;
+            })
+            .finally(() => {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fas fa-video me-2"></i>开始生成视频';
+            });
+        });
+    </script>
+</body>
+</html>

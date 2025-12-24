@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>上传题目 - 用户信息管理系统</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 15px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .option-group {
+            margin: 15px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container page-container">
+        <h1 class="text-center mb-4">上传题目</h1>
+        
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert alert-info" role="alert">
+                    {% for message in messages %}
+                        {{ message }}<br>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        
+        <form action="{{ url_for('teacher_upload_question') }}" method="post">
+            <div class="form-group">
+                <label for="knowledge_point">知识点</label>
+                <input type="text" class="form-control" id="knowledge_point" name="knowledge_point" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="difficulty">难度</label>
+                <select class="form-control" id="difficulty" name="difficulty" required>
+                    <option value="简单">简单</option>
+                    <option value="中等">中等</option>
+                    <option value="困难">困难</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="qtype">题型</label>
+                <select class="form-control" id="qtype" name="qtype" required onchange="toggleOptions()">
+                    <option value="single">单选题</option>
+                    <option value="multiple">多选题</option>
+                    <option value="judge">判断题</option>
+                    <option value="short">简答题</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="content">题目内容</label>
+                <textarea class="form-control" id="content" name="content" rows="4" required></textarea>
+            </div>
+            
+            <div id="options-section" class="option-group">
+                <h5>选项</h5>
+                <div class="form-group">
+                    <label for="option_A">A选项</label>
+                    <input type="text" class="form-control" id="option_A" name="option_A">
+                </div>
+                <div class="form-group">
+                    <label for="option_B">B选项</label>
+                    <input type="text" class="form-control" id="option_B" name="option_B">
+                </div>
+                <div class="form-group">
+                    <label for="option_C">C选项</label>
+                    <input type="text" class="form-control" id="option_C" name="option_C">
+                </div>
+                <div class="form-group">
+                    <label for="option_D">D选项</label>
+                    <input type="text" class="form-control" id="option_D" name="option_D">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="answer">答案</label>
+                <input type="text" class="form-control" id="answer" name="answer" placeholder="单选题/判断题输入A/B/C/D，多选题用逗号分隔，如A,B,D" required>
+            </div>
+            
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-lg">上传题目</button>
+                <a href="{{ url_for('teacher_ai_test_management') }}" class="btn btn-primary btn-lg ml-2">返回</a>
+            </div>
+        </form>
+        
+        <hr class="my-5">
+        
+        <!-- 批量上传题目表单 -->
+        <h3 class="mb-3">批量上传题目</h3>
+        <form action="{{ url_for('teacher_upload_question') }}" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="question_file">上传题库文件（支持CSV和DOCX格式）</label>
+                <input type="file" class="form-control-file" id="question_file" name="question_file" accept=".csv,.docx">
+                <small class="form-text text-muted">
+                    CSV文件格式要求：知识点,难度,题型,题目内容,选项A,选项B,选项C,选项D,答案<br>
+                    DOCX文件格式要求：每行一道题目，格式为：知识点,难度,题型,题目内容,选项A,选项B,选项C,选项D,答案<br>
+                    题型取值：single(单选题), multiple(多选题), judge(判断题), short(简答题)<br>
+                    难度取值：简单, 中等, 困难<br>
+                    答案格式：单选题/判断题输入A/B/C/D，多选题用逗号分隔，如A,B,D，简答题直接输入答案
+                </small>
+            </div>
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-primary btn-lg">批量上传</button>
+            </div>
+        </form>
+    </div>
+    
+    <script>
+        function toggleOptions() {
+            const qtype = document.getElementById('qtype').value;
+            const optionsSection = document.getElementById('options-section');
+            
+            if (qtype === 'single' || qtype === 'multiple' || qtype === 'judge') {
+                optionsSection.style.display = 'block';
+            } else {
+                optionsSection.style.display = 'none';
+            }
+        }
+        
+        // 初始化选项显示
+        toggleOptions();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

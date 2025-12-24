@@ -1,0 +1,705 @@
+/* 现代化设计主题样式 */
+
+/* 整体色调 */
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: #2d3748 !important; /* 深灰文字，提高可读性 */
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif !important;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    min-height: 100vh !important;
+    overflow-x: hidden;
+}
+
+/* 添加全局动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* 添加全局过渡效果 - 避免影响按钮交互 */
+* {
+    transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 导航栏/标题栏 */
+.navbar {
+    background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%) !important; /* 现代渐变导航栏 */
+    color: white !important;
+    box-shadow: 0 4px 20px rgba(79, 70, 229, 0.3) !important;
+    padding: 20px 30px !important;
+}
+
+/* 页面标题栏 - 移除紫色背景，改为紫色文字 */
+.page-header {
+    background: transparent !important;
+    color: #4f46e5 !important;
+    box-shadow: none !important;
+    padding: 20px 30px !important;
+}
+
+/* 页面标题和副标题颜色 - 设置为紫色 */
+.page-header .page-title,
+.page-header .page-subtitle {
+    color: #4f46e5 !important;
+    margin-left: 20px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    background-color: transparent !important;
+    color: #4f46e5 !important; /* 现代紫色标题 */
+    font-weight: 600 !important;
+    letter-spacing: -0.025em !important;
+}
+
+h1 {
+    font-size: 2.5rem !important;
+}
+
+h2 {
+    font-size: 2rem !important;
+}
+
+h3 {
+    font-size: 1.75rem !important;
+}
+
+h4 {
+    font-size: 1.5rem !important;
+}
+
+h5 {
+    font-size: 1.25rem !important;
+}
+
+h6 {
+    font-size: 1rem !important;
+}
+
+/* 图标底部圆圈背景色统一改为米色 */
+.fa-user-circle, .fa-play-circle, .fa-question-circle, .fa-plus-circle, .fa-check-circle, .fa-times-circle, .fa-comment-circle,
+.bi-check-circle, .avatar-icon {
+    background-color: #f5f0e6;
+    border-radius: 50%;
+    padding: 2px;
+}
+
+/* 基础按钮样式重置 - 确保所有按钮都应用统一的交互效果 */
+.btn {
+    transition: box-shadow 0.2s ease, background 0.2s ease !important;
+}
+
+
+
+.btn:active {
+}
+
+/* 确保所有按钮变体都应用相同的效果 */
+.btn-primary, .btn-secondary, .btn-danger, .btn-info, .btn-success, .btn-warning, .btn-light, .btn-dark {
+    transition: box-shadow 0.2s ease, background 0.2s ease !important;
+}
+
+
+
+.btn-primary:active, .btn-secondary:active, .btn-danger:active, .btn-info:active, .btn-success:active, .btn-warning:active, .btn-light:active, .btn-dark:active {
+}
+
+/* 特别针对返回按钮的样式加强 - 确保返回按钮不会缩小 */
+a.btn.btn-secondary, button.btn.btn-secondary {
+}
+
+
+
+a.btn.btn-secondary:active, button.btn.btn-secondary:active {
+}
+
+/* 通用按钮元素样式 - 确保所有按钮类型都应用相同效果 */
+button, a.btn, input[type="button"], input[type="submit"] {
+    transition: box-shadow 0.2s ease, background 0.2s ease !important;
+}
+
+
+
+button:active, a.btn:active, input[type="button"]:active, input[type="submit"]:active {
+}
+
+/* 按钮样式 - 现代渐变按钮 */
+.btn-primary {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%) !important;
+    border: none !important;
+    color: white !important;
+    border-radius: 12px !important;
+    padding: 10px 24px !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    letter-spacing: 0.5px !important;
+    transition: box-shadow 0.2s ease, background 0.2s ease !important;
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3) !important;
+    user-select: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+
+
+.btn-primary:active {
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.3) !important;
+}
+
+.btn-secondary {
+    background: linear-gradient(135deg, #64748b 0%, #94a3b8 100%) !important;
+    border: none !important;
+    color: white !important;
+    border-radius: 12px !important;
+    padding: 10px 24px !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    letter-spacing: 0.5px !important;
+    transition: box-shadow 0.2s ease, background 0.2s ease !important;
+    box-shadow: 0 4px 15px rgba(100, 116, 139, 0.3) !important;
+    user-select: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+
+
+.btn-secondary:active {
+    box-shadow: 0 4px 15px rgba(100, 116, 139, 0.3) !important;
+}
+
+.btn-danger {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%) !important;
+    border: none !important;
+    color: white !important;
+    border-radius: 12px !important;
+    padding: 10px 24px !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    letter-spacing: 0.5px !important;
+    transition: box-shadow 0.2s ease, background 0.2s ease !important;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3) !important;
+    user-select: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+
+
+.btn-danger:active {
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3) !important;
+}
+
+.btn-info {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%) !important;
+    border: none !important;
+    color: white !important;
+    border-radius: 12px !important;
+    padding: 8px 16px !important;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    letter-spacing: 0.5px !important;
+    transition: box-shadow 0.2s ease, background 0.2s ease !important;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3) !important;
+    user-select: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+
+
+.btn-info:active {
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3) !important;
+}
+
+/* 返回按钮样式 - 统一轻微向上浮动效果 */
+.back-btn {
+    background: linear-gradient(135deg, #64748b 0%, #94a3b8 100%) !important;
+    border: none !important;
+    color: white !important;
+    border-radius: 12px !important;
+    padding: 10px 24px !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    letter-spacing: 0.5px !important;
+    transition: box-shadow 0.2s ease, background 0.2s ease !important;
+    box-shadow: 0 4px 15px rgba(100, 116, 139, 0.3) !important;
+    user-select: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+
+
+.back-btn:active {
+    box-shadow: 0 4px 15px rgba(100, 116, 139, 0.3) !important;
+}
+
+/* 全模块统一卡片样式 */
+.card, .dashboard-container, .login-container, .quiz-container, .report-container, .course-card, .page-container {
+    background: white !important;
+    border-radius: 20px !important;
+    border: none !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+    padding: 28px !important;
+    margin-bottom: 28px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    animation: fadeIn 0.6s ease-out;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+/* 添加卡片头部增强样式 */
+.card-header {
+    position: relative;
+    padding-bottom: 16px !important;
+    margin-bottom: 24px !important;
+}
+
+.card-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);
+    border-radius: 2px;
+}
+
+/* 卡片标题 */
+.card-header, .card-title {
+    background-color: transparent !important;
+    color: #4f46e5 !important;
+    border-bottom: 2px solid #eef2ff !important;
+    padding-bottom: 12px !important;
+    font-weight: 600 !important;
+}
+
+/* 统计数据卡片样式 - 图示卡片样式 */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%) !important;
+    border-radius: 16px !important;
+    padding: 24px !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
+    transition: all 0.3s ease !important;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+}
+
+
+
+.stat-number {
+    font-size: 2.5rem !important;
+    font-weight: 700 !important;
+    color: #4f46e5 !important;
+    margin-bottom: 8px !important;
+    line-height: 1.2;
+}
+
+.stat-label {
+    font-size: 1rem !important;
+    color: #64748b !important;
+    font-weight: 500 !important;
+}
+
+/* 统计卡片图标样式 */
+.stat-icon {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stat-icon i {
+    color: #4f46e5;
+    font-size: 32px;
+}
+
+/* 删除了旧的统计卡片图标样式，使用新的stat-icon元素 */
+
+/* 快捷导航样式 */
+.quick-nav-card {
+    background: white !important;
+    border-radius: 20px !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+
+
+.nav-title {
+    color: #4f46e5 !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    margin-bottom: 20px !important;
+    padding-bottom: 12px !important;
+    border-bottom: 2px solid #eef2ff !important;
+}
+
+.nav-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+}
+
+.nav-item {
+    display: flex !important;
+    align-items: center !important;
+    padding: 12px 16px !important;
+    border-radius: 12px !important;
+    color: #4b5563 !important;
+    text-decoration: none !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    font-weight: 500 !important;
+    position: relative !important;
+}
+
+
+
+.nav-item i {
+    width: 24px !important;
+    margin-right: 12px !important;
+    font-size: 16px !important;
+}
+
+.nav-item.disabled {
+    opacity: 0.6 !important;
+    pointer-events: none !important;
+}
+
+/* 细节优化 */
+/* 重点内容标注 - 现代强调样式 */
+.highlight, .score, .suggestion, .important {
+    background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%) !important;
+    padding: 14px 20px !important;
+    border-radius: 12px !important;
+    border-left: 4px solid #4f46e5 !important;
+    margin: 12px 0 !important;
+    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.1) !important;
+}
+
+/* 文字颜色 */
+.text-primary, .text-purple, .btn-link {
+    color: #4f46e5 !important;
+    font-weight: 500 !important;
+}
+
+.text-secondary {
+    color: #64748b !important;
+    font-size: 14px !important;
+}
+
+/* 图标样式 */
+.fa, .fas, .far, .fab {
+    color: #4f46e5 !important;
+    transition: all 0.3s ease !important;
+}
+
+
+
+/* 表单元素 */
+.form-control, .form-select {
+    border: 2px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    padding: 12px 16px !important;
+    font-size: 14px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #4f46e5 !important;
+    box-shadow: 0 0 0 0.2rem rgba(79, 70, 229, 0.25), 0 4px 15px rgba(79, 70, 229, 0.15) !important;
+    outline: none !important;
+}
+
+/* 链接样式 */
+a {
+    color: #4f46e5 !important;
+    text-decoration: none !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    font-weight: 500 !important;
+}
+
+
+
+/* 分隔线 */
+hr {
+    border-color: #eef2ff !important;
+    border-width: 2px !important;
+}
+
+/* 列表项 */
+.list-group-item {
+    border: 2px solid #eef2ff !important;
+    border-radius: 12px !important;
+    margin-bottom: 10px !important;
+    background-color: white !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    padding: 12px 16px !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+}
+
+
+
+/* 警告框 */
+.alert {
+    border-radius: 14px !important;
+    border: 2px solid transparent !important;
+    padding: 16px 20px !important;
+    font-weight: 500 !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+.alert-success {
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%) !important;
+    border-color: #4ade80 !important;
+    color: #15803d !important;
+}
+
+.alert-danger {
+    background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%) !important;
+    border-color: #f87171 !important;
+    color: #b91c1c !important;
+}
+
+.alert-info {
+    background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%) !important;
+    border-color: #60a5fa !important;
+    color: #1e40af !important;
+}
+
+/* 测验答题区 */
+.question-container {
+    background: white !important;
+    border-radius: 18px !important;
+    border: 2px solid #eef2ff !important;
+    padding: 24px !important;
+    margin-bottom: 24px !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+
+
+/* 报告分析结果 */
+.report-section {
+    background: white !important;
+    border-radius: 18px !important;
+    border: 2px solid #eef2ff !important;
+    padding: 24px !important;
+    margin-bottom: 24px !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+
+
+/* 课程视频卡片 */
+.course-video-card {
+    background: white !important;
+    border-radius: 18px !important;
+    border: none !important;
+    overflow: hidden !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+
+
+/* PPT生成结果卡片 */
+.ppt-result-card {
+    background: white !important;
+    border-radius: 18px !important;
+    border: 2px solid #eef2ff !important;
+    padding: 24px !important;
+    margin-bottom: 24px !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+
+
+/* 辅导模块样式 */
+.tutoring-session {
+    background: white !important;
+    border-radius: 18px !important;
+    border: 2px solid #eef2ff !important;
+    padding: 24px !important;
+    margin-bottom: 24px !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+
+
+/* AI报告样式 */
+.ai-report {
+    background: white !important;
+    border-radius: 18px !important;
+    border: 2px solid #eef2ff !important;
+    padding: 24px !important;
+    margin-bottom: 24px !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+
+
+/* 用户信息卡片样式 */
+.user-info-card {
+    background: linear-gradient(135deg, #fafaff 0%, #f5f3ff 100%) !important;
+    border-radius: 24px !important;
+    border: 2px solid #eef2ff !important;
+    padding: 32px !important;
+    margin-bottom: 32px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 10px 35px rgba(79, 70, 229, 0.1) !important;
+}
+
+
+
+/* 头像区域样式 */
+.avatar-container {
+    display: flex !important;
+    justify-content: center !important;
+    margin-bottom: 24px !important;
+}
+
+.avatar-icon {
+    font-size: 80px !important;
+    color: #4f46e5 !important;
+    background: linear-gradient(135deg, #ffffff 0%, #eef2ff 100%) !important;
+    padding: 16px !important;
+    border-radius: 50% !important;
+    box-shadow: 0 8px 24px rgba(79, 70, 229, 0.15) !important;
+    transition: all 0.3s ease !important;
+}
+
+
+
+/* 用户基本信息 */
+.user-info {
+    text-align: center !important;
+    margin-bottom: 32px !important;
+}
+
+.username {
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    color: #4f46e5 !important;
+    margin-bottom: 8px !important;
+}
+
+.role {
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    color: #7c3aed !important;
+    margin-bottom: 8px !important;
+}
+
+.student-id {
+    font-size: 16px !important;
+    color: #6b7280 !important;
+    font-weight: 400 !important;
+}
+
+/* 用户详细信息 */
+.user-details {
+    background: white !important;
+    border-radius: 16px !important;
+    padding: 24px !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+    border: 1px solid #eef2ff !important;
+}
+
+.detail-item {
+    margin-bottom: 16px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+}
+
+.detail-item:last-child {
+    margin-bottom: 0 !important;
+}
+
+.detail-label {
+    font-weight: 600 !important;
+    color: #4b5563 !important;
+    font-size: 16px !important;
+}
+
+.detail-value {
+    font-weight: 500 !important;
+    color: #4f46e5 !important;
+    font-size: 16px !important;
+}
+
+/* 扩展功能样式 */
+.extension-card {
+    background: white !important;
+    border-radius: 18px !important;
+    border: 2px solid #eef2ff !important;
+    padding: 24px !important;
+    margin-bottom: 24px !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* 编辑按钮样式 */
+.edit-btn {
+    background: none;
+    border: none;
+    color: #6c757d;
+    cursor: pointer;
+    font-size: 0.8rem;
+    padding: 0;
+    margin-left: 5px;
+    display: inline-block;
+}
+
+.edit-btn:hover {
+    color: #007bff;
+    text-decoration: none;
+}
+
+

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能学案整理 - 用户信息管理系统</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <style>
+        .dashboard-container {
+            max-width: 1000px;
+            margin: 50px auto;
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+        .text-area {
+            min-height: 200px;
+        }
+        .status-container {
+            margin-top: 15px;
+        }
+        .success {
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+        .loading {
+            color: blue;
+        }
+        .outline-section {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        .outline-item {
+            margin-bottom: 10px;
+        }
+        .outline-title {
+            font-weight: bold;
+            color: #495057;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>智能学案整理</h1>
+            <div class="d-flex gap-2">
+                <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">
+                    <i class="fas fa-home mr-1"></i>返回
+                </a>
+                <a href="javascript:history.back()" class="btn btn-primary">
+                    <i class="fas fa-home mr-1"></i>返回首页
+                </a>
+            </div>
+        </div>
+        
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-info alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">使用说明</h5>
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li>支持将PPT内容转换为文本格式</li>
+                    <li>可查看和导出学习资料</li>
+                    <li>请输入课程相关内容，系统将为您整理成结构化的学习计划</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title mb-0">课程内容输入</h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label for="courseContent" class="form-label">输入课程内容或粘贴PPT文本</label>
+                    <textarea class="form-control text-area" id="courseContent" placeholder="请输入课程内容...
+
+示例：
+设计思维课程大纲
+
+第一章：设计思维概述
+- 什么是设计思维
+- 设计思维的历史发展
+- 设计思维的核心原则
+
+第二章：设计思维的五个步骤
+- 同理心（Empathize）
+- 定义问题（Define）
+- 头脑风暴（Ideate）
+- 原型设计（Prototype）
+- 测试（Test）
+
+第三章：设计思维实践案例
+- Apple产品设计案例
+- IDEO设计思维案例
+- 医疗领域设计思维应用
+
+第四章：设计思维工具与方法
+- 用户访谈技巧
+- 亲和图（Affinity Diagram）
+- 故事板（Storyboarding）
+- 原型制作工具
+
+第五章：设计思维在创新中的应用
+- 产品创新
+- 服务创新
+- 商业模式创新
+- 社会创新"></textarea>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

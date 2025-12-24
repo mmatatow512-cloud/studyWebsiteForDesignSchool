@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的聊天 - 用户信息管理系统</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- 引入紫色主题样式 -->
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <style>
+        .chat-container {
+            max-width: 1200px;
+            margin: 50px auto;
+            height: 700px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+        }
+        
+        /* 左侧联系人列表 */
+        .contacts-sidebar {
+            width: 300px;
+            border-right: 1px solid #e6ccff;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .sidebar-header {
+            padding: 20px;
+            border-bottom: 1px solid #e6ccff;
+            background-color: transparent;
+            border-radius: 0;
+        }
+        
+        .sidebar-header h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #7b5ea7;
+        }
+        
+        /* 选项卡样式 */
+        .sidebar-tabs {
+            display: flex;
+            border-bottom: 1px solid #e6ccff;
+        }
+        
+        .tab-button {
+            flex: 1;
+            padding: 15px;
+            background: transparent !important;
+            border: none !important;
+            cursor: pointer;
+            font-size: 1rem;
+            color: #7b5ea7 !important;
+            transition: all 0.3s ease;
+            border-radius: 0 !important;
+        }
+        
+        .tab-button.active {
+            font-weight: bold;
+            border-bottom: 2px solid #7b5ea7;
+            background-color: #7b5ea7 !important;
+            color: white !important;
+        }
+        
+        .tab-button:hover {
+            color: #6a4b95;
+        }
+        
+        /* 筛选器样式 */
+        .filter-section {
+            padding: 15px;
+            border-bottom: 1px solid #e6ccff;
+            background-color: transparent;
+        }
+        
+        .filter-section select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 2px solid #e6ccff;
+            border-radius: 8px;
+            background-color: white;
+            color: #333;
+        }
+        
+        .contacts-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+        }
+        
+        .contact-item {
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            background-color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .contact-item:hover {
+            background-color: #f8f0ff;
+        }
+        
+        .contact-item.active {
+            background-color: #e6ccff;
+            border-color: #7b5ea7;
+        }
+        
+        /* 右侧聊天区域样式 */
+        .chat-main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .contact-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-avatar {
+            font-size: 25px !important;
+            color: #4f46e5 !important;
+            background: linear-gradient(135deg, #ffffff 0%, #eef2ff 100%) !important;
+            padding: 8px !important;
+            border-radius: 50% !important;
+            box-shadow: 0 8px 24px rgba(79, 70, 229, 0.15) !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+        }
+        
+        .contact-name {
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .contact-last-message {
+            font-size: 0.85rem;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+        
+        /* 自定义标题样式 */
+        .top-nav h1 {
+            background-color: transparent !important;
+            color: #7b5ea7 !important;
+            margin: 0;
+        }
+        
+        .sidebar-header h2 {
+            background-color: transparent !important;
+            color: #7b5ea7 !important;
+            margin: 0;
+        }
+        
+        .chat-header {
+            padding: 20px;
+            border-bottom: 1px solid #e6ccff;
+            background-color: #f8f0ff;
+            border-radius: 0 15px 0 0;
+        }
+        
+        .chat-recipient {
+            display: flex;
+            align-items: center;
+        }
+        
+        .recipient-avatar {
+            font-size: 25px !important;
+            color: #4f46e5 !important;
+            background: linear-gradient(135deg, #ffffff 0%, #eef2ff 100%) !important;
+            padding: 8px !important;
+            border-radius: 50% !important;
+            box-shadow: 0 8px 24px rgba(79, 70, 229, 0.15) !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .recipient-info h3 {
+            margin: 0;
+            font-size: 1.3rem;
+            color: #333;
+        }
+        
+        .recipient-info p {
+            margin: 5px 0 0 0;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            background-color: #fefaff;
+        }
+        
+        .message {
+            margin-bottom: 20px;
+            max-width: 70%;
+            width: fit-content;
+        }
+        
+        .message-sender {
+            font-size: 0.85rem;
+            color: #6c757d;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+        
+        .message.sent {
+            margin-left: auto;
+        }
+        
+        .message.received {
+            margin-right: auto;
+        }
+        
+        .message-content {
+            padding: 15px;
+            border-radius: 15px;
+            background-color: #e6ccff;
+            position: relative;
+        }
+        
+        .message.sent .message-content {
+            background-color: #7b5ea7;
+            color: white;
+            border-bottom-right-radius: 5px;
+        }
+        
+        .message.received .message-content {
+            background-color: #f0e6ff;
+            color: #333;
+            border-bottom-left-radius: 5px;
+        }
+        
+        .message-time {
+            font-size: 0.75rem;
+            color: #6c757d;
+            margin-top: 5px;
+            text-align: right;
+        }
+        
+        .message.received .message-time {
+            text-align: left;
+        }
+        
+        .chat-input-area {
+            padding: 10px;
+            border-top: 1px solid #e6ccff;
+            background-color: white;
+            border-radius: 0 0 15px 0;
+        }
+        
+        .message-form {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .message-input {
+            flex: 1;
+            border: 2px solid #e6ccff;
+            border-radius: 10px;
+            padding: 8px;
+            resize: none;
+            min-height: 40px;
+            font-size: 1rem;
+            max-height: 80px;
+        }
+        
+        .message-input:focus {
+            outline: none;
+            border-color: #7b5ea7;
+        }
+        
+        .send-btn {
+            background-color: #7b5ea7;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 15px 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .send-btn:hover {
+            background-color: #6a4f99;
+        }
+        
+        /* 选择联系人提示 */
+        .select-contact-prompt {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: #6c757d;
+            font-size: 1.2rem;
+            flex-direction: column;
+        }
+        
+        .select-contact-prompt i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #e6ccff;
+        }
+        
+        /* 顶部导航栏 */
+        .top-nav {
+            padding: 20px;
+            background-color: white;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .top-nav h1 {
+            margin: 0;
+            color: #7b5ea7;
+            font-size: 2rem;
+        }
+        
+        .back-btn {
+            background-color: #7b5ea7;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-nav">
+            <div class="d-flex justify-content-between align-items-center">
+                <div></div>
+                <h1>我的聊天</h1>
+                <div class="d-flex gap-2">
+                    <a href="{{ url_for('dashboard') }}" class="btn btn-primary"><i class="fas fa-home mr-2"></i>返回首页</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chat-container">
+            <!-- 左侧联系人列表 -->
+            <div class="contacts-sidebar">
+                <div class="sidebar-header">
+                    <h2>我的聊天</h2>
+                </div>
+                
+                <!-- 选项卡 -->
+                <div class="sidebar-tabs">
+                    <button class="tab-button active" onclick="switchTab('contacts')">通讯录</button>
+                    <button class="tab-button" onclick="switchTab('recent')">最近聊天</button>
+                </div>
+                
+                <!-- 筛选器 - 仅在通讯录选项卡显示 -->
+                <div id="filter-section" class="filter-section" style="display: none;">
+                    <select id="contact-type-filter" onchange="filterContacts()">
+                        {% if user.role == 'student' %}
+                            <option value="all">所有联系人</option>
+                            <option value="teacher">老师</option>
+                            <option value="student">同学</option>
+                            <option value="group">班级群聊</option>
+                        {% else %}
+                            <option value="student">同学</option>
+                            <option value="group">班级群聊</option>
+                        {% endif %}
+                    </select>
+                    <select id="class-filter" onchange="filterContacts()">
+                        <option value="all">所有班级</option>
+                        {% for course in courses_info %}
+                            <option value="{{ course.id }}">{{ course.title }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <!-- 最近聊天列表 -->
+                <div id="recent-chats" class="contacts-list">
+                    {% if recent_chats %}
+                        {% for chat in recent_chats %}
+                            <div class="contact-item {% if chat.id == current_chat_id and chat.type == current_chat_type %}active{% endif %}" 
+                                 onclick="switchChat({{ chat.id }}, '{{ chat.name }}', '{{ chat.type }}')">
+                                <div class="contact-info">
+                                    <div class="contact-avatar">
+                                        {% if chat.type == 'group' %}
+                                            <i class="fas fa-users"></i>
+                                        {% else %}
+                                            <i class="fas fa-user"></i>
+                                        {% endif %}
+                                    </div>
+                                    <div>
+                                        <div class="contact-name">
+                                            {{ chat.name }}
+                                            {% if chat.type == 'group' %}
+                                                <span class="badge bg-info text-white" style="font-size: 0.7rem; margin-left: 5px;">群聊</span>
+                                            {% endif %}
+                                        </div>
+                                        {% if chat.last_message %}
+                                            <div class="contact-last-message">
+                                                {{ chat.last_message | truncate(20) }}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="contact-item" style="text-align: center; color: #6c757d; cursor: default;">
+                            暂无聊天记录
+                        </div>
+                    {% endif %}
+                </div>
+                
+                <!-- 通讯录列表 -->
+                <div id="address-book" class="contacts-list" style="display: none;">
+                    <!-- 联系人列表 -->
+                    <h3 id="contacts-title" style="color: #7b5ea7; font-size: 1.1rem; margin-bottom: 10px; padding-left: 10px;">联系人</h3>
+                    {% if contacts %}
+                        {% for contact in contacts %}
+                            <div class="contact-item contact-person {% if contact.id == current_chat_id and current_chat_type == 'private' %}active{% endif %}" 
+                                 onclick="switchChat({{ contact.id }}, '{{ contact.username }}', 'private')"
+                                 data-courses="{{ contact.courses | join(',') }}">
+                                <div class="contact-info">
+                                    <div class="contact-avatar">
+                                        <i class="fas fa-user"></i>
+                                    </div>
+                                    <div>
+                                        <div class="contact-name">
+                                            {{ contact.username }}
+                                            {% if contact.role == 'teacher' %}
+                                                <span class="badge bg-primary text-white" style="font-size: 0.7rem; margin-left: 5px;">老师</span>
+                                            {% else %}
+                                                <span class="badge bg-secondary text-white" style="font-size: 0.7rem; margin-left: 5px;">同学</span>
+                                            {% endif %}
+                                        </div>
+                                        {% if contact.last_message %}
+                                            <div class="contact-last-message">
+                                                {{ contact.last_message | truncate(20) }}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="contact-item" style="text-align: center; color: #6c757d; cursor: default;">
+                            暂无联系人
+                        </div>
+                    {% endif %}
+                    
+                    <!-- 班级群聊列表 -->
+                    <h3 id="groups-title" style="color: #7b5ea7; font-size: 1.1rem; margin: 20px 0 10px 10px;">班级群聊</h3>
+                    {% if courses_info %}
+                        {% for course in courses_info %}
+                            <div class="contact-item contact-group {% if course.id == current_chat_id and current_chat_type == 'group' %}active{% endif %}" 
+                                 onclick="switchChat({{ course.id }}, '{{ course.title }}', 'group')">
+                                <div class="contact-info">
+                                    <div class="contact-avatar">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div>
+                                        <div class="contact-name">
+                                            {{ course.title }}
+                                            <span class="badge bg-info text-white" style="font-size: 0.7rem; margin-left: 5px;">群聊</span>
+                                        </div>
+                                        {% if course.last_message %}
+                                            <div class="contact-last-message">
+                                                {{ course.last_message | truncate(20) }}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="contact-item" style="text-align: center; color: #6c757d; cursor: default;">
+                            暂无班级群聊
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <!-- 右侧聊天区域 -->
+            <div class="chat-main">
+                {% if current_chat_id %}
+                    <div class="chat-header">
+                        <div class="chat-recipient">
+                            <div class="recipient-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="recipient-info">
+                                <h3 id="currentRecipient">{{ current_chat_name }}</h3>
+                                <p>在线</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="chat-messages" id="chatMessages">
+                        <!-- 聊天消息将动态加载或通过模板渲染 -->
+                        {% if chat_messages %}
+                            {% for message in chat_messages %}
+                                <div class="message {% if message.sender_id == user.id %}sent{% else %}received{% endif %}">
+                                    <div class="message-sender">
+                                        {% if message.sender_id == user.id %}
+                                            我
+                                        {% else %}
+                                            <!-- 所有聊天都显示发送者用户名 -->
+                                            {% for msg_sender in contacts if msg_sender.id == message.sender_id %}
+                                                {{ msg_sender.username }}
+                                            {% else %}
+                                                {{ Message.query.get(message.id).sender.username }}
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                    <div class="message-content">
+                                        <!-- 显示引用卡片 -->
+                                        {% if message.reference_type %}
+                                            {% if message.reference_type == 'course' %}
+                                                {% set source_text = '课程：' + message.reference_source %}
+                                            {% else %}
+                                                {% set source_text = '作品集：' + message.reference_source %}
+                                            {% endif %}
+                                            <div class="quote-card" onclick="window.open('{{ message.reference_url }}', '_blank')">
+                                                <div class="quote-source">引用自 {{ source_text }}</div>
+                                                <div class="quote-title">{{ message.reference_title }}</div>
+                                            </div>
+                                        {% endif %}
+                                        {{ message.content }}
+                                    </div>
+                                    <div class="message-time">
+                                        {{ message.created_at.strftime('%Y-%m-%d %H:%M:%S') }}
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <div class="select-contact-prompt">
+                                <i class="fas fa-comments"></i>
+                                <p>开始与{{ current_chat_name }}的对话吧！</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="chat-input-area">
+                        <div class="input-toolbar">
+                            <button type="button" class="toolbar-btn" onclick="openReferenceDialog()" title="引用内容">
+                                <i class="fas fa-quote-right"></i>
+                            </button>
+                        </div>
+                        <form class="message-form" onsubmit="sendMessage(event)">
+                            <textarea class="message-input" id="messageInput" placeholder="输入消息..."></textarea>
+                            <button type="submit" class="send-btn">发送</button>
+                        </form>
+                    </div>
+
+                    <!-- 引用选择对话框 -->
+                    <div id="referenceDialog" class="reference-dialog" style="display: none;">
+                        <div class="reference-dialog-content">
+                            <div class="dialog-header">
+                                <h3>选择引用内容</h3>
+                                <button type="button" class="close-btn" onclick="closeReferenceDialog()">&times;</button>
+                            </div>
+                            <div class="dialog-tabs">
+                                <button class="tab-btn active" onclick="switchReferenceTab('course')">课程内容</button>
+                                <button class="tab-btn" onclick="switchReferenceTab('portfolio')">作品集内容</button>
+                            </div>
+                            <div class="dialog-content">
+                                <!-- 课程内容选项卡 -->
+                                <div id="courseReferenceTab" class="reference-tab" style="display: block;">
+                                    <div id="courseContentsList">
+                                        <!-- 课程内容列表将通过JavaScript动态加载 -->
+                                        <div class="loading">加载课程内容中...</div>
+                                    </div>
+                                </div>
+                                <!-- 作品集内容选项卡 -->
+                                <div id="portfolioReferenceTab" class="reference-tab" style="display: none;">
+                                    <div id="portfolioContentsList">
+                                        <!-- 作品集内容列表将通过JavaScript动态加载 -->
+                                        <div class="loading">加载作品集内容中...</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dialog-footer">
+                                <button type="button" class="btn btn-secondary" onclick="closeReferenceDialog()">取消</button>
+                                <button type="button" class="btn btn-primary" onclick="confirmReference()">确定引用</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 样式 -->
+                    <style>
+                        .input-toolbar {
+                            display: flex;
+                            gap: 10px;
+                            margin-bottom: 10px;
+                        }
+                        
+                        .toolbar-btn {
+                            background-color: #f8f0ff;
+                            border: 1px solid #e6ccff;
+                            color: #7b5ea7;
+                            padding: 8px 12px;
+                            border-radius: 8px;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                            font-size: 1rem;
+                        }
+                        
+                        .toolbar-btn:hover {
+                            background-color: #e6ccff;
+                        }
+                        
+                        /* 引用对话框样式 */
+                        .reference-dialog {
+                            position: fixed;
+                            top: 0;
+                            left: 0;
+                            width: 100%;
+                            height: 100%;
+                            background-color: rgba(0, 0, 0, 0.5);
+                            z-index: 1000;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+                        
+                        .reference-dialog-content {
+                            background-color: white;
+                            border-radius: 15px;
+                            width: 80%;
+                            max-width: 700px;
+                            height: 70%;
+                            display: flex;
+                            flex-direction: column;
+                            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+                        }
+                        
+                        .dialog-header {
+                            padding: 20px;
+                            border-bottom: 1px solid #e6ccff;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            background-color: #f8f0ff;
+                            border-radius: 15px 15px 0 0;
+                        }
+                        
+                        .dialog-header h3 {
+                            margin: 0;
+                            color: #7b5ea7;
+                        }
+                        
+                        .close-btn {
+                            background: none;
+                            border: none;
+                            font-size: 1.5rem;
+                            cursor: pointer;
+                            color: #7b5ea7;
+                        }
+                        
+                        .dialog-tabs {
+                            display: flex;
+                            border-bottom: 1px solid #e6ccff;
+                        }
+                        
+                        .tab-btn {
+                            flex: 1;
+                            padding: 15px;
+                            background: none !important;
+                            border: none !important;
+                            cursor: pointer;
+                            font-size: 1rem;
+                            color: #7b5ea7 !important;
+                            transition: all 0.3s ease;
+                            border-radius: 0 !important;
+                        }
+                        
+                        .tab-btn.active {
+                            background-color: #7b5ea7 !important;
+                            color: white !important;
+                            font-weight: bold;
+                            border-bottom: 2px solid #7b5ea7 !important;
+                        }
+                        
+                        .dialog-content {
+                            flex: 1;
+                            overflow-y: auto;
+                            padding: 20px;
+                        }
+                        
+                        .reference-tab {
+                            height: 100%;
+                        }
+                        
+                        .content-item {
+                            padding: 15px;
+                            border: 2px solid #e6ccff;
+                            border-radius: 10px;
+                            margin-bottom: 15px;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                        }
+                        
+                        .content-item:hover {
+                            background-color: #f8f0ff;
+                            border-color: #7b5ea7;
+                        }
+                        
+                        .content-item.selected {
+                            background-color: #e6ccff;
+                            border-color: #7b5ea7;
+                        }
+                        
+                        .content-title {
+                            font-weight: bold;
+                            color: #333;
+                            margin-bottom: 5px;
+                        }
+                        
+                        .content-info {
+                            font-size: 0.9rem;
+                            color: #6c757d;
+                        }
+                        
+                        .loading {
+                            text-align: center;
+                            color: #6c757d;
+                            margin-top: 50px;
+                        }
+                        
+                        .dialog-footer {
+                            padding: 15px 20px;
+                            border-top: 1px solid #e6ccff;
+                            display: flex;
+                            justify-content: flex-end;
+                            gap: 10px;
+                        }
+                        
+                        .btn {
+                            padding: 8px 16px;
+                            border-radius: 8px;
+                            cursor: pointer;
+                            font-size: 0.9rem;
+                            border: none;
+                            transition: all 0.3s ease;
+                        }
+                        
+                        .btn-secondary {
+                            background-color: #6c757d;
+                            color: white;
+                        }
+                        
+                        .btn-primary {
+                            background-color: #7b5ea7;
+                            color: white;
+                        }
+                        
+                        .btn-secondary:hover {
+                            background-color: #545b62;
+                        }
+                        
+                        .btn-primary:hover {
+                            background-color: #6a4f99;
+                        }
+                        
+                        /* 引用卡片样式 */
+                        .quote-card {
+                            background-color: #f0e6ff;
+                            border-left: 4px solid #7b5ea7;
+                            padding: 10px 15px;
+                            margin-bottom: 10px;
+                            border-radius: 8px;
+                            cursor: pointer;
+                            transition: all 0.3s ease;
+                        }
+                        
+                        .quote-card:hover {
+                            background-color: #e6ccff;
+                            transform: translateX(5px);
+                        }
+                        
+                        .quote-source {
+                            font-size: 0.8rem;
+                            color: #7b5ea7;
+                            margin-bottom: 5px;
+                        }
+                        
+                        .quote-title {
+                            font-size: 0.9rem;
+                            color: #333;
+                            font-weight: bold;
+                        }
+                    </style>
+                {% else %}
+                    <div class="select-contact-prompt">
+                        <i class="fas fa-users"></i>
+                        <p>请选择一个联系人开始聊天</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 当前聊天的ID和类型
+        let currentChatId = {{ current_chat_id if current_chat_id else 'null' }};
+        let currentChatType = '{{ current_chat_type if current_chat_type else 'private' }}';
+        
+        // 切换选项卡
+        function switchTab(tabName) {
+            // 更新选项卡按钮状态
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent === (tabName === 'contacts' ? '通讯录' : '最近聊天')) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // 显示/隐藏对应的列表
+            if (tabName === 'recent') {
+                document.getElementById('recent-chats').style.display = 'block';
+                document.getElementById('address-book').style.display = 'none';
+                document.getElementById('filter-section').style.display = 'none';
+            } else if (tabName === 'contacts') {
+                document.getElementById('recent-chats').style.display = 'none';
+                document.getElementById('address-book').style.display = 'block';
+                document.getElementById('filter-section').style.display = 'block';
+            }
+        }
+        
+        // 切换聊天对象
+        function switchChat(chatId, chatName, chatType = 'private') {
+            currentChatId = chatId;
+            currentChatType = chatType;
+            
+            // 更新当前聊天对象名称
+            if (document.getElementById('currentRecipient')) {
+                document.getElementById('currentRecipient').textContent = chatName;
+            }
+            
+            // 更新联系人列表的激活状态
+            document.querySelectorAll('.contact-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+            
+            // 跳转到包含聊天ID和类型的URL
+            window.location.href = `/messages?with=${chatId}&type=${chatType}&name=${encodeURIComponent(chatName)}`;
+        }
+        
+        // 筛选联系人
+        function filterContacts() {
+            const typeFilter = document.getElementById('contact-type-filter').value;
+            const classFilter = document.getElementById('class-filter').value;
+            
+            // 获取所有联系人项目
+            const contactItems = document.querySelectorAll('.contact-item');
+            
+            contactItems.forEach(item => {
+                let show = true;
+                
+                // 按类型筛选
+                if (typeFilter === 'teacher' || typeFilter === 'student' || typeFilter === 'group') {
+                    if (typeFilter === 'group') {
+                        // 显示班级群聊
+                        if (item.classList.contains('contact-person')) {
+                            show = false;
+                        }
+                    } else {
+                        // 显示特定角色的联系人
+                        if (item.classList.contains('contact-group')) {
+                            show = false;
+                        } else {
+                            // 检查联系人角色
+                        const isTeacher = item.innerHTML && item.innerHTML.includes('老师');
+                        if ((typeFilter === 'teacher' && !isTeacher) || 
+                            (typeFilter === 'student' && isTeacher)) {
+                            show = false;
+                        }
+                        }
+                    }
+                }
+                
+                // 按班级筛选
+                if (show && classFilter !== 'all') {
+                    if (item.classList.contains('contact-group')) {
+                        // 群聊按自身ID筛选
+                        const groupId = item.getAttribute('onclick').match(/switchChat\((\d+)/)[1];
+                        if (groupId != classFilter) {
+                            show = false;
+                        }
+                    } else {
+                        // 联系人按所属课程筛选
+                        const courses = item.getAttribute('data-courses');
+                        if (!courses || !courses.includes(classFilter)) {
+                            show = false;
+                        }
+                    }
+                }
+                
+                item.style.display = show ? 'block' : 'none';
+            });
+            
+            // 控制标题的显示和隐藏
+            const contactsTitle = document.getElementById('contacts-title');
+            const groupsTitle = document.getElementById('groups-title');
+            
+            if (typeFilter === 'teacher' || typeFilter === 'student') {
+                // 筛选为老师或同学时，隐藏班级群聊标题
+                contactsTitle.style.display = 'block';
+                groupsTitle.style.display = 'none';
+            } else if (typeFilter === 'group') {
+                // 筛选为班级群聊时，隐藏联系人标题
+                contactsTitle.style.display = 'none';
+                groupsTitle.style.display = 'block';
+            } else {
+                // 其他情况（如'所有联系人'），显示两个标题
+                contactsTitle.style.display = 'block';
+                groupsTitle.style.display = 'block';
+            }
+        }
+        
+        // 发送消息
+        function sendMessage(event) {
+            event.preventDefault();
+            
+            if (!currentChatId) {
+                alert('请先选择一个联系人');
+                return;
+            }
+            
+            const messageInput = document.getElementById('messageInput');
+            const message = messageInput.value.trim();
+            
+            if (!message) return;
+            
+            // 创建消息元素并添加到聊天区域（本地显示）
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message sent';
+            messageDiv.innerHTML = `
+                <div class="message-sender">我</div>
+                <div class="message-content">
+                    ${message}
+                </div>
+                <div class="message-time">
+                    ${new Date().toLocaleString()}
+                </div>
+            `;
+            
+            const chatMessages = document.getElementById('chatMessages');
+            chatMessages.appendChild(messageDiv);
+            
+            // 滚动到底部
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            // 清空输入框
+            messageInput.value = '';
+            
+            // 发送消息到服务器
+            let body;
+            if (currentChatType === 'group') {
+                body = `course_id=${currentChatId}&content=${encodeURIComponent(message)}`;
+            } else {
+                body = `receiver_id=${currentChatId}&content=${encodeURIComponent(message)}`;
+            }
+            
+            fetch('/send_message', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: body
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (!data.success) {
+                    alert('消息发送失败: ' + data.message);
+                    // 如果发送失败，移除本地显示的消息
+                    messageDiv.remove();
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }
+            })
+            .catch(error => {
+                console.error('发送消息出错:', error);
+                alert('消息发送失败，请重试');
+                // 如果发送失败，移除本地显示的消息
+                messageDiv.remove();
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            });
+        }
+        
+        // 引用相关变量
+        let selectedReference = null;
+        
+        // 打开引用对话框
+        function openReferenceDialog() {
+            if (!currentChatId) {
+                alert('请先选择一个聊天对象');
+                return;
+            }
+            
+            const dialog = document.getElementById('referenceDialog');
+            dialog.style.display = 'flex';
+            
+            // 加载课程内容和作品集内容
+            loadCourseContents();
+            loadPortfolioContents();
+        }
+        
+        // 关闭引用对话框
+        function closeReferenceDialog() {
+            const dialog = document.getElementById('referenceDialog');
+            dialog.style.display = 'none';
+            selectedReference = null;
+            
+            // 重置选择状态
+            document.querySelectorAll('.content-item').forEach(item => {
+                item.classList.remove('selected');
+            });
+        }
+        
+        // 切换引用选项卡
+        function switchReferenceTab(tabName) {
+            // 更新选项卡按钮状态
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            tabButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // 显示/隐藏对应的内容
+            document.getElementById('courseReferenceTab').style.display = tabName === 'course' ? 'block' : 'none';
+            document.getElementById('portfolioReferenceTab').style.display = tabName === 'portfolio' ? 'block' : 'none';
+        }
+        
+        // 加载课程内容（真实API调用）
+        function loadCourseContents() {
+            const courseContentsList = document.getElementById('courseContentsList');
+            courseContentsList.innerHTML = '<div class="loading">加载课程内容中...</div>';
+            
+            fetch('/api/course_contents')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        renderContentList(courseContentsList, data.contents, 'course');
+                    } else {
+                        courseContentsList.innerHTML = '<div class="error">加载失败: ' + data.message + '</div>';
+                    }
+                })
+                .catch(error => {
+                    console.error('加载课程内容出错:', error);
+                    courseContentsList.innerHTML = '<div class="error">加载失败，请重试</div>';
+                });
+        }
+        
+        // 加载作品集内容（真实API调用）
+        function loadPortfolioContents() {
+            const portfolioContentsList = document.getElementById('portfolioContentsList');
+            portfolioContentsList.innerHTML = '<div class="loading">加载作品集内容中...</div>';
+            
+            // 构建API请求URL，包含当前聊天ID和类型
+            let url = '/api/portfolio_contents';
+            if (currentChatId && currentChatType) {
+                url += `?chat_id=${currentChatId}&chat_type=${currentChatType}`;
+            }
+            
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        renderContentList(portfolioContentsList, data.contents, 'portfolio');
+                    } else {
+                        portfolioContentsList.innerHTML = '<div class="error">加载失败: ' + data.message + '</div>';
+                    }
+                })
+                .catch(error => {
+                    console.error('加载作品集内容出错:', error);
+                    portfolioContentsList.innerHTML = '<div class="error">加载失败，请重试</div>';
+                });
+        }
+        
+        // 渲染内容列表
+        function renderContentList(container, contents, type) {
+            container.innerHTML = '';
+            
+            contents.forEach(content => {
+                const item = document.createElement('div');
+                item.className = 'content-item';
+                item.dataset.type = type;
+                item.dataset.id = content.id;
+                item.dataset.title = content.title;
+                item.dataset.source = content.source;
+                item.dataset.url = content.url;
+                item.onclick = function() { selectReferenceItem(this); };
+                
+                item.innerHTML = `
+                    <div class="content-title">${content.title}</div>
+                    <div class="content-info">类型：${content.type} | ${type === 'course' ? '课程' : '来自'}：${content.source}</div>
+                `;
+                
+                container.appendChild(item);
+            });
+        }
+        
+        // 选择引用项
+        function selectReferenceItem(item) {
+            // 移除其他选中项
+            document.querySelectorAll('.content-item').forEach(i => {
+                i.classList.remove('selected');
+            });
+            
+            // 选中当前项
+            item.classList.add('selected');
+            
+            // 保存选中的引用
+            selectedReference = {
+                type: item.dataset.type,
+                id: item.dataset.id,
+                title: item.dataset.title,
+                source: item.dataset.source,
+                url: item.dataset.url
+            };
+        }
+        
+        // 确认引用
+        function confirmReference() {
+            if (!selectedReference) {
+                alert('请选择要引用的内容');
+                return;
+            }
+            
+            const messageInput = document.getElementById('messageInput');
+            
+            // 创建引用标记文本
+            const sourceText = selectedReference.type === 'course' 
+                ? `课程：${selectedReference.source}` 
+                : `作品集：${selectedReference.source}`;
+            
+            // 在输入框中添加引用标志
+            // 我们使用HTML注释来保存引用数据，这样用户看不到但我们可以在发送时获取
+            const referenceMarker = `<!--reference:${JSON.stringify(selectedReference)}-->`;
+            
+            // 在输入框中添加视觉标记
+            const visualMarker = `📎 ${sourceText} - ${selectedReference.title}\n\n`;
+            
+            // 设置输入框内容
+            messageInput.value = visualMarker + messageInput.value;
+            
+            // 聚焦输入框并将光标放在标记后面
+            messageInput.focus();
+            messageInput.setSelectionRange(visualMarker.length, visualMarker.length);
+            
+            // 关闭对话框
+            closeReferenceDialog();
+        }
+        
+        // 修改发送消息函数以包含引用数据
+        function sendMessage(event) {
+            event.preventDefault();
+            
+            if (!currentChatId) {
+                alert('请先选择一个联系人');
+                return;
+            }
+            
+            const messageInput = document.getElementById('messageInput');
+            let messageContent = messageInput.value;
+            
+            // 提取引用数据
+            let currentReference = null;
+            const referenceRegex = /📎 (.+) - (.+)\n\n/;
+            const match = messageContent.match(referenceRegex);
+            
+            if (match && selectedReference) {
+                // 提取原始消息内容（不包含引用标记）
+                messageContent = messageContent.replace(referenceRegex, '').trim();
+                currentReference = selectedReference;
+            } else {
+                // 没有引用标记，直接使用消息内容
+                messageContent = messageContent.trim();
+            }
+            
+            if (!messageContent && !currentReference) return;
+            
+            // 创建消息元素并添加到聊天区域（本地显示）
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message sent';
+            
+            let messageHTML = `<div class="message-content">`;
+            
+            // 添加引用卡片
+            if (currentReference) {
+                const sourceText = currentReference.type === 'course' 
+                    ? `课程：${currentReference.source}` 
+                    : `作品集：${currentReference.source}`;
+                
+                messageHTML += `<div class="quote-card" onclick="window.open('${currentReference.url}', '_blank')">
+                    <div class="quote-source">引用自 ${sourceText}</div>
+                    <div class="quote-title">${currentReference.title}</div>
+                </div>`;
+            }
+            
+            messageHTML += `${messageContent}</div>`;
+            messageHTML += `<div class="message-time">${new Date().toLocaleString()}</div>`;
+            
+            messageDiv.innerHTML = messageHTML;
+            
+            const chatMessages = document.getElementById('chatMessages');
+            chatMessages.appendChild(messageDiv);
+            
+            // 滚动到底部
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            // 清空输入框
+            messageInput.value = '';
+            
+            // 发送消息到服务器
+            let body;
+            if (currentChatType === 'group') {
+                body = `course_id=${currentChatId}&content=${encodeURIComponent(messageContent)}`;
+            } else {
+                body = `receiver_id=${currentChatId}&content=${encodeURIComponent(messageContent)}`;
+            }
+            
+            // 添加引用数据
+            if (currentReference) {
+                body += `&reference_type=${currentReference.type}`;
+                body += `&reference_id=${currentReference.id}`;
+                body += `&reference_source=${encodeURIComponent(currentReference.source)}`;
+                body += `&reference_title=${encodeURIComponent(currentReference.title)}`;
+                body += `&reference_url=${encodeURIComponent(currentReference.url)}`;
+            }
+            
+            // 重置选中的引用
+            selectedReference = null;
+            
+            fetch('/send_message', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: body
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (!data.success) {
+                    alert('消息发送失败: ' + data.message);
+                    // 如果发送失败，移除本地显示的消息
+                    messageDiv.remove();
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }
+            })
+            .catch(error => {
+                console.error('发送消息出错:', error);
+                alert('消息发送失败，请重试');
+                // 如果发送失败，移除本地显示的消息
+                messageDiv.remove();
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            });
+        }
+        
+        // 页面加载时检查URL参数
+        window.addEventListener('load', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const withId = urlParams.get('with');
+            const courseId = urlParams.get('course');
+            const chatType = urlParams.get('type');
+            const withName = urlParams.get('name');
+            const tab = urlParams.get('tab');
+            
+            // 切换到URL参数指定的选项卡，默认是通讯录
+            switchTab(tab || 'contacts');
+            
+            if ((withId || courseId) && withName) {
+                // 处理课程ID参数，视为group类型的聊天
+                if (courseId) {
+                    currentChatId = parseInt(courseId);
+                    currentChatType = 'group';
+                } else {
+                    currentChatId = parseInt(withId);
+                    currentChatType = chatType || 'private';
+                }
+                
+                // 高亮对应的联系人
+                const contactItems = document.querySelectorAll('.contact-item');
+                contactItems.forEach(item => {
+                    const onclickAttr = item.getAttribute('onclick');
+                    if (onclickAttr && onclickAttr.includes(`switchChat(${currentChatId}`) && onclickAttr.includes(`'${currentChatType}'`)) {
+                        item.classList.add('active');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
